@@ -1,0 +1,30 @@
+<mockup version="1.0" skin="sketch" measuredW="150" measuredH="48" mockupW="90" mockupH="28">
+  <controls>
+    <control controlID="0" controlTypeID="__group__" x="60" y="20" w="90" h="28" measuredW="90" measuredH="28" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>mainTool</controlName>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Button" x="0" y="0" w="-1" h="-1" measuredW="32" measuredH="28" zOrder="0" locked="false" isInGroup="0">
+          <controlProperties>
+            <href>%u53D1%u8868%26bm%3B%u53D1%u8868.bmml%26bm%3B%u53D1%u8868.bmml%26bm%3B%u53D1%u8868.bmml</href>
+            <text>+</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="37" y="2" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="1" locked="false" isInGroup="0">
+          <controlProperties>
+            <borderStyle>none</borderStyle>
+            <icon>EmailIcon%7Csmall</icon>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="66" y="1" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="2" locked="false" isInGroup="0">
+          <controlProperties>
+            <borderStyle>none</borderStyle>
+            <href>%u6211%26bm%3B%u6211.bmml%26bm%3B%u6211.bmml%26bm%3B%u6211.bmml</href>
+            <icon>UserIcon%7Csmall</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

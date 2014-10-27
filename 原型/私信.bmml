@@ -1,0 +1,70 @@
+<mockup version="1.0" skin="sketch" measuredW="785" measuredH="569" mockupW="442" mockupH="510">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="343" y="59" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::PointyButton" x="377" y="165" w="-1" h="-1" measuredW="49" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <href>%u5176%u4ED6%u4EBA%26bm%3B%u5176%u4ED6%u4EBA.bmml%26bm%3B%u5176%u4ED6%u4EBA.bmml%26bm%3B%u5176%u4ED6%u4EBA.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2234%2C106%2C83%2C133%22%20href%3D%22%25E5%2585%25B6%25E4%25BB%2596%25E4%25BA%25BA.bmml%22%20alt%3D%22%u5176%u4ED6%u4EBA%22%20id%3D%224%22/%3E</map>
+        <text>%u8FD4%u56DE</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="374" y="454" w="165" h="-1" measuredW="79" measuredH="26" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Button" x="541" y="453" w="-1" h="-1" measuredW="52" measuredH="28" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u53D1%u9001</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="432" y="167" w="103" h="31" measuredW="59" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <size>18</size>
+        <text>%u9F9A%u5C0F%u6668</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Canvas" x="373" y="159" w="220" h="42" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Tooltip" x="377" y="213" w="140" h="39" measuredW="126" measuredH="33.9" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u4F60%u662F%u5357%u5927%u7684%u9F9A%u6668</text>
+        <tooltipDirection>SW</tooltipDirection>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Tooltip" x="377" y="301" w="140" h="39" measuredW="113" measuredH="33.9" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u4F60%u662F%u6211%u7684%u5076%u50CF</text>
+        <tooltipDirection>SW</tooltipDirection>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Tooltip" x="451" y="251" w="140" h="39" measuredW="87" measuredH="33.9" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u55EF%uFF0C%u6211%u662F</text>
+        <tooltipDirection>NE</tooltipDirection>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Tooltip" x="451" y="333" w="140" h="39" measuredW="100" measuredH="33.9" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u3002%u3002%u3002%u3002%u3002</text>
+        <tooltipDirection>NE</tooltipDirection>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Icon" x="509" y="455" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::StickyNote" x="676" y="280" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u9ED8%u8BA420%u6761%uFF0C%u518D%u62C9</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
