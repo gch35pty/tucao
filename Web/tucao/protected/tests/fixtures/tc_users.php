@@ -13,6 +13,7 @@ return array(
 		'USER_STATUS' => '',
 		'DEFAULT_PIC' => '',
 		'HEAD_PIC' => '',
+		'CREATE_TIME' => '',
 	),
 	'sample2'=>array(
 		'GENDER' => '',
@@ -25,6 +26,7 @@ return array(
 		'USER_STATUS' => '',
 		'DEFAULT_PIC' => '',
 		'HEAD_PIC' => '',
+		'CREATE_TIME' => '',
 	),
 	*/
 );

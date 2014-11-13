@@ -15,6 +15,7 @@
  * @property integer $USER_STATUS
  * @property integer $DEFAULT_PIC
  * @property string $HEAD_PIC
+ * @property string $CREATE_TIME
  */
 class tc_users extends CActiveRecord
 {
@@ -38,9 +39,10 @@ class tc_users extends CActiveRecord
 			array('GENDER, LEVEL, SCORE, USER_STATUS, DEFAULT_PIC', 'numerical', 'integerOnly'=>true),
 			array('NICK_NAME, REG_PHONE_NUM, PASSWORD', 'length', 'max'=>50),
 			array('REG_EMAIL, HEAD_PIC', 'length', 'max'=>100),
+			array('CREATE_TIME', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('USER_ID, GENDER, NICK_NAME, REG_PHONE_NUM, REG_EMAIL, PASSWORD, LEVEL, SCORE, USER_STATUS, DEFAULT_PIC, HEAD_PIC', 'safe', 'on'=>'search'),
+			array('USER_ID, GENDER, NICK_NAME, REG_PHONE_NUM, REG_EMAIL, PASSWORD, LEVEL, SCORE, USER_STATUS, DEFAULT_PIC, HEAD_PIC, CREATE_TIME', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,6 +74,7 @@ class tc_users extends CActiveRecord
 			'USER_STATUS' => 'User Status',
 			'DEFAULT_PIC' => 'Default Pic',
 			'HEAD_PIC' => 'Head Pic',
+			'CREATE_TIME' => 'Create Time',
 		);
 	}
 
@@ -114,6 +117,8 @@ class tc_users extends CActiveRecord
 		$criteria->compare('DEFAULT_PIC',$this->DEFAULT_PIC);
 
 		$criteria->compare('HEAD_PIC',$this->HEAD_PIC,true);
+
+		$criteria->compare('CREATE_TIME',$this->CREATE_TIME,true);
 
 		return new CActiveDataProvider('tc_users', array(
 			'criteria'=>$criteria,

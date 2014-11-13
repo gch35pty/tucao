@@ -29,5 +29,6 @@ $this->menu=array(
 		'USER_STATUS',
 		'DEFAULT_PIC',
 		'HEAD_PIC',
+		'CREATE_TIME',
 	),
 )); ?>

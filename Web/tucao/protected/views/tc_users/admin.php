@@ -54,6 +54,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'USER_STATUS',
 		'DEFAULT_PIC',
 		'HEAD_PIC',
+		'CREATE_TIME',
 		*/
 		array(
 			'class'=>'CButtonColumn',

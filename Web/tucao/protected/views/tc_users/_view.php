@@ -45,6 +45,10 @@
 	<?php echo CHtml::encode($data->HEAD_PIC); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('CREATE_TIME')); ?>:</b>
+	<?php echo CHtml::encode($data->CREATE_TIME); ?>
+	<br />
+
 	*/ ?>
 
 </div>

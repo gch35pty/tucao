@@ -60,6 +60,11 @@
 		<?php echo $form->textField($model,'HEAD_PIC',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'CREATE_TIME'); ?>
+		<?php echo $form->textField($model,'CREATE_TIME'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

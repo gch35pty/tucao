@@ -69,6 +69,12 @@
 		<?php echo $form->error($model,'HEAD_PIC'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'CREATE_TIME'); ?>
+		<?php echo $form->textField($model,'CREATE_TIME'); ?>
+		<?php echo $form->error($model,'CREATE_TIME'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
