@@ -1,0 +1,13 @@
+【appframework】
+基本组件：
+http://app-framework-software.intel.com/components.php
+api:
+http://app-framework-software.intel.com/api.php#_on
+
+语法基本和jQuery相同
+
+【开发工具】
+Intel XDK：
+https://software.intel.com/en-us/html5/tools
+web开发：
+。。。我用的aptana
