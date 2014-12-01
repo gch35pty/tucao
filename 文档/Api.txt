@@ -1,0 +1,199 @@
+1. 用户登录
+url：site/login
+desp: 用户登录，验证身份
+输入参数：
+{
+	‘username’:  xxx
+	‘password’: xxx
+}
+返回：
+{
+	'data' : {
+  	user_id : xxx,
+            nick_name : xxx,
+            email : xxx | null,
+            phone : xxx | null,
+            sid : xxxxx
+            head_pic : xxx | null,
+            level : 用户等级。
+	}
+           'success' : true/false,
+	‘msg’：xxx
+}
+说明：username可以是nickname，phoneNum或者email，服务器自动判断。success字段表示请求是否成功，如果success为false则data字段为null或视为无效。msg字段表示在异常情况下，服务器返回的说明性内容。
+success和msg字段为所有接口的通用字段，后面不再进行描述。默认所有接口都存在success字段，msg字段不保证一定存在。
+
+/***********************************************************************************************/
+
+2. 用户注册
+url：site/register
+desp: 用户注册，首次使用时推荐的步骤
+输入参数：
+{
+	‘username’:  xxx
+	‘nick_name’：xxx
+	‘password’: xxx
+	‘default_pic’: xxx
+	‘gender’: xxx
+}
+返回：
+{
+	'data' : {
+  		true/false
+	}
+           'success' : true/false,
+	‘msg’：xxx
+}
+说明：username可以是phoneNum或者email，服务器自动判断（前期建议只考虑手机号码）。username或者nickname重复性鉴别应该在提交注册之前进行检测，这里不进行错误原因通知。返回false表示注册失败。defualt_pic为系统默认头像id，开始时不需要用户必须上传个人头像。
+
+/***********************************************************************************************/
+
+3. 判断用户名重复
+url：site/checkUsername
+desp: 检查注册时用户名是否重复
+输入参数：
+{
+	‘username’:  xxx
+}
+返回：
+{
+	'data' : {
+		true/false
+	}
+           'success' : true/false,
+	‘msg’：xxx
+}
+说明：判断username是否重复
+
+/***********************************************************************************************/
+
+4. 判断NickName重复
+url：site/checkNickname
+desp: 检查注册时用户昵称是否重复
+输入参数：
+{
+	‘nick_name’:  xxx
+}
+返回：
+{
+	'data' : {
+		true/false
+	}
+           'success' : true/false,
+	‘msg’：xxx
+}
+说明：判断nick_name是否重复
+
+/***********************************************************************************************/
+
+5. 获得用户详细信息
+url：users/info
+desp: 根据user id获得用户的详细信息
+输入参数：
+{
+	‘user_id’:  xxx
+}
+返回：
+{
+	'data' : {
+		‘user_id’: xxx
+		‘gender’ : xxx
+		'nick_name': 
+		'reg_phone_num':
+		'reg_email':
+		'level':
+		'score':
+		'user_status':
+		'default_pic':
+		'head_pic':
+		'create_time':
+	}
+    'success' : true/false,
+	‘msg’：xxx
+}
+说明：此接口是用户个人信息页面时使用，平时应该在login之后客户端保存用户基本信息避免多次查询。
+
+/***********************************************************************************************/
+
+6. 完善更新用户信息
+url: update/user
+desp:
+输入参数：
+{
+	‘user_id’:  xxx
+	'nick_name':
+	'gender':
+}
+返回：
+{
+	‘data':{
+		true/false
+	}
+	'success',
+	'msg'
+}
+说明：这个更新个人信息的接口可以暂缓完成，目前用处不是很大
+
+/***********************************************************************************************/
+
+7. 更换用户密码
+url: update/password
+desp: 用户修改个人密码
+输入参数：
+{
+	‘user_id’:  xxx
+	'old_password':
+	'new_password':
+}
+返回：
+{
+	‘data':{
+		true/false
+	}
+	'success',
+	'msg'
+}
+说明：更新个人密码需要两次输入新密码前台校验，所有密码采用md5加密传输。数据库中不存储密码明文
+
+/***********************************************************************************************/
+
+8. 获得周边热门吐槽
+url: tucao/nearhot
+desp: 获取用户周边区域的热门吐槽
+输入参数：
+{
+	‘user_id’: xxx 用户id
+	'lat' : xxx.xxx 纬度，浮点类型
+    'lng' : xxx.xxx 经度，浮点类型
+	'distance': xxx 周边距离，INT型单位米
+	‘offset’: xxx 分页开始位置
+	'length': xxx 每次返回的吐槽数量
+}
+返回：
+{
+	‘data':{
+		[
+			{
+				'tucao_id': xxx,
+				‘title’: xxx,
+				'content': xxx,
+				'comment_num': xxx,
+				'support_num': xxx,
+				'share_num': xxx,
+				'create_time': xxx,
+				'lat' : xxx.xxx 纬度，浮点类型,
+    			'lng' : xxx.xxx 经度，浮点类型,
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：主要接口，对应于周边热门吐槽页面。通过用户id以及用户的当前位置返回一定数量的tucao基本信息。为了加快后续展示速度，吐槽
+信息一次全部获取。吐槽的数量由offset和length来确定，客户端通过调整这两个参数获得更多的周边热门吐槽。
+
+/***********************************************************************************************/
+
