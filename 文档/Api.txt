@@ -157,7 +157,33 @@ desp: 用户修改个人密码
 
 /***********************************************************************************************/
 
-8. 获得周边热门吐槽
+8. 发表吐槽
+url: tucao/apply
+desp: 发表吐槽
+输入参数：
+{
+	‘user_id’: xxx, 
+	‘title’: xxx, 吐槽标题
+	‘content’: xxx, 吐槽内容
+	‘hide’: true/false  是否匿名
+	'lat' : xxx.xxx 纬度，浮点类型
+    'lng' : xxx.xxx 经度，浮点类型
+    ‘topic_id’: xxx,
+    'father_id': xxx
+}
+返回：
+{
+	‘data':{
+		tucao_id: xxx
+	}
+	'success':,
+	'msg:'
+}
+说明：发表吐槽，topic可选表示吐槽的所属话题，father可选表示吐槽的衍生自的父级吐槽
+
+/***********************************************************************************************/
+
+9. 获得周边热门吐槽
 url: tucao/nearhot
 desp: 获取用户周边区域的热门吐槽
 输入参数：
@@ -179,10 +205,12 @@ desp: 获取用户周边区域的热门吐槽
 				'content': xxx,
 				'comment_num': xxx,
 				'support_num': xxx,
+				‘disagree_num’:xxx,
 				'share_num': xxx,
 				'create_time': xxx,
 				'lat' : xxx.xxx 纬度，浮点类型,
     			'lng' : xxx.xxx 经度，浮点类型,
+    			‘user_name': xxx
 			},
 			{},
 			{},
@@ -196,4 +224,317 @@ desp: 获取用户周边区域的热门吐槽
 信息一次全部获取。吐槽的数量由offset和length来确定，客户端通过调整这两个参数获得更多的周边热门吐槽。
 
 /***********************************************************************************************/
+
+10. 获得周边最新吐槽
+url: tucao/nearnew
+desp: 获取用户周边区域的最新吐槽
+输入参数：
+{
+	‘user_id’: xxx 用户id
+	'lat' : xxx.xxx 纬度，浮点类型
+    'lng' : xxx.xxx 经度，浮点类型
+	'distance': xxx 周边距离，INT型单位米
+	‘offset’: xxx 分页开始位置
+	'length': xxx 每次返回的吐槽数量
+}
+返回：
+{
+	‘data':{
+		[
+			{
+				'tucao_id': xxx,
+				‘title’: xxx,
+				'content': xxx,
+				'comment_num': xxx,
+				'support_num': xxx,
+				'disagree_num':xxx,
+				'share_num': xxx,
+				'create_time': xxx,
+				'lat' : xxx.xxx 纬度，浮点类型,
+    			'lng' : xxx.xxx 经度，浮点类型,
+    			'user_name': xxx,
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：主要接口，对应于周边最新吐槽页面。通过用户id以及用户的当前位置返回一定数量的tucao基本信息。为了加快后续展示速度，吐槽
+信息一次全部获取。吐槽的数量由offset和length来确定，客户端通过调整这两个参数获得更多的周边最新吐槽。
+默认情况下，当offset为0时（也就是第一次显示），会把最近10分钟内本登录用户发送的吐槽置顶显示
+
+/***********************************************************************************************/
+
+11. 获得吐槽详情
+url: tucao/detail
+desp: 获取某条吐槽的详情
+输入参数：
+{
+	‘tucao_id’: xxx 吐槽id
+}
+返回：
+{
+	‘data':{
+		'tucao_id': xxx,
+		‘title’: xxx,
+		'content': xxx,
+		'comment_num': xxx,
+		'support_num': xxx,
+		'disagree_num':xxx,
+		'share_num': xxx,
+		'create_time': xxx,
+		'lat' : xxx.xxx 纬度，浮点类型,
+		'lng' : xxx.xxx 经度，浮点类型,
+    	'user_name': xxx,
+		‘comment’ [
+			{
+				‘comment_id': xxx,
+				'comment_content':xxx,
+				'user_name': xxx,
+				'create_time': xxx
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：吐槽详情页面的调用接口，通过吐槽id返回吐槽的详细信息。注意comment是一个数组，默认返回前10条评论，如果不足就返回完所有评论
+注意，这里评论之间的回复关系，直接通过content中表示。比如：“回复 陈开颜：你真是个帅哥！”，数据库中的REPLY_COMMENT字段主要作用是
+查询个人信息。
+/***********************************************************************************************/
+
+12. 获得吐槽评论
+url: tucao/comment
+desp: 获取某条吐槽的评论
+输入参数：
+{
+	‘tucao_id’: xxx 吐槽id
+	‘offset’: xxx,
+	'size': xxx
+}
+返回：
+{
+	‘data':{
+		[
+			{
+				‘comment_id': xxx,
+				'comment_content':xxx,
+				'user_name': xxx,
+				'create_time': xxx
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：吐槽详情页面的更多评论接口，通过offset和size获得分页。
+/***********************************************************************************************/
+
+13. 发表评论
+url: tucao_comment/apply
+desp: 发表吐槽的评论
+输入参数：
+{
+	‘tucao_id’: xxx, 评论的吐槽id
+	‘content’: xxx, 评论内容
+	‘reply_comment’: xxx, 回复的吐槽评论id
+	‘hide’: true/false  是否匿名
+}
+返回：
+{
+	‘data':{
+		comment_id: xxx
+	}
+	'success':,
+	'msg:'
+}
+说明：发表吐槽
+/***********************************************************************************************/
+
+14. 获取全区最热吐槽
+url: tucao/hot
+desp: 获取全区域的最热吐槽
+输入参数：
+{
+	‘offset’: xxx 分页开始位置
+	'length': xxx 每次返回的吐槽数量
+}
+返回：
+{
+	‘data':{
+		[
+			{
+				'tucao_id': xxx,
+				‘title’: xxx,
+				'content': xxx,
+				'comment_num': xxx,
+				'support_num': xxx,
+				'disagree_num':xxx,
+				'share_num': xxx,
+				'create_time': xxx,
+				'lat' : xxx.xxx 纬度，浮点类型,
+    			'lng' : xxx.xxx 经度，浮点类型,
+    			'user_name': xxx,
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：返回全区最热吐槽
+
+/***********************************************************************************************/
+
+15. 获取用户被评论消息
+url: tucao_comment/unread_comment
+desp: 获取用户的未读消息
+输入参数：
+{
+	‘user_id’: xxx, 用户id
+	’offset‘: xxx,
+	'size': xxx,
+}
+返回：
+{
+	‘data':{
+		[
+			{
+				'comment_id': xxx,
+				'content': xxx,
+				'create_time': xxx,
+				'tucao_id': xxx,
+				'user_id': xxx,
+				'reply_content': xxx, 被回复的内容，可能是吐槽内容或者是评论内容
+				'reply_comment': xxx 回复的评论id（可选）
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：返回用户的未读消息列表，包括了用户的吐槽被评论以及评论被别人回复两种信息。
+
+/***********************************************************************************************/
+
+16. 设置评论已读
+url: tucao_comment/setread
+desp: 获取用户的未读消息
+输入参数：
+{
+	'comment_id': xxx,
+}
+返回：
+{
+	'success':,
+	'msg:'
+}
+说明：设置某条评论为已读状态。
+
+/***********************************************************************************************/
+
+17. 获取某个用户的私信用户列表
+url: tucao_message/list
+desp: 获取用户的未读消息
+输入参数：
+{
+	‘user_id’: xxx, 
+	’offset‘: xxx,
+	'size': xxx,
+}
+返回：
+{
+	‘data':{
+		[
+			{
+				'user_id': xxx, 私信用户
+				'user_name': xxx
+				'content': xxx, 最后一条私信内容
+				'create_time': xxx, 最后一条私信的时间
+				'read': true/false 是否已读
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：返回用户与某个user的私信内容列表，包括了未读和已读
+
+/***********************************************************************************************/
+
+18. 获取与某个用户的私信内容
+url: tucao_message/chat
+desp: 获取用户的未读消息
+输入参数：
+{
+	‘user_id’: xxx, 某个用户
+	’offset‘: xxx,
+	'size': xxx,
+}
+返回：
+{
+	‘data':{
+		[
+			{
+				'message_id': xxx,
+				'content': xxx,
+				'create_time': xxx,
+				'from_user_id': xxx,
+				'to_user_id': xxx
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：返回用户与某个user的私信内容列表，包括了未读和已读
+
+/***********************************************************************************************/
+
+19. 设置私信已读
+url: tucao_message/setread
+desp: 设置与某个用户的所有私信已读
+输入参数：
+{
+	‘user_id’: xxx, 某个用户
+	’offset‘: xxx,
+	'size': xxx,
+}
+返回：
+{
+	'success':,
+	'msg:'
+}
+说明：设置与某个用户的所有私信内容为已读
+
+/***********************************************************************************************/
+
+
+
+
+
+
+
+
+
 
