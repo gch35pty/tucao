@@ -19,5 +19,25 @@ class Controller extends CController
 	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
 	 * for more details on how to specify this property.
 	 */
+
+
 	public $breadcrumbs=array();
+
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+
+    public function sendAjax($data, $success=true) {
+        if($data !== null) {
+            $out = array('data'=>$data, 'success'=>$success);
+        } else {
+            $out = array("success"=>false);
+        }
+        //print_r($out);
+        echo CJSON::encode($out);
+        Yii::app()->end();
+    }
 }

@@ -16,7 +16,9 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'application.vendor.*',
 	),
+    'theme' => 'charisma',
 
 	'timeZone'=>'Asia/Shanghai',
 
@@ -35,8 +37,10 @@ return array(
 	// application components
 	'components'=>array(
 		'user'=>array(
+            'class' => 'WebUser',
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			//'allowAutoLogin'=>true,
+            'loginUrl'=>array('/index.php/admin/login'),
 		),
 		// uncomment the following to enable URLs in path-format
 		/*
@@ -57,6 +61,7 @@ return array(
 			'password' => '891116',
 			'charset' => 'utf8',
 		),
+		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
@@ -66,6 +71,7 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
+		
 		// uncomment the following to use a MySQL database
 		/*
 		'db'=>array(
@@ -80,6 +86,17 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+        //using to include SMARTY
+        'viewRenderer'=>array(
+            'class'=>'application.extensions.ESmartyViewRenderer',
+            'fileExtension' => '.tpl',
+
+            'config'=>array(
+                'force_compile' => YII_DEBUG,
+                //   ... any Smarty object parameter
+            )
+        ),
+
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -101,6 +118,9 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+        'url_prefix' => '/Tucao/',
+        'link_prefix' => '/Tucao/index.php/',
+        'adminEmail'=>'stevegc@163.com',
+        'adminName' => 'tucao',
 	),
 );

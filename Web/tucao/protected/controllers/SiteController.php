@@ -79,23 +79,24 @@ class SiteController extends Controller
 	{
 		$model=new LoginForm;
 
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
+        $model->attributes = array('username'=>$_POST['username'], 'password'=>$_POST['password']);
 
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
+        if($model->validate() && $model->login()) {
+            $user = Yii::app()->user;
+
+            $this->sendAjax(array(
+                'email'=>$user->reg_email,
+                'phone'=>$user->reg_phone_num,
+                'user_id'=>$user->id,
+                'nick_name'=>$user->name,
+                'head_pic'=>$user->head_pic,
+                'level'=>$user->level,
+                'sid'=>session_id(),
+            ), true);
+        } else {
+            $this->sendAjax(null);
+        }
+
 	}
 
 	/**
@@ -106,4 +107,19 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+    public function actionRegister() {
+        $model = new RegisterForm();
+        // echo "hello";
+        $model->attributes = array('username'=>$_POST['username'], 'password'=>$_POST['password'],
+                      'nick_name' => $_POST['nick_name'],'default_pic'=>$_POST['default_pic'],'gender'=>$_POST['gender']);
+        //print_r($model->attributes);
+        $rtn = false;
+        // echo $model->validate();
+        // return;
+        if($model->validate() && $model->save(false)) {
+            $rtn = true;
+        }
+        $this->sendAjax($rtn, true);
+    }
 }
