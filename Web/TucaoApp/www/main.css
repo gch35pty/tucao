@@ -1,0 +1,80 @@
+body {
+	font-family: " 宋体";
+}
+#afui #navbar {
+	height: 30px;
+}
+#afui #navbar a {
+	line-height: 20px;
+}
+a {
+	TEXT-DECORATION: none
+}
+.colum {
+	width: 100%;
+	min-height: 5.5em;
+	background: #fff;
+	padding-top: 0.3em;
+	padding-bottom: 0.1em;
+	margin-top: 0.1em;
+	margin-bottom: 0.3em;
+	border-bottom: 1px solid #e7e7e7;
+	overflow: hidden;
+}
+.colum .content {
+	float: left;
+	width: 90%;
+	font-size: 0.875em;
+	/*font-family: "微软雅黑";*/
+	color: #333;
+}
+.colum .content .words {
+	font-size: 1.1em;
+	color: #333;
+	min-height: 3.5em;
+	/*display:block;
+	 white-space:nowrap;
+	 overflow:hidden;
+	 text-overflow:ellipsis;*/
+}
+.colum .content .wordsHot {
+	font-size: 1.1em;
+	color: #333;
+	min-height: 1.5em;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.colum .content .detail {
+	font-size: 0.7em;
+	margin-top: 0.8em;
+}
+.colum .score {
+	float: right;
+	width: 10%;
+	/*font-family: "微软雅黑";*/
+	color: #333;
+}
+.colum .score .up {
+	float: right;
+	text-align: center;
+	width: 100%;
+	font-size: 1em;
+}
+.colum .score .num {
+	float: right;
+	text-align: center;
+	width: 100%;
+	font-size: 0.875em;
+	color: #0000ff;
+	margin-bottom: 0.35em;
+	margin-top: 0.35em;
+}
+
+#hotmap {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+}
