@@ -1,3 +1,10 @@
+//点击后打开吐槽详情页
+function generateTucaoPanel(tucaoId) {
+	// alert(tucaoId);
+	$.ui.loadContent("tucaoPanel", null, null, "");
+
+}
+
 function signIn() {
 	$("#loginError").hide();
 	$.post(webRoot + 'login', $("#loginForm").serialize(), function(data) {
@@ -27,12 +34,16 @@ function signUp() {
 
 function startHot() {
 	$.ui.clearHistory();
-	nearHot(null);
+	if (map == null) {//仅第一遍时候加载nearHot
+		nearHot();
+	};
 }
 
 function startNew() {
 	$.ui.clearHistory();
-	nearNew();
+	if ($("#newMain").find(".colum").length== 0) {//仅第一遍时候加载nearNew
+		nearNew();
+	};
 	// $.ui.resetScrollers=false; //Do not reset the scrollers when switching panels
 }
 
@@ -47,6 +58,7 @@ function startDiscovery() {
 function startEdit() {
 }
 
+//向上顶起
 function upClick(obj) {
 	// alert($(obj).siblings(".num").get(0).innerHTML);
 
@@ -73,6 +85,7 @@ function upClick(obj) {
 	$(obj).parent().addClass('changed');
 }
 
+//向下踩
 function downClick(obj) {
 	// alert($(obj).siblings(".num").get(0).innerHTML);
 
@@ -108,9 +121,9 @@ function getPosition(onSuccess) {
 	// This method accepts a Position object, which contains the
 	// current GPS coordinates
 	//
-	// var onSuccess = function(position) {
-	// alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n' + 'Altitude: ' + position.coords.altitude + '\n' + 'Accuracy: ' + position.coords.accuracy + '\n' + 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' + 'Heading: ' + position.coords.heading + '\n' + 'Speed: ' + position.coords.speed + '\n' + 'Timestamp: ' + position.timestamp + '\n');
-	// };
+	var onSuccess = function(position) {
+	alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n' + 'Altitude: ' + position.coords.altitude + '\n' + 'Accuracy: ' + position.coords.accuracy + '\n' + 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' + 'Heading: ' + position.coords.heading + '\n' + 'Speed: ' + position.coords.speed + '\n' + 'Timestamp: ' + position.timestamp + '\n');
+	};
 
 	// onError Callback receives a PositionError object
 	//
@@ -222,7 +235,7 @@ function nearNew() {
 function drawMap(tucaos) {
 	// 百度地图API功能
 	// 创建Map实例
-	var map = new BMap.Map("hotmap");
+	map = new BMap.Map("hotmap");
 	// 创建点坐标
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;

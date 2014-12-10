@@ -1,6 +1,7 @@
 body {
 	font-family: " 宋体";
 }
+
 #afui #navbar {
 	height: 30px;
 }
@@ -50,13 +51,14 @@ a {
 	font-size: 0.7em;
 	margin-top: 0.8em;
 }
+
 .colum .score {
 	float: right;
 	width: 10%;
 	/*font-family: "微软雅黑";*/
 	color: #333;
 }
-.colum .score .up {
+.colum .score .uparrow {
 	float: right;
 	text-align: center;
 	width: 100%;
@@ -77,4 +79,16 @@ a {
 	height: 100%;
 	overflow: hidden;
 	margin: 0;
+}
+
+ul {
+	list-style:none;
+}
+
+.colum .detail ul li{
+	float:left;
+	width:33%;
+}
+.colum .content .score ul li{
+	height:33%;
 }

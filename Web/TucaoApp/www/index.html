@@ -28,7 +28,7 @@
 		<script id="tpl" type="text/template">
 			{@each data as tucao,index}
 			<div class="colum">
-			<div class="content">
+			<div class="content" onclick="generateTucaoPanel (${tucao.TC_TUCAO})">
 			<div class="words">
 			<span>${tucao.CONTENT}</span>
 			</div>
@@ -40,18 +40,60 @@
 			</div>
 			</div>
 			<div class="score">
-			<div class="up" onclick="upClick(this);">
+			<div class="uparrow" onclick="upClick(this);">
 			<a class="icon up small" ></a>
 			</div>
 			<div class="num">
 			<span>0</span>
 			</div>
-			<div class="up" onclick="downClick(this);">
+			<div class="uparrow" onclick="downClick(this);">
 			<a class="icon down small" ></a>
 			</div>
 			</div>
 			</div>
 			{@/each}
+
+		</script>
+		<script id="tplBlock" type="text/template">
+			<div class="colum">
+			<div class="content">
+			<div class="words">
+			<span>${CONTENT}</span>
+			</div>
+			<div class="detail">
+			<span>200m</span>
+			<a class="icon message" style="margin-left: 20%"></a>
+			<span>30</span>
+			<span style="margin-left: 40%">2小时前</span>
+			</div>
+			</div>
+			<div class="score">
+			<div class="uparrow" onclick="upClick(this);">
+			<a class="icon up small" ></a>
+			</div>
+			<div class="num">
+			<span>100</span>
+			</div>
+			<div class="uparrow">
+			<a class="icon down small" ></a>
+			</div>
+			</div>
+			</div>
+		</script>
+
+		<script>
+			//******此段定义常量********//
+			var userId = 3;
+			var distance = 1500;
+			var FIRST_LENGTH = 10;
+			var position = {
+				coords : {
+					latitude : 31.274913,
+					longitude : 120.755755
+				}
+			};
+			var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
+			var map = null;
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="main.css" />
@@ -78,19 +120,6 @@
 				}
 			};
 			document.addEventListener("deviceready", onDeviceReady, false);
-		</script>
-
-		<script>
-			var userId = 3;
-			var distance = 1500;
-			var FIRST_LENGTH = 10;
-			var position = {
-				coords : {
-					latitude : 31.274913,
-					longitude : 120.755755
-				}
-			};
-			var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
 
 			$.ui.autoLaunch = false;
 			$.ui.backButtonText = "周边吐槽";
@@ -99,7 +128,6 @@
 				$.ui.launch();
 				$("#loginError").hide();
 			});
-
 		</script>
 
 	</head>
@@ -152,101 +180,91 @@
 				<!-- Main App View -->
 				<div class="panel" id="hotMain" data-load="startHot" data-footer="foot" data-header="head" style="overflow:hidden;padding: 0px">
 					<div id="hotmap"></div>
-					<script id="tplBlock" type="text/template">
-						<div class="colum">
-						<div class="content">
-						<div class="words">
-						<span>${CONTENT}</span>
+				</div>
+
+				<div class="panel" id="newMain" data-load="startNew" data-footer="foot" data-header="head"></div>
+
+				<div class="panel" id="tucaoPanel" title="查看吐槽" selected="true" data-load="" data-footer="none" >
+					<div class="colum">
+						<div class="content" style="width: 100%;min-height: 20vh;">
+							<table>
+								<tr>
+									<td style="width: 90%;"><span style="font-size: 1.5em;">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span></td>
+									<td>
+									<ul style="height: 100%">
+										<li>
+											<div class="uparrow" onclick="upClick(this);">
+												<a class="icon up small" ></a>
+											</div>
+										</li>
+										<li>
+											<div class="num">
+												<span>100</span>
+											</div>
+										</li>
+										<li>
+											<div class="uparrow">
+												<a class="icon down small" ></a>
+											</div>
+										</li>
+									</ul></td>
+								</tr>
+							</table>
 						</div>
 						<div class="detail">
-						<span>200m</span>
-						<a class="icon message" style="margin-left: 20%"></a>
-						<span>30</span>
-						<span style="margin-left: 40%">2小时前</span>
-						</div>
-						</div>
-						<div class="score">
-						<div class="up" onclick="upClick(this);">
-						<a class="icon up small" ></a>
-						</div>
-						<div class="num">
-						<span>100</span>
-						</div>
-						<div class="up">
-						<a class="icon down small" ></a>
-						</div>
-						</div>
-						</div>
-					</script>
-				</div>
-
-				<div class="panel" id="newMain" data-load="startNew" selected="true" data-footer="foot" data-header="head">
-
-				</div>
-				<div class="panel" id="tucaoPanel" title="查看吐槽" data-load="" data-footer="none" >
-					<div class="colum">
-						<div class="content">
-							<div class="words">
-								<span>吐槽还有数值啊，你以为是战斗值啊，你以为你是赛亚人啊</span>
-							</div>
-							<div class="detail">
-								<span>200m</span>
-								<a class="icon message" style="margin-left: 20%"></a>
-								<span>30</span>
-								<span style="margin-left: 40%">2小时前</span>
-							</div>
-						</div>
-						<div class="score">
-							<div class="up" onclick="upClick(this);">
-								<a class="icon up small" ></a>
-							</div>
-							<div class="num">
-								<span>0</span>
-							</div>
-							<div class="up" onclick="downClick(this);">
-								<a class="icon down small" ></a>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="panel" id="userPanel" title="用户管理" data-load="startUser" data-footer="none" ></div>
-				<div class="panel" id="discoveryPanel" title="发现" data-load="startDiscovery" data-footer="none" ></div>
-				<div class="panel" id="editPanel" title="编辑吐槽"  data-load="startEdit" data-footer="none">
-					<div style="width: 100%;margin-top: 5px;height: 100%">
-						<div style="width: 100%;">
-							<textarea id="tContent" placeholder="我要吐槽..." style="width: 100%; height:150px; overflow:auto;"></textarea>
-						</div>
-						<div style="width: 100%">
-							<div style="margin-left: 10%;float: left">
-								<input id="cAnony" type="checkbox" checked="true" name="checkAnony" value="1" style=""/>
-								<label for="cAnony" style="width: 100%">匿名</label>
-							</div>
-							<div style="float:right;margin-right: 2%;">
-								<a class="button green" href="#" id="aSubmit" onclick="submitTu(null);">发表</a>
-							</div>
+							<ul style="list-style:none;">
+								<li>
+									<span>200m</span>
+								</li>
+								<li>
+									<a class="icon message"></a>
+									<span>30</span>
+								</li>
+								<li>
+									<span>2小时前</span>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="panel" id="userPanel" title="用户管理" data-load="startUser" data-footer="none" ></div>
+			<div class="panel" id="discoveryPanel" title="发现" data-load="startDiscovery" data-footer="none" ></div>
+			<div class="panel" id="editPanel" title="编辑吐槽"  data-load="startEdit" data-footer="none">
+				<div style="width: 100%;margin-top: 5px;height: 100%">
+					<div style="width: 100%;">
+						<textarea id="tContent" placeholder="我要吐槽..." style="width: 100%; height:30vh; overflow:auto;"></textarea>
+					</div>
+					<div style="width: 100%">
+						<div style="margin-left: 10%;float: left">
+							<input id="cAnony" type="checkbox" checked="true" name="checkAnony" value="1" style=""/>
+							<label for="cAnony" style="width: 100%">匿名</label>
+						</div>
+						<div style="float:right;margin-right: 2%;">
+							<a class="button green" href="#" id="aSubmit" onclick="submitTu(null);">发表</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-			<header id="head">
-				<select id="distanceSelect" style="width: 45%; color:#000000">
-					<option>2500米以内</option>
-					<option>1500米以内</option>
-					<option>50米以内</option>
-				</select>
-				<a class="icon pencil big" href="#editPanel" style="right: 32%; top:20%; position: absolute; color:#FFFFFF" ></a>
-				<a class="icon lamp big" href="#discoveryPanel" style="right: 17%; top:20%; position: absolute; color:#FFFFFF"></a>
-				<a class="icon user big" href="#userPanel" style="right: 2%; top:20%; position: absolute; color:#FFFFFF"></a>
-			</header>
-			<header id="backHeader">
-				<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
-			</header>
-			<footer id="foot" style="">
-				<a class="" href="#hotMain">热点吐槽</a>
-				<a class="pressed" href="#newMain">最新吐槽</a>
-			</footer>
+		<header id="head">
+			<select id="distanceSelect" style="width: 45%; color:#000000">
+				<option>2500米以内</option>
+				<option>1500米以内</option>
+				<option>50米以内</option>
+			</select>
+			<a class="icon pencil big" href="#editPanel" style="right: 32%; top:20%; position: absolute; color:#FFFFFF" ></a>
+			<a class="icon lamp big" href="#discoveryPanel" style="right: 17%; top:20%; position: absolute; color:#FFFFFF"></a>
+			<a class="icon user big" href="#userPanel" style="right: 2%; top:20%; position: absolute; color:#FFFFFF"></a>
+		</header>
+		<header id="backHeader">
+			<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
+		</header>
+		<footer id="foot" style="">
+			<a class="" href="#hotMain">热点吐槽</a>
+			<a class="pressed" href="#newMain">最新吐槽</a>
+		</footer>
 		</div>
 	</body>
 </html>
