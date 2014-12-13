@@ -184,32 +184,31 @@
 
 				<div class="panel" id="newMain" data-load="startNew" data-footer="foot" data-header="head"></div>
 
-				<div class="panel" id="tucaoPanel" title="查看吐槽" selected="true" data-load="" data-footer="none" >
+				<div class="panel" id="tucaoPanel" title="查看吐槽" selected="true" data-load="" data-footer="commentFoot" >
 					<div class="colum">
 						<div class="content" style="width: 100%;min-height: 20vh;">
-							<table>
-								<tr>
-									<td style="width: 90%;"><span style="font-size: 1.5em;">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span></td>
-									<td>
-									<ul style="height: 100%">
-										<li>
-											<div class="uparrow" onclick="upClick(this);">
-												<a class="icon up small" ></a>
-											</div>
-										</li>
-										<li>
-											<div class="num">
-												<span>100</span>
-											</div>
-										</li>
-										<li>
-											<div class="uparrow">
-												<a class="icon down small" ></a>
-											</div>
-										</li>
-									</ul></td>
-								</tr>
-							</table>
+							<div class="words" style="width: 90%;float: left">
+								<span style="font-size: 1.5em;">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span>
+							</div>
+							<div class="score" style="text-align: center;font-size: 0.8em">
+								<ul style="list-style:none;">
+									<li>
+										<div class="uparrow" onclick="upClick(this);">
+											<a class="icon up small" ></a>
+										</div>
+									</li>
+									<li>
+										<div class="num">
+											<span>100</span>
+										</div>
+									</li>
+									<li>
+										<div class="uparrow">
+											<a class="icon down small" ></a>
+										</div>
+									</li>
+								</ul>
+							</div>
 						</div>
 						<div class="detail">
 							<ul style="list-style:none;">
@@ -223,9 +222,15 @@
 								<li>
 									<span>2小时前</span>
 								</li>
+								<li>
+									<a class="icon upload"></a>
+								</li>
 							</ul>
 						</div>
 					</div>
+				</div>
+				<div class="colum">
+					
 				</div>
 			</div>
 			<div class="panel" id="userPanel" title="用户管理" data-load="startUser" data-footer="none" ></div>
@@ -265,6 +270,9 @@
 			<a class="" href="#hotMain">热点吐槽</a>
 			<a class="pressed" href="#newMain">最新吐槽</a>
 		</footer>
-		</div>
+		<footer id="commentFoot" style="height: 100%">
+					<input placeholder="我来评论一句" style="width:80%;float: left;height: 100%"/>
+					<a class="button yellow" style="margin: 0;padding: 0;height: 100%;float: right;width: 20%;height: 100%" href="#" id="login" onclick="signIn();">评论</a>
+		</footer>
 	</body>
 </html>

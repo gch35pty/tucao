@@ -51,7 +51,6 @@ a {
 	font-size: 0.7em;
 	margin-top: 0.8em;
 }
-
 .colum .score {
 	float: right;
 	width: 10%;
@@ -80,14 +79,9 @@ a {
 	overflow: hidden;
 	margin: 0;
 }
-
-ul {
-	list-style:none;
-}
-
 .colum .detail ul li{
 	float:left;
-	width:33%;
+	width:25%;
 }
 .colum .content .score ul li{
 	height:33%;
