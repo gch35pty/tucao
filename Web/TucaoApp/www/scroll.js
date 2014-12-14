@@ -25,7 +25,7 @@ $.ui.ready(function() {
 		//获取最新吐槽
 		$.ajax({
 			type : "POST",
-			url : webRoot + 'nearnew',
+			url : webRoot + 'newest',
 			data : {
 				"user_id" : userId,
 				"distance" : distance,

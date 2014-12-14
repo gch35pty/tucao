@@ -239,8 +239,9 @@ function apply() {
 		},
 		success : function(data) {
 			if (data.success) {
-				alert(data.data);
-				// $("#tContent").val(data.data)
+				// alert(data.data);
+				nearNew();
+				$.ui.loadContent("newMain", null, null, "");
 			} else {
 				alert("error");
 			}
