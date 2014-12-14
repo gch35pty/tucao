@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Login template</title>
+		<title>周边吐槽</title>
 		<!--
 		This template can be used for creating apps that require user login and user registration before starting actual app.
 		-->
@@ -28,7 +28,7 @@
 		<script id="tpl" type="text/template">
 			{@each data as tucao,index}
 			<div class="colum">
-			<div class="content" onclick="generateTucaoPanel (${tucao.TC_TUCAO})">
+			<div class="content" onclick="detail (${tucao.TC_TUCAO})">
 			<div class="words">
 			<span>${tucao.CONTENT}</span>
 			</div>
@@ -82,10 +82,11 @@
 		</script>
 
 		<script id="tplComment" type="text/template">
+			{@each data as comment,index}
 			<div class="colum">
 					 <table style="width: 100%;">
 							<tr>
-								<td><span style="font-size: 0.8em;">${CONTENT}</span></td>
+								<td><span style="font-size: 0.8em;">${comment.COMMENT_CONTENT}</span></td>
 								<td style="width: 20px">
 								<div align="center" style="width: 100%">
 									<div onclick="upClick(this);">
@@ -101,6 +102,7 @@
 							</tr>
 						</table>
 				</div>
+			{@/each}
 		</script>
 		<script>
 			//******此段定义常量********//
@@ -204,9 +206,9 @@
 					<div id="hotmap"></div>
 				</div>
 
-				<div class="panel" id="newMain" data-load="startNew" data-footer="foot" data-header="head"></div>
+				<div class="panel" id="newMain" data-load="startNew" selected="true" data-footer="foot" data-header="head"></div>
 
-				<div class="panel" id="tucaoPanel" title="查看吐槽" selected="true" data-load="startTucaoPanel" data-footer="commentFoot" >
+				<div class="panel" id="tucaoPanel" title="查看吐槽" data-load="startTucaoPanel" data-footer="commentFoot" >
 					<div class="colum">
 						<table style="width: 100%;min-height: 20vh;font-size: 1.2em;">
 							<tr>
@@ -229,7 +231,7 @@
 							<tr>
 								<td><span>200m</span></td>
 								<td><a class="icon message"></a><span>30</span></td>
-								<td><span>2小时前</span></td>
+								<td><span id="t_interval">2小时前</span></td>
 								<td><a class="icon upload"></a></td>
 							</tr>
 						</table>
@@ -251,7 +253,7 @@
 							<label for="cAnony" style="width: 100%">匿名</label>
 						</div>
 						<div style="float:right;margin-right: 2%;">
-							<a class="button green" href="#" id="aSubmit" onclick="submitTu(null);">发表</a>
+							<a class="button green" href="#" id="aSubmit" onclick="apply();">发表</a>
 						</div>
 					</div>
 				</div>
@@ -275,15 +277,17 @@
 			<a class="" href="#hotMain">热点吐槽</a>
 			<a class="pressed" href="#newMain">最新吐槽</a>
 		</footer>
-		<table id="commentFoot" style="width:100%; height: 100%">
+		<footer id="commentFoot">
+			<table style="width:100%; height: 100%">
 			<tr>
 			<td>
-			<input placeholder="我来评论一句" style="width: 100%;height: 100%"/>
+			<input id="commentContent" placeholder="我来评论一句" style="width: 100%;height: 100%"/>
 			</td>
 			<td style="width: 50px">
-			<a class="button yellow" style="margin: 0;padding: 0;height: 100%;width: 100%" href="#" id="login" onclick="comment();">评论</a>
+			<a class="button yellow" style="margin: 0;padding: 0;height: 100%;width: 100%" href="#" onclick="applycomment();">评论</a>
 			</td>
 			</tr>
-		</table>
+			</table>
+		</footer>
 	</body>
 </html>

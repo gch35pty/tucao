@@ -1,12 +1,19 @@
 //发表评论
-function comment () {
+function applycomment () {
+	var content = trim($("#commentContent").val());
+
+	if (content == "") {
+		alert("空");
+		return;
+	};
   	$.ajax({
 		type : "POST",
 		url : webRoot + 'applycomment',
 		data : {
 			"tucao_id" : curTucaoId,
+			"user_id" : userId,
 			"content" : content,
-			"reply_comment" : null,
+			"reply_comment" : -1,
 			"hide" : false,
 			"lat" : position.coords.latitude,
 			"lng" : position.coords.longitude
@@ -15,6 +22,7 @@ function comment () {
 			if (data.success) {
 				// alert(JSON.stringify(data));
 				refreshCommentList();
+				$("#commentContent").val("");
 			} else {
 				alert("error");
 			}
@@ -24,30 +32,42 @@ function comment () {
 }
 
 function refreshCommentList () {
-  
-}
-
-//点击后打开吐槽详情页
-function generateTucaoPanel(tucaoId) {
-	// alert(tucaoId);
-	$.ajax({
+  $.ajax({
 		type : "POST",
-		url : webRoot + 'nearnew',
+		url : webRoot + 'comment',
 		data : {
-			"user_id" : userId,
-			"distance" : distance,
-			"offset" : 0,
-			"length" : FIRST_LENGTH,
-			"lat" : position.coords.latitude,
-			"lng" : position.coords.longitude
+			"tucao_id" : curTucaoId,
 		},
 		success : function(data) {
 			if (data.success) {
 				// alert(JSON.stringify(data));
-				var tpl = document.getElementById('tpl').innerHTML;
-				var html = juicer(tpl, data);
-				// document.getElementById("newMain").firstChild.innerHTML = html;
-				$("#newMain .afScrollPanel").html(html);
+				var tplComment = document.getElementById('tplComment').innerHTML;
+				var html = juicer(tplComment, data);
+				$("#commentsList").html(html);
+			} else {
+				alert("error");
+			}
+		},
+		dataType : "json"
+	});
+}
+
+//点击后打开吐槽详情页
+function detail(tucaoId) {
+	// alert(tucaoId);
+	$.ajax({
+		type : "POST",
+		url : webRoot + 'detail',
+		data : {
+			"tucao_id" : tucaoId,
+		},
+		success : function(data) {
+			if (data.success) {
+				// alert(JSON.stringify(data));
+				$("#t_content").html(data.data.CONTENT);
+				$("#t_interval").html(data.data.CREATE_TIME+"时");
+				refreshCommentList();
+				curTucaoId=tucaoId;
 			} else {
 				alert("error");
 			}
@@ -196,15 +216,7 @@ function trim(str) {
 	return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 
-function submitTu() {
-	// alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n' + 'Altitude: ' + position.coords.altitude + '\n' + 'Accuracy: ' + position.coords.accuracy + '\n' + 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' + 'Heading: ' + position.coords.heading + '\n' + 'Speed: ' + position.coords.speed + '\n' + 'Timestamp: ' + position.timestamp + '\n');
-	// 创建地理编码实例
-	// var myGeo = new BMap.Geocoder();
-	// // 根据坐标得到地址描述
-	// myGeo.getLocation(point, function(rs) {
-	// var addComp = rs.addressComponents;
-	// // alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-	// });
+function apply() {
 	var content = trim($("#tContent").val());
 
 	if (content == "") {
