@@ -32,7 +32,7 @@ function startHot() {
 
 function startNew() {
 	$.ui.clearHistory();
-	nearNew(null);
+	nearNew();
 	// $.ui.resetScrollers=false; //Do not reset the scrollers when switching panels
 }
 
@@ -126,7 +126,7 @@ function trim(str) {
 	return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 
-function submitTu(position) {
+function submitTu() {
 	// alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n' + 'Altitude: ' + position.coords.altitude + '\n' + 'Accuracy: ' + position.coords.accuracy + '\n' + 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' + 'Heading: ' + position.coords.heading + '\n' + 'Speed: ' + position.coords.speed + '\n' + 'Timestamp: ' + position.timestamp + '\n');
 	// 创建地理编码实例
 	// var myGeo = new BMap.Geocoder();
@@ -152,10 +152,8 @@ function submitTu(position) {
 			"userId" : userId,
 			"content" : content,
 			"hide" : isHide,
-			// "lat":position.coords.latitude,
-			// "lng":position.coords.longitude
-			"lat" : latitude,
-			"lng" : longitude,
+			"lat" : position.coords.latitude,
+			"lng" : position.coords.longitude
 		},
 		success : function(data) {
 			if (data.success) {
@@ -169,22 +167,17 @@ function submitTu(position) {
 	});
 }
 
-function nearHot(position) {
-	var offset = 0;
-	var length = 10;
-
+function nearHot() {
 	$.ajax({
 		type : "POST",
 		url : webRoot + 'nearnew',
 		data : {
 			"user_id" : userId,
 			"distance" : distance,
-			"offset" : offset,
-			"length" : length,
-			// "lat":position.coords.latitude,
-			// "lng":position.coords.longitude
-			"lat" : latitude,
-			"lng" : longitude,
+			"offset" : 0,
+			"length" : 10,
+			"lat" : position.coords.latitude,
+			"lng" : position.coords.longitude
 		},
 		success : function(data) {
 			if (data.success) {
@@ -198,41 +191,31 @@ function nearHot(position) {
 	});
 }
 
-function nearNew(position) {
-	// alert("nearNew");
-	var offset = 0;
-	var length = 10;
-
+function nearNew() {
 	$.ajax({
 		type : "POST",
 		url : webRoot + 'nearnew',
 		data : {
 			"user_id" : userId,
 			"distance" : distance,
-			"offset" : offset,
-			"length" : length,
-			// "lat":position.coords.latitude,
-			// "lng":position.coords.longitude
-			"lat" : latitude,
-			"lng" : longitude,
+			"offset" : 0,
+			"length" : FIRST_LENGTH,
+			"lat" : position.coords.latitude,
+			"lng" : position.coords.longitude
 		},
 		success : function(data) {
 			if (data.success) {
 				// alert(JSON.stringify(data));
-				generateTuBlocks(data);
+				var tpl = document.getElementById('tpl').innerHTML;
+				var html = juicer(tpl, data);
+				// document.getElementById("newMain").firstChild.innerHTML = html;
+				$("#newMain .afScrollPanel").html(html);
 			} else {
 				alert("error");
 			}
 		},
 		dataType : "json"
 	});
-
-	function generateTuBlocks(data) {
-		var tpl = document.getElementById('tpl').innerHTML;
-		var html = juicer(tpl, data);
-		document.getElementById("newMain").firstChild.innerHTML = html;
-		// alert(html);
-	}
 
 }
 
@@ -241,6 +224,8 @@ function drawMap(tucaos) {
 	// 创建Map实例
 	var map = new BMap.Map("hotmap");
 	// 创建点坐标
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
 	var point = new BMap.Point(longitude, latitude);
 	// 初始化地图,设置中心点坐标和地图级别。
 	map.centerAndZoom(point, 15);

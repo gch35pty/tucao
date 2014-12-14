@@ -7,13 +7,55 @@
 		-->
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" />
 
-		<link rel="stylesheet" type="text/css" href="appframework/af.ui.css" />
-		<link rel="stylesheet" type="text/css" href="appframework/icons.css" />
-		<script type="text/javascript" charset="utf-8" src="appframework/appframework.ui.min.js"></script>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" type="text/css" href="build/css/icons.css" />
+		<link rel="stylesheet" type="text/css" href="build/css/af.ui.css"  />
+		<script type="text/javascript" charset="utf-8" src="build/ui/appframework.ui.min.js"></script>
+		<!-- emulate touch events on desktop browsers only -->
+		<script>
+			if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+				var script = document.createElement("script");
+				script.src = "plugins/af.desktopBrowsers.js";
+				var tag = $("head").append(script);
+			}
+		</script>
+		<!-- <script type="text/javascript" charset="utf-8" src="build/af.plugins.min.js"></script> -->
+		<script type="text/javascript" charset="utf-8" src="plugins/af.scroller.js"></script>
+		<script type="text/javascript" charset="utf-8" src="plugins/af.scrollScreen.js"></script>
 		<script type="text/javascript" src="juicer-min.js"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=VWt0QeFL3rjEI29tyiAldir9&v=1.0"></script>
 
+		<script id="tpl" type="text/template">
+			{@each data as tucao,index}
+			<div class="colum">
+			<div class="content">
+			<div class="words">
+			<span>${tucao.CONTENT}</span>
+			</div>
+			<div class="detail">
+			<span>200m</span>
+			<a class="icon message" style="margin-left: 20%"></a>
+			<span>30</span>
+			<span style="margin-left: 40%">2小时前</span>
+			</div>
+			</div>
+			<div class="score">
+			<div class="up" onclick="upClick(this);">
+			<a class="icon up small" ></a>
+			</div>
+			<div class="num">
+			<span>0</span>
+			</div>
+			<div class="up" onclick="downClick(this);">
+			<a class="icon down small" ></a>
+			</div>
+			</div>
+			</div>
+			{@/each}
+		</script>
+
 		<link rel="stylesheet" type="text/css" href="main.css" />
+		<script type="text/javascript" src="scroll.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 
 		<!-- phantom library, needed for XDK "legacy" container api calls -->
@@ -41,8 +83,13 @@
 		<script>
 			var userId = 3;
 			var distance = 1500;
-			var latitude = 31.274913;
-			var longitude = 120.755755;
+			var FIRST_LENGTH = 10;
+			var position = {
+				coords : {
+					latitude : 31.274913,
+					longitude : 120.755755
+				}
+			};
 			var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
 
 			$.ui.autoLaunch = false;
@@ -51,15 +98,6 @@
 			$(document).ready(function() {
 				$.ui.launch();
 				$("#loginError").hide();
-
-				// setup signin and signup button events
-				$("#login").on("click", function() {
-					signIn();
-				});
-
-				$("#register").on("click", function() {
-					signUp();
-				});
 			});
 
 		</script>
@@ -84,7 +122,7 @@
 					<form id="loginForm">
 						<input name="email" type="text" placeholder="邮箱/手机" />
 						<input name="password" type="password" placeholder="密码" />
-						<a class="button block green" href="#" id="login">Login</a>
+						<a class="button block green" href="#" id="login" onclick="signIn();">Login</a>
 					</form>
 					<div id="loginError" style="text-align:center; color: #FF0000">
 						<p>
@@ -107,7 +145,7 @@
 						<input name="username" type="text" placeholder="用户名" />
 						<input name="password" type="password" placeholder="密码" />
 						<input name="password2" type="password" placeholder="确认密码" />
-						<a class="button block green" href="#" id="register">注册</a>
+						<a class="button block green" href="#" id="register" onclick="signUp();">注册</a>
 					</form>
 				</div>
 
@@ -143,34 +181,7 @@
 				</div>
 
 				<div class="panel" id="newMain" data-load="startNew" selected="true" data-footer="foot" data-header="head">
-					<script id="tpl" type="text/template">
-						{@each data as tucao,index}
-						<div class="colum">
-						<div class="content">
-						<div class="words">
-						<span>${tucao.CONTENT}</span>
-						</div>
-						<div class="detail">
-						<span>200m</span>
-						<a class="icon message" style="margin-left: 20%"></a>
-						<span>30</span>
-						<span style="margin-left: 40%">2小时前</span>
-						</div>
-						</div>
-						<div class="score">
-						<div class="up" onclick="upClick(this);">
-						<a class="icon up small" ></a>
-						</div>
-						<div class="num">
-						<span>0</span>
-						</div>
-						<div class="up" onclick="downClick(this);">
-						<a class="icon down small" ></a>
-						</div>
-						</div>
-						</div>
-						{@/each}
-					</script>
+
 				</div>
 				<div class="panel" id="tucaoPanel" title="查看吐槽" data-load="" data-footer="none" >
 					<div class="colum">
