@@ -1,0 +1,56 @@
+<script id="tpl" type="text/template">
+	{@each data as tucao,index}
+	<div class="colum">
+	<div class="content" onclick="clickBlock (${tucao.TC_TUCAO})">
+	<div class="words">
+	<span>${tucao.CONTENT}</span>
+	</div>
+	<div class="detail">
+	<span>200m</span>
+	<a class="icon message" style="margin-left: 20%"></a>
+	<span>30</span>
+	<span style="margin-left: 40%">2小时前</span>
+	</div>
+	</div>
+	<div class="score">
+	<div class="up" onclick="upClick(this);">
+	<a class="icon up small" ></a>
+	</div>
+	<div class="num">
+	<span>0</span>
+	</div>
+	<div class="up" onclick="downClick(this);">
+	<a class="icon down small" ></a>
+	</div>
+	</div>
+	</div>
+	{@/each}
+
+</script>
+
+<script id="tplBlock" type="text/template">
+	<div class="colum">
+	<div class="content">
+	<div class="words">
+	<span>${CONTENT}</span>
+	</div>
+	<div class="detail">
+	<span>200m</span>
+	<a class="icon message" style="margin-left: 20%"></a>
+	<span>30</span>
+	<span style="margin-left: 40%">2小时前</span>
+	</div>
+	</div>
+	<div class="score">
+	<div class="up" onclick="upClick(this);">
+	<a class="icon up small" ></a>
+	</div>
+	<div class="num">
+	<span>100</span>
+	</div>
+	<div class="up">
+	<a class="icon down small" ></a>
+	</div>
+	</div>
+	</div>
+</script>

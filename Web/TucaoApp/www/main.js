@@ -1,3 +1,87 @@
+//发表评论
+function applycomment () {
+	var content = trim($("#commentContent").val());
+
+	if (content == "") {
+		alert("空");
+		return;
+	};
+  	$.ajax({
+		type : "POST",
+		url : webRoot + 'applycomment',
+		data : {
+			"tucao_id" : curTucaoId,
+			"user_id" : userId,
+			"content" : content,
+			"reply_comment" : -1,
+			"hide" : false,
+			"lat" : position.coords.latitude,
+			"lng" : position.coords.longitude
+		},
+		success : function(data) {
+			if (data.success) {
+				// alert(JSON.stringify(data));
+				refreshCommentList();
+				$("#commentContent").val("");
+			} else {
+				alert("error");
+			}
+		},
+		dataType : "json"
+	});
+}
+
+function refreshCommentList () {
+  $.ajax({
+		type : "POST",
+		url : webRoot + 'comment',
+		data : {
+			"tucao_id" : curTucaoId,
+		},
+		success : function(data) {
+			if (data.success) {
+				// alert(JSON.stringify(data));
+				var tplComment = document.getElementById('tplComment').innerHTML;
+				var html = juicer(tplComment, data);
+				$("#commentsList").html(html);
+			} else {
+				alert("error");
+			}
+		},
+		dataType : "json"
+	});
+}
+
+//点击后打开吐槽详情页
+function detail(tucaoId) {
+	// alert(tucaoId);
+	$.ajax({
+		type : "POST",
+		url : webRoot + 'detail',
+		data : {
+			"tucao_id" : tucaoId,
+		},
+		success : function(data) {
+			if (data.success) {
+				// alert(JSON.stringify(data));
+				$("#t_content").html(data.data.CONTENT);
+				$("#t_interval").html(data.data.CREATE_TIME+"时");
+				refreshCommentList();
+				curTucaoId=tucaoId;
+			} else {
+				alert("error");
+			}
+		},
+		dataType : "json"
+	});
+	$.ui.loadContent("tucaoPanel", null, null, "");
+
+}
+
+function startTucaoPanel(){
+	
+}
+
 function signIn() {
 	$("#loginError").hide();
 	$.post(webRoot + 'login', $("#loginForm").serialize(), function(data) {
@@ -27,12 +111,16 @@ function signUp() {
 
 function startHot() {
 	$.ui.clearHistory();
-	nearHot(null);
+	if (map == null) {//仅第一遍时候加载nearHot
+		nearHot();
+	};
 }
 
 function startNew() {
 	$.ui.clearHistory();
-	nearNew();
+	if ($("#newMain").find(".colum").length== 0) {//仅第一遍时候加载nearNew
+		nearNew();
+	};
 	// $.ui.resetScrollers=false; //Do not reset the scrollers when switching panels
 }
 
@@ -47,6 +135,7 @@ function startDiscovery() {
 function startEdit() {
 }
 
+//向上顶起
 function upClick(obj) {
 	// alert($(obj).siblings(".num").get(0).innerHTML);
 
@@ -73,6 +162,7 @@ function upClick(obj) {
 	$(obj).parent().addClass('changed');
 }
 
+//向下踩
 function downClick(obj) {
 	// alert($(obj).siblings(".num").get(0).innerHTML);
 
@@ -108,9 +198,9 @@ function getPosition(onSuccess) {
 	// This method accepts a Position object, which contains the
 	// current GPS coordinates
 	//
-	// var onSuccess = function(position) {
-	// alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n' + 'Altitude: ' + position.coords.altitude + '\n' + 'Accuracy: ' + position.coords.accuracy + '\n' + 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' + 'Heading: ' + position.coords.heading + '\n' + 'Speed: ' + position.coords.speed + '\n' + 'Timestamp: ' + position.timestamp + '\n');
-	// };
+	var onSuccess = function(position) {
+	alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n' + 'Altitude: ' + position.coords.altitude + '\n' + 'Accuracy: ' + position.coords.accuracy + '\n' + 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' + 'Heading: ' + position.coords.heading + '\n' + 'Speed: ' + position.coords.speed + '\n' + 'Timestamp: ' + position.timestamp + '\n');
+	};
 
 	// onError Callback receives a PositionError object
 	//
@@ -126,15 +216,7 @@ function trim(str) {
 	return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 
-function submitTu() {
-	// alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n' + 'Altitude: ' + position.coords.altitude + '\n' + 'Accuracy: ' + position.coords.accuracy + '\n' + 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' + 'Heading: ' + position.coords.heading + '\n' + 'Speed: ' + position.coords.speed + '\n' + 'Timestamp: ' + position.timestamp + '\n');
-	// 创建地理编码实例
-	// var myGeo = new BMap.Geocoder();
-	// // 根据坐标得到地址描述
-	// myGeo.getLocation(point, function(rs) {
-	// var addComp = rs.addressComponents;
-	// // alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-	// });
+function apply() {
 	var content = trim($("#tContent").val());
 
 	if (content == "") {
@@ -157,8 +239,9 @@ function submitTu() {
 		},
 		success : function(data) {
 			if (data.success) {
-				alert(data.data);
-				// $("#tContent").val(data.data)
+				// alert(data.data);
+				nearNew();
+				$.ui.loadContent("newMain", null, null, "");
 			} else {
 				alert("error");
 			}
@@ -222,7 +305,7 @@ function nearNew() {
 function drawMap(tucaos) {
 	// 百度地图API功能
 	// 创建Map实例
-	var map = new BMap.Map("hotmap");
+	map = new BMap.Map("hotmap");
 	// 创建点坐标
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
