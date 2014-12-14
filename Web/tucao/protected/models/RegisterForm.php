@@ -34,7 +34,7 @@ class RegisterForm extends CFormModel {
 
     public function save() {
         $user = new Users();
-        //echo $this->type;
+        //echo $this->type."dad";
         if($this->type=="reg_phone_num") {
             $user->REG_PHONE_NUM = $this->username;
         } else if($this->type=="reg_email"){

@@ -168,8 +168,9 @@ desp: 发表吐槽
 	‘hide’: true/false  是否匿名
 	'lat' : xxx.xxx 纬度，浮点类型
     'lng' : xxx.xxx 经度，浮点类型
-    ‘topic_id’: xxx,
-    'father_id': xxx
+    ‘distance’： xxx 吐槽的可见距离fa  非必须, 0表示无线距离
+    ‘topic_id’: xxx,       非必须
+    'father_id': xxxxx     非必须
 }
 返回：
 {
@@ -236,6 +237,7 @@ desp: 获取用户周边区域的最新吐槽
 	'distance': xxx 周边距离，INT型单位米
 	‘offset’: xxx 分页开始位置
 	'length': xxx 每次返回的吐槽数量
+	'lastTime': 2014-12-11 10:29:40  返回之前一次最后一个吐槽时间的字符串
 }
 返回：
 {
