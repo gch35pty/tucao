@@ -162,7 +162,46 @@ class Tucao extends CActiveRecord
         if($id == null) {
             return null;
         }
-        $sql = "select * from Tucao where tucao_id = {$id}";
+        $sql = "select
+            TUCAO_ID as tucao_id,
+            TITLE as title,
+            CONTENT as content,
+            COMMENT_NUM as comment_num,
+            SUPPORT_NUM as support_num,
+            DISAGREE_NUM as disagree_num,
+            SHARE_NUM as share_num,
+            tucao.CREATE_TIME as create_time,
+            LADTITUDE as lat,
+            LONGITUDE as lng,
+            users.NICK_NAME as user_name,
+            users.USER_ID as user_id
+            from tucao,users where tucao_id = {$id} and users.user_id = tucao.user_id";
+        $rs = Yii::app()->db->createCommand($sql)->queryAll();
+        return $rs;
+    }
+
+    public function getHot($offset, $length) {
+        $scoreCon = UtilHelper::getHotCalSql();
+        echo $offset.$length;
+        if(is_null($offset) || is_null($length)) {
+            return null;
+        }
+        $sql = "select
+            TUCAO_ID as tucao_id,
+            TITLE as title,
+            CONTENT as content,
+            COMMENT_NUM as comment_num,
+            SUPPORT_NUM as support_num,
+            DISAGREE_NUM as disagree_num,
+            SHARE_NUM as share_num,
+            tucao.CREATE_TIME as create_time,
+            LADTITUDE as lat,
+            LONGITUDE as lng,
+            users.NICK_NAME as user_name,
+            users.USER_ID as user_id
+            from tucao,users where users.user_id = tucao.user_id ".$scoreCon.
+            " limit {$offset}, {$length}";
+        echo $sql;
         $rs = Yii::app()->db->createCommand($sql)->queryAll();
         return $rs;
     }

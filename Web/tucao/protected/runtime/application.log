@@ -1928,3 +1928,718 @@ Stack trace:
 REQUEST_URI=/Tucao/index.php/tucao/apply
 HTTP_REFERER=http://localhost/Tucao/index.php/test/do
 ---
+2014/12/07 16:55:58 [error] [php] Undefined index: tucao_id (/Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php:59)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): TucaoController->runAction()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): TucaoController->filterAccessControl()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): TucaoController->runActionWithFilters()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): TucaoController->run()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/tucao/apply
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (59)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/07 17:04:18 [error] [exception.CException] exception 'CException' with message 'Property "Tucao.attributed" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/ar/CActiveRecord.php(145): CComponent->__get('attributed')
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(59): CActiveRecord->__get('attributed')
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionApply()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('apply')
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/apply')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/Tucao/index.php/tucao/apply
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 00:48:47 [error] [php] include(numercal.php): failed to open stream: No such file or directory (/Users/gongchen/Project/yii-1.1.15.022a51/framework/YiiBase.php:427)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(186): import()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(287): createValidator()
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(260): TucaoNearForm->createValidators()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(547): TucaoNearForm->getValidators()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(468): TucaoNearForm->getSafeAttributeNames()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php(152): TucaoNearForm->setAttributes()
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(72): TucaoNearForm->__set()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): TucaoController->runAction()
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): TucaoController->filterAccessControl()
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): TucaoController->runActionWithFilters()
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): TucaoController->run()
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (72)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 00:49:30 [error] [exception.CException] exception 'CException' with message 'Property "CNumberValidator.default" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(189): CComponent->__set('default', 0)
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(287): CValidator::createValidator('numerical', Object(TucaoNearForm), 'offset', Array)
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(260): CModel->createValidators()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(547): CModel->getValidators()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(468): CModel->getSafeAttributeNames()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php(152): CModel->setAttributes(Array)
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(72): CComponent->__set('attributes', Array)
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 00:50:47 [error] [exception.CException] exception 'CException' with message 'Property "CNumberValidator.default" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(189): CComponent->__set('default', 0)
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(287): CValidator::createValidator('numerical', Object(TucaoNearForm), 'offset', Array)
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(260): CModel->createValidators()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(547): CModel->getValidators()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(468): CModel->getSafeAttributeNames()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php(152): CModel->setAttributes(Array)
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(72): CComponent->__set('attributes', Array)
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 00:51:02 [error] [exception.CException] exception 'CException' with message 'Property "CNumberValidator.default" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(189): CComponent->__set('default', 0)
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(287): CValidator::createValidator('numerical', Object(TucaoNearForm), 'offset', Array)
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(260): CModel->createValidators()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(547): CModel->getValidators()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(468): CModel->getSafeAttributeNames()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php(152): CModel->setAttributes(Array)
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(72): CComponent->__set('attributes', Array)
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 00:54:16 [error] [exception.CException] exception 'CException' with message 'Property "CNumberValidator.default" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(189): CComponent->__set('default', 0)
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(287): CValidator::createValidator('numerical', Object(TucaoNearForm), 'offset', Array)
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(260): CModel->createValidators()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(547): CModel->getValidators()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(468): CModel->getSafeAttributeNames()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php(152): CModel->setAttributes(Array)
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(72): CComponent->__set('attributes', Array)
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 00:54:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "tc_users".' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tc_users')
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Tucao/index.php/tc_users
+---
+2014/12/13 00:56:20 [error] [php] Undefined index: topic_id (/Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php:55)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): TucaoController->runAction()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): TucaoController->filterAccessControl()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): TucaoController->runActionWithFilters()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): TucaoController->run()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/tucao/apply
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (55)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:06:42 [error] [exception.CException] exception 'CException' with message 'TucaoNearForm has an invalid validation rule. The rule must specify attributes to be validated and the validator name.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php:289
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(260): CModel->createValidators()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(547): CModel->getValidators()
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(468): CModel->getSafeAttributeNames()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php(152): CModel->setAttributes(Array)
+#4 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(72): CComponent->__set('attributes', Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 01:07:31 [error] [exception.CException] exception 'CException' with message 'Property "CNumberValidator.default" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(189): CComponent->__set('default', 0)
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(287): CValidator::createValidator('numerical', Object(TucaoNearForm), 'offset', Array)
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(260): CModel->createValidators()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(547): CModel->getValidators()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(468): CModel->getSafeAttributeNames()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php(152): CModel->setAttributes(Array)
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(72): CComponent->__set('attributes', Array)
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 01:07:57 [warning] [application] Failed to set unsafe attribute "user_id" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (72)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:07:57 [warning] [application] Failed to set unsafe attribute "distance" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (72)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:07:57 [warning] [application] Failed to set unsafe attribute "offset" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (72)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:07:57 [warning] [application] Failed to set unsafe attribute "length" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (72)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:07:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by CREATE_TIME desc limit ,.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (47)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (76)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:07:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by CREATE_TIME desc limit ,' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(47): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(76): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 01:08:07 [error] [exception.CException] exception 'CException' with message 'Property "CNumberValidator.default" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(189): CComponent->__set('default', 10)
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(287): CValidator::createValidator('numerical', Object(TucaoNearForm), 'length', Array)
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(260): CModel->createValidators()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(547): CModel->getValidators()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(468): CModel->getSafeAttributeNames()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php(152): CModel->setAttributes(Array)
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(72): CComponent->__set('attributes', Array)
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 01:09:14 [warning] [application] Failed to set unsafe attribute "user_id" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (72)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:09:14 [warning] [application] Failed to set unsafe attribute "distance" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (72)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:09:14 [warning] [application] Failed to set unsafe attribute "offset" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (72)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:09:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by CREATE_TIME desc limit ,10.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (47)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (76)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:09:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by CREATE_TIME desc limit ,10' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(47): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(76): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 01:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NAN' in 'where clause'. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 118.760395,31.968400) as distanceFrom from tucao where
+                        LADTITUDE between 28.828234408127 and 208.69255559187 and
+                        LONGITUDE between NAN and NAN  order by CREATE_TIME desc limit 1,10 .
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (47)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (76)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:09:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NAN' in 'where clause'. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 118.760395,31.968400) as distanceFrom from tucao where
+                        LADTITUDE between 28.828234408127 and 208.69255559187 and
+                        LONGITUDE between NAN and NAN  order by CREATE_TIME desc limit 1,10 ' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(47): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(76): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 01:10:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NAN' in 'where clause'. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 118.760395,31.968401) as distanceFrom from tucao where
+                        LADTITUDE between 28.828234408127 and 208.69255559187 and
+                        LONGITUDE between NAN and NAN  order by CREATE_TIME desc limit 1,10 .
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (47)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (76)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:10:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NAN' in 'where clause'. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 118.760395,31.968401) as distanceFrom from tucao where
+                        LADTITUDE between 28.828234408127 and 208.69255559187 and
+                        LONGITUDE between NAN and NAN  order by CREATE_TIME desc limit 1,10 ' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(47): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(76): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/13 01:11:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NAN' in 'where clause'. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 118.760395,31.968401) as distanceFrom from tucao where
+                        LADTITUDE between 28.828234408127 and 208.69255559187 and
+                        LONGITUDE between NAN and NAN  order by CREATE_TIME desc limit 1,10 .
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (48)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (76)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/13 01:11:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NAN' in 'where clause'. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 118.760395,31.968401) as distanceFrom from tucao where
+                        LADTITUDE between 28.828234408127 and 208.69255559187 and
+                        LONGITUDE between NAN and NAN  order by CREATE_TIME desc limit 1,10 ' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(48): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(76): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/14 10:23:29 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:23:37 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:24:03 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:24:13 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:24:18 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:24:29 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:26:58 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:27:33 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:28:19 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:28:27 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:28:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "tc_users".' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tc_users')
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Tucao/index.php/tc_users
+---
+2014/12/14 10:30:20 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:30:32 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 10:30:48 [warning] [application] Failed to set unsafe attribute "lastTime" of "TucaoNearForm".
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (73)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 11:01:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by CREATE_TIME desc limit 0,10' at line 8. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 118.760390,31.968520) as distanceFrom from tucao where
+                        LADTITUDE between 118.75139678394 and 118.76938321606 and
+                        LONGITUDE between 31.949828826327 and 31.987211173673 and (
+	                        DISTANCE > GETDISTANCE (
+		                    LADTITUDE,LONGITUDE,118.760390,31.968520
+	                        ) OR (
+		                        DISTANCE = 0
+	                        ) order by CREATE_TIME desc limit 0,10 .
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (57)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (77)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 11:01:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by CREATE_TIME desc limit 0,10' at line 8. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 118.760390,31.968520) as distanceFrom from tucao where
+                        LADTITUDE between 118.75139678394 and 118.76938321606 and
+                        LONGITUDE between 31.949828826327 and 31.987211173673 and (
+	                        DISTANCE > GETDISTANCE (
+		                    LADTITUDE,LONGITUDE,118.760390,31.968520
+	                        ) OR (
+		                        DISTANCE = 0
+	                        ) order by CREATE_TIME desc limit 0,10 ' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(57): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(77): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/14 11:37:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'CREATE_TIME' in field list is ambiguous. The SQL statement executed was: select
+            TUCAO_ID as tucao_id,
+            TITLE as title,
+            CONTENT as content,
+            COMMENT_NUM as comment_num,
+            SUPPORT_NUM as support_num,
+            DISAGREE_NUM as disagree_num,
+            SHARE_NUM as share_num,
+            CREATE_TIME as create_time,
+            LADTITUDE as lat,
+            LONGITUDE as lng,
+            users.NICK_NAME as user_name,
+            users.USER_ID as user_id
+            from tucao,users where tucao_id = 1 and users.user_id = tucao.user_id.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao.php (179)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (30)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 11:37:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'CREATE_TIME' in field list is ambiguous. The SQL statement executed was: select
+            TUCAO_ID as tucao_id,
+            TITLE as title,
+            CONTENT as content,
+            COMMENT_NUM as comment_num,
+            SUPPORT_NUM as support_num,
+            DISAGREE_NUM as disagree_num,
+            SHARE_NUM as share_num,
+            CREATE_TIME as create_time,
+            LADTITUDE as lat,
+            LONGITUDE as lng,
+            users.NICK_NAME as user_name,
+            users.USER_ID as user_id
+            from tucao,users where tucao_id = 1 and users.user_id = tucao.user_id' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao.php(179): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(30): Tucao->get('1')
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionDetail()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('detail')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/detail')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/detail
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/14 15:59:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tucao_comment.USER_ID' in 'where clause'. The SQL statement executed was: select
+                    COMMENT_ID as comment_id,
+                    COMMENT_CONTENT as comment_content,
+                    users.NICK_NAME as user_name,
+                    users.USER_ID as user_id,
+                    tucao_comment.CREATE_TIME as create_time
+                from tucao_comment, users
+                where tucao_comment.TUCAO_ID= 1 and users.USER_ID=tucao_comment.USER_ID
+                limit 0,10 .
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao_comment.php (113)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (37)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 15:59:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tucao_comment.USER_ID' in 'where clause'. The SQL statement executed was: select
+                    COMMENT_ID as comment_id,
+                    COMMENT_CONTENT as comment_content,
+                    users.NICK_NAME as user_name,
+                    users.USER_ID as user_id,
+                    tucao_comment.CREATE_TIME as create_time
+                from tucao_comment, users
+                where tucao_comment.TUCAO_ID= 1 and users.USER_ID=tucao_comment.USER_ID
+                limit 0,10 ' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao_comment.php(113): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(37): Tucao_comment->getByTc('1', 0, 10)
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionDetail()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('detail')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/detail')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/detail
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/14 16:00:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tucao_comment.USER_ID' in 'where clause'. The SQL statement executed was: select
+                    COMMENT_ID as comment_id,
+                    COMMENT_CONTENT as comment_content,
+                    users.NICK_NAME as user_name,
+                    users.USER_ID as user_id,
+                    tucao_comment.CREATE_TIME as create_time
+                from tucao_comment, users
+                where tucao_comment.TUCAO_ID= 1 and users.USER_ID=tucao_comment.USER_ID
+                limit 0,10 .
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao_comment.php (113)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (37)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 16:00:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tucao_comment.USER_ID' in 'where clause'. The SQL statement executed was: select
+                    COMMENT_ID as comment_id,
+                    COMMENT_CONTENT as comment_content,
+                    users.NICK_NAME as user_name,
+                    users.USER_ID as user_id,
+                    tucao_comment.CREATE_TIME as create_time
+                from tucao_comment, users
+                where tucao_comment.TUCAO_ID= 1 and users.USER_ID=tucao_comment.USER_ID
+                limit 0,10 ' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao_comment.php(113): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(37): Tucao_comment->getByTc('1', 0, 10)
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionDetail()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('detail')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/detail')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/detail
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/14 16:17:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "comments".' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php:483
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(270): CController->missingAction('comments')
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('comments')
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/comments')
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Tucao/index.php/tucao/comments
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/14 17:11:56 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by (COMMENT_NUM*5 + SUPPORT_NUM*2 + DISAGREE_NUM + SHARE_NUM*3) desc limit ,.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (87)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (124)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 17:11:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by (COMMENT_NUM*5 + SUPPORT_NUM*2 + DISAGREE_NUM + SHARE_NUM*3) desc limit ,' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(87): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(124): TucaoNearForm->searchHot()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearhot()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearhot')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearhot')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearhot
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2014/12/14 17:12:09 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by (COMMENT_NUM*5 + SUPPORT_NUM*2 + DISAGREE_NUM + SHARE_NUM*3) desc limit ,.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (87)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (124)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2014/12/14 17:12:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by (COMMENT_NUM*5 + SUPPORT_NUM*2 + DISAGREE_NUM + SHARE_NUM*3) desc limit ,' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(87): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(124): TucaoNearForm->searchHot()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearhot()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearhot')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearhot')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearhot
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---

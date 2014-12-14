@@ -100,6 +100,20 @@ class Tucao_comment extends CActiveRecord
 		));
 	}
 
+    public function getByTc($tucao_id, $offset, $length) {
+        $sql = "select
+                    COMMENT_ID as comment_id,
+                    COMMENT_CONTENT as comment_content,
+                    users.NICK_NAME as user_name,
+                    users.USER_ID as user_id,
+                    tucao_comment.CREATE_TIME as create_time
+                from tucao_comment, users
+                where tucao_comment.TUCAO_ID= {$tucao_id} and users.USER_ID=tucao_comment.COMMENT_USER
+                limit {$offset},{$length} ";
+        $rs = Yii::app()->db->createCommand($sql)->queryAll();
+        return $rs;
+    }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Tucao_comment the static model class
