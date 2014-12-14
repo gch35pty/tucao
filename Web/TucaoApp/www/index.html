@@ -24,6 +24,9 @@
 		<script type="text/javascript" charset="utf-8" src="plugins/af.scrollScreen.js"></script>
 		<script type="text/javascript" src="juicer-min.js"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=VWt0QeFL3rjEI29tyiAldir9&v=1.0"></script>
+		
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		<script type="text/javascript" src="tool.js"></script>
 
 		<script id="tpl" type="text/template">
 			{@each data as tucao,index}
@@ -36,7 +39,7 @@
 			<span>200m</span>
 			<a class="icon message" style="margin-left: 20%"></a>
 			<span>30</span>
-			<span style="margin-left: 40%">2小时前</span>
+			<span style="margin-left: 40%">${tucao.CREATE_TIME|jsDateDiff}</span>
 			</div>
 			</div>
 			<div class="score">
@@ -104,6 +107,7 @@
 				</div>
 			{@/each}
 		</script>
+		
 		<script>
 			//******此段定义常量********//
 			var userId = 3;
@@ -118,9 +122,32 @@
 			var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
 			var map = null;
 			var curTucaoId = 8;
+			
+			juicer.register('jsDateDiff', jsDateDiff); //注册自定义函数
+		
+			// set to ios7 ---cky
+			$.ui.ready(function() {
+				$("#afui").get(0).className = 'BB10';
+			});
+
+			$.ui.autoLaunch = false;
+			$.ui.backButtonText = "周边吐槽";
+
+			$(document).ready(function() {
+				$.ui.launch();
+				$("#loginError").hide();
+			});
+			
+			var onDeviceReady = function() {// called when Cordova is ready
+				if (window.Cordova && navigator.splashscreen) {// Cordova API detected
+					$.ui.launch();
+					navigator.splashscreen.hide();
+					// hide splash screen
+				}
+			};
+			document.addEventListener("deviceready", onDeviceReady, false);
 		</script>
 
-		<link rel="stylesheet" type="text/css" href="main.css" />
 		<script type="text/javascript" src="scroll.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 
@@ -131,28 +158,6 @@
 		<!-- phantom library, needed for XDK "legacy" container CORS -->
 		<script src="xhr.js"></script>
 
-		<script>
-			// set to ios7 ---cky
-			$.ui.ready(function() {
-				$("#afui").get(0).className = 'BB10';
-			});
-			var onDeviceReady = function() {// called when Cordova is ready
-				if (window.Cordova && navigator.splashscreen) {// Cordova API detected
-					$.ui.launch();
-					navigator.splashscreen.hide();
-					// hide splash screen
-				}
-			};
-			document.addEventListener("deviceready", onDeviceReady, false);
-
-			$.ui.autoLaunch = false;
-			$.ui.backButtonText = "周边吐槽";
-
-			$(document).ready(function() {
-				$.ui.launch();
-				$("#loginError").hide();
-			});
-		</script>
 
 	</head>
 	<body>
@@ -212,7 +217,7 @@
 					<div class="colum">
 						<table style="width: 100%;min-height: 20vh;font-size: 1.2em;">
 							<tr>
-								<td><span id="t_content" style="">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span></td>
+								<td align="left" valign="top"><span id="t_content" style="">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span></td>
 								<td style="width: 20px">
 								<div align="center" style="width: 100%">
 									<div onclick="upClick(this);">

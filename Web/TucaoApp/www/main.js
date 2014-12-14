@@ -65,9 +65,9 @@ function detail(tucaoId) {
 			if (data.success) {
 				// alert(JSON.stringify(data));
 				$("#t_content").html(data.data.CONTENT);
-				$("#t_interval").html(data.data.CREATE_TIME+"时");
-				refreshCommentList();
+				$("#t_interval").html(jsDateDiff(data.data.CREATE_TIME));
 				curTucaoId=tucaoId;
+				refreshCommentList();
 			} else {
 				alert("error");
 			}
@@ -76,63 +76,6 @@ function detail(tucaoId) {
 	});
 	$.ui.loadContent("tucaoPanel", null, null, "");
 
-}
-
-function startTucaoPanel(){
-	
-}
-
-function signIn() {
-	$("#loginError").hide();
-	$.post(webRoot + 'login', $("#loginForm").serialize(), function(data) {
-		if (data.success) {
-			userId = data.data.USER_ID;
-			// alert(userId);
-			$.ui.loadContent("hotMain", null, null, "");
-		} else {
-			$("#loginError").show();
-		}
-	}, "json");
-}
-
-function signUp() {
-	$.post(webRoot + 'signup', $("#signupForm").serialize(), function(data) {
-		if (data.success) {
-			// alert(userId);
-			$.ui.loadContent("hotMain", null, null, "");
-		} else {
-			$.ui.showMask("该邮箱或手机已经注册！");
-			window.setTimeout(function() {
-				$.ui.hideMask();
-			}, 2000);
-		}
-	}, "json");
-}
-
-function startHot() {
-	$.ui.clearHistory();
-	if (map == null) {//仅第一遍时候加载nearHot
-		nearHot();
-	};
-}
-
-function startNew() {
-	$.ui.clearHistory();
-	if ($("#newMain").find(".colum").length== 0) {//仅第一遍时候加载nearNew
-		nearNew();
-	};
-	// $.ui.resetScrollers=false; //Do not reset the scrollers when switching panels
-}
-
-function startUser() {
-
-}
-
-function startDiscovery() {
-
-}
-
-function startEdit() {
 }
 
 //向上顶起
@@ -189,33 +132,6 @@ function downClick(obj) {
 	$(obj).parent().addClass('changed');
 }
 
-function getPosition(onSuccess) {
-	options = {
-		enableHighAccuracy : true
-	};
-
-	// onSuccess Callback
-	// This method accepts a Position object, which contains the
-	// current GPS coordinates
-	//
-	var onSuccess = function(position) {
-	alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n' + 'Altitude: ' + position.coords.altitude + '\n' + 'Accuracy: ' + position.coords.accuracy + '\n' + 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' + 'Heading: ' + position.coords.heading + '\n' + 'Speed: ' + position.coords.speed + '\n' + 'Timestamp: ' + position.timestamp + '\n');
-	};
-
-	// onError Callback receives a PositionError object
-	//
-	function onError(error) {
-		alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
-	}
-
-
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
-}
-
-function trim(str) {
-	return str.replace(/(^\s*)|(\s*$)/g, "");
-}
-
 function apply() {
 	var content = trim($("#tContent").val());
 
@@ -231,7 +147,7 @@ function apply() {
 		type : "POST",
 		url : webRoot + 'apply',
 		data : {
-			"userId" : userId,
+			"user_id" : userId,
 			"content" : content,
 			"hide" : isHide,
 			"lat" : position.coords.latitude,
@@ -371,4 +287,64 @@ function drawMap(tucaos) {
 		}
 
 	}, 500);
+} 
+
+
+
+function signIn() {
+	$("#loginError").hide();
+	$.post(webRoot + 'login', $("#loginForm").serialize(), function(data) {
+		if (data.success) {
+			userId = data.data.USER_ID;
+			// alert(userId);
+			$.ui.loadContent("hotMain", null, null, "");
+		} else {
+			$("#loginError").show();
+		}
+	}, "json");
+}
+
+function signUp() {
+	$.post(webRoot + 'signup', $("#signupForm").serialize(), function(data) {
+		if (data.success) {
+			// alert(userId);
+			$.ui.loadContent("hotMain", null, null, "");
+		} else {
+			$.ui.showMask("该邮箱或手机已经注册！");
+			window.setTimeout(function() {
+				$.ui.hideMask();
+			}, 2000);
+		}
+	}, "json");
+}
+
+function startHot() {
+	$.ui.clearHistory();
+	if (map == null) {//仅第一遍时候加载nearHot
+		nearHot();
+	};
+}
+
+function startNew() {
+	$.ui.clearHistory();
+	if ($("#newMain").find(".colum").length== 0) {//仅第一遍时候加载nearNew
+		nearNew();
+	};
+	// $.ui.resetScrollers=false; //Do not reset the scrollers when switching panels
+}
+
+function startUser() {
+
+}
+
+function startDiscovery() {
+
+}
+
+function startEdit() {
+}
+
+
+function startTucaoPanel(){
+	
 }
