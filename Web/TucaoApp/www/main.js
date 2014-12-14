@@ -1,8 +1,65 @@
+//发表评论
+function comment () {
+  	$.ajax({
+		type : "POST",
+		url : webRoot + 'applycomment',
+		data : {
+			"tucao_id" : curTucaoId,
+			"content" : content,
+			"reply_comment" : null,
+			"hide" : false,
+			"lat" : position.coords.latitude,
+			"lng" : position.coords.longitude
+		},
+		success : function(data) {
+			if (data.success) {
+				// alert(JSON.stringify(data));
+				refreshCommentList();
+			} else {
+				alert("error");
+			}
+		},
+		dataType : "json"
+	});
+}
+
+function refreshCommentList () {
+  
+}
+
 //点击后打开吐槽详情页
 function generateTucaoPanel(tucaoId) {
 	// alert(tucaoId);
+	$.ajax({
+		type : "POST",
+		url : webRoot + 'nearnew',
+		data : {
+			"user_id" : userId,
+			"distance" : distance,
+			"offset" : 0,
+			"length" : FIRST_LENGTH,
+			"lat" : position.coords.latitude,
+			"lng" : position.coords.longitude
+		},
+		success : function(data) {
+			if (data.success) {
+				// alert(JSON.stringify(data));
+				var tpl = document.getElementById('tpl').innerHTML;
+				var html = juicer(tpl, data);
+				// document.getElementById("newMain").firstChild.innerHTML = html;
+				$("#newMain .afScrollPanel").html(html);
+			} else {
+				alert("error");
+			}
+		},
+		dataType : "json"
+	});
 	$.ui.loadContent("tucaoPanel", null, null, "");
 
+}
+
+function startTucaoPanel(){
+	
 }
 
 function signIn() {

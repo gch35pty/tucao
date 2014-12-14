@@ -81,6 +81,27 @@
 			</div>
 		</script>
 
+		<script id="tplComment" type="text/template">
+			<div class="colum">
+					 <table style="width: 100%;">
+							<tr>
+								<td><span style="font-size: 0.8em;">${CONTENT}</span></td>
+								<td style="width: 20px">
+								<div align="center" style="width: 100%">
+									<div onclick="upClick(this);">
+										<a class="icon up small" ></a>
+									</div>
+									<div>
+										<span>0</span>
+									</div>
+									<div onclick="downClick(this);">
+										<a class="icon down small" ></a>
+									</div>
+								</div></td>
+							</tr>
+						</table>
+				</div>
+		</script>
 		<script>
 			//******此段定义常量********//
 			var userId = 3;
@@ -94,6 +115,7 @@
 			};
 			var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
 			var map = null;
+			var curTucaoId = 8;
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="main.css" />
@@ -184,52 +206,35 @@
 
 				<div class="panel" id="newMain" data-load="startNew" data-footer="foot" data-header="head"></div>
 
-				<div class="panel" id="tucaoPanel" title="查看吐槽" selected="true" data-load="" data-footer="commentFoot" >
+				<div class="panel" id="tucaoPanel" title="查看吐槽" selected="true" data-load="startTucaoPanel" data-footer="commentFoot" >
 					<div class="colum">
-						<div class="content" style="width: 100%;min-height: 20vh;">
-							<div class="words" style="width: 90%;float: left">
-								<span style="font-size: 1.5em;">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span>
-							</div>
-							<div class="score" style="text-align: center;font-size: 0.8em">
-								<ul style="list-style:none;">
-									<li>
-										<div class="uparrow" onclick="upClick(this);">
-											<a class="icon up small" ></a>
-										</div>
-									</li>
-									<li>
-										<div class="num">
-											<span>100</span>
-										</div>
-									</li>
-									<li>
-										<div class="uparrow">
-											<a class="icon down small" ></a>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="detail">
-							<ul style="list-style:none;">
-								<li>
-									<span>200m</span>
-								</li>
-								<li>
-									<a class="icon message"></a>
-									<span>30</span>
-								</li>
-								<li>
-									<span>2小时前</span>
-								</li>
-								<li>
-									<a class="icon upload"></a>
-								</li>
-							</ul>
-						</div>
+						<table style="width: 100%;min-height: 20vh;font-size: 1.2em;">
+							<tr>
+								<td><span id="t_content" style="">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span></td>
+								<td style="width: 20px">
+								<div align="center" style="width: 100%">
+									<div onclick="upClick(this);">
+										<a class="icon up small" ></a>
+									</div>
+									<div>
+										<span>0</span>
+									</div>
+									<div onclick="downClick(this);">
+										<a class="icon down small" ></a>
+									</div>
+								</div></td>
+							</tr>
+						</table>
+						<table style="width: 100%">
+							<tr>
+								<td><span>200m</span></td>
+								<td><a class="icon message"></a><span>30</span></td>
+								<td><span>2小时前</span></td>
+								<td><a class="icon upload"></a></td>
+							</tr>
+						</table>
 					</div>
-				</div>
-				<div class="colum">
+				<div id="commentsList">
 					
 				</div>
 			</div>
@@ -270,9 +275,15 @@
 			<a class="" href="#hotMain">热点吐槽</a>
 			<a class="pressed" href="#newMain">最新吐槽</a>
 		</footer>
-		<footer id="commentFoot" style="height: 100%">
-					<input placeholder="我来评论一句" style="width:80%;float: left;height: 100%"/>
-					<a class="button yellow" style="margin: 0;padding: 0;height: 100%;float: right;width: 20%;height: 100%" href="#" id="login" onclick="signIn();">评论</a>
-		</footer>
+		<table id="commentFoot" style="width:100%; height: 100%">
+			<tr>
+			<td>
+			<input placeholder="我来评论一句" style="width: 100%;height: 100%"/>
+			</td>
+			<td style="width: 50px">
+			<a class="button yellow" style="margin: 0;padding: 0;height: 100%;width: 100%" href="#" id="login" onclick="comment();">评论</a>
+			</td>
+			</tr>
+		</table>
 	</body>
 </html>
