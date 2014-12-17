@@ -37,8 +37,38 @@ class Tucao_commentController extends Controller
 		);
 	}
 
+    //返回未读的用户评论列表
+    public function actionUnread_comment() {
+        $notiForm = new NotificationForm();
+        if(!isset($_POST['user_id']) || $_POST['user_id']!= Yii::app()->user->id) {
+            $this->sendAjax(null);
+        }
+        $notiForm->user_id = $_POST['user_id'];
+        if(!isset($_POST['offset']) || !isset($_POST['length'])) {
+            $notiForm->offset = 0;
+            $notiForm->length = 10;
+        } else {
+            $notiForm->offset = $_POST['offset'];
+            $notiForm->length = $_POST['length'];
+        }
+        if(!$notiForm->validate()) {
+            $this->sendAjax(null);
+        }
+        $rs = $notiForm->getUnreadComment();
+        if($rs != null) {
+            $this->sendAjax($rs,true);
+        } else {
+            $this->sendAjax(null);
+        }
+
+    }
+
     public function actionApply() {
         $tc_comm = new Tucao_comment();
+        $tc = new Tucao();
+        if(isset($_POST['user_id']) && $_POST['user_id'] != Yii::app()->user->id) {
+            $this->sendAjax(null);
+        }
         if(!isset($_POST['tucao_id']) || !isset($_POST['content']) || !isset($_POST['hide'])) {
             $this->sendAjax(null);
             return;
@@ -55,10 +85,28 @@ class Tucao_commentController extends Controller
         } else {
             $tc_comm->REPLY_COMMENT = 0;
         }
-        if($tc_comm->validate() && $tc_comm->save(false)) {
-            $this->sendAjax(array(
+        if($tc_comm->validate()) {
+
+            $rs = $tc->addComment($_POST['tucao_id']);
+            if($rs <=0) {
+                $this->sendAjax(null);
+                return;
+            }
+            $transaction = Yii::app()->db->beginTransaction(); //创建事务
+            try {
+                $tc_comm->save(false);
+                $transaction->commit(); //提交事务会真正的执行数据库操作
+                $rtn = true;
+            } catch (Exception $e) {
+                $transaction->rollback(); //如果操作失败, 数据回滚
+                echo $e->getMessage();
+
+                $this->sendAjax(array(
                 'comment_id' => $tc_comm->attributes['COMMENT_ID']),
                 true);
+            }
+            $this->sendAjax(array("comment_id"=>$tc_comm->attributes['COMMENT_ID']),true);
+
         } else {
             $this->sendAjax(null);
         }

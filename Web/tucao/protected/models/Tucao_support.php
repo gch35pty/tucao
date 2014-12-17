@@ -9,6 +9,7 @@
  * @property integer $SUPPORT_STATUS
  * @property integer $USER_ID
  * @property string $CREATE_TIME
+ * @property integer $STATUS
  */
 class Tucao_support extends CActiveRecord
 {
@@ -29,11 +30,11 @@ class Tucao_support extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('TUCAO_ID', 'required'),
-			array('TUCAO_ID, SUPPORT_STATUS, USER_ID', 'numerical', 'integerOnly'=>true),
+			array('TUCAO_ID, SUPPORT_STATUS, USER_ID, STATUS', 'numerical', 'integerOnly'=>true),
 			array('CREATE_TIME', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('SUPPORT_ID, TUCAO_ID, SUPPORT_STATUS, USER_ID, CREATE_TIME', 'safe', 'on'=>'search'),
+			array('SUPPORT_ID, TUCAO_ID, SUPPORT_STATUS, USER_ID, CREATE_TIME, STATUS', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,6 +60,7 @@ class Tucao_support extends CActiveRecord
 			'SUPPORT_STATUS' => 'Support Status',
 			'USER_ID' => 'User',
 			'CREATE_TIME' => 'Create Time',
+            'STATUS' => 'Status',
 		);
 	}
 
@@ -89,6 +91,8 @@ class Tucao_support extends CActiveRecord
 		$criteria->compare('USER_ID',$this->USER_ID);
 
 		$criteria->compare('CREATE_TIME',$this->CREATE_TIME,true);
+
+        $criteria->compare('STATUS', $this->STATUS);
 
 		return new CActiveDataProvider('Tucao_support', array(
 			'criteria'=>$criteria,

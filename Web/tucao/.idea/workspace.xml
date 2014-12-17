@@ -26,16 +26,16 @@
       <file leaf-file-name="TucaoNearForm.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/TucaoNearForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="31" selection-start="2529" selection-end="2529" vertical-scroll-proportion="-6.25" vertical-offset="780" max-vertical-offset="1425">
+            <state line="82" column="21" selection-start="3304" selection-end="3304" vertical-scroll-proportion="-7.3333335" vertical-offset="979" max-vertical-offset="1560">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TucaoController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TucaoController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/TucaoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="34" selection-start="2773" selection-end="2773" vertical-scroll-proportion="0.3545611" vertical-offset="1159" max-vertical-offset="2595">
+            <state line="53" column="16" selection-start="1395" selection-end="1395" vertical-scroll-proportion="33.75" vertical-offset="1605" max-vertical-offset="2595">
               <folding />
             </state>
           </provider>
@@ -44,8 +44,29 @@
       <file leaf-file-name="Tucao_commentController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/Tucao_commentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="9" selection-start="1722" selection-end="1722" vertical-scroll-proportion="-19.208334" vertical-offset="484" max-vertical-offset="1080">
+            <state line="45" column="47" selection-start="1080" selection-end="1080" vertical-scroll-proportion="-8.583333" vertical-offset="469" max-vertical-offset="1800">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotificationForm.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/models/NotificationForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="7" selection-start="584" selection-end="584" vertical-scroll-proportion="0.302926" vertical-offset="184" max-vertical-offset="1185">
+              <folding>
+                <element signature="e#6#90#0" expanded="true" />
+                <marker date="1418832840000" expanded="true" signature="642:2307" placeholder="SELECT c1.CO..." />
+                <marker date="1418832840000" expanded="true" signature="642:2285" placeholder="SELECT c1.CO..." />
+                <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
+                <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
+                <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
+                <marker date="1418832840000" expanded="true" signature="642:1421" placeholder="SELECT c1.CO..users..." />
+                <marker date="1418832840000" expanded="true" signature="642:1415" placeholder="SELECT c1.CO..users..." />
+                <marker date="1418832840000" expanded="true" signature="642:2022" placeholder="SELECT c1.CO..." />
+                <marker date="1418832840000" expanded="true" signature="1463:2285" placeholder="SELECT c1.CO..users..." />
+                <marker date="1418832840000" expanded="true" signature="1463:2285" placeholder="SELECT c1.CO..users..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,7 +74,7 @@
       <file leaf-file-name="SiteController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="10" selection-start="3149" selection-end="3149" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1950">
+            <state line="117" column="10" selection-start="3149" selection-end="3149" vertical-scroll-proportion="0.0" vertical-offset="1382" max-vertical-offset="1950">
               <folding />
             </state>
           </provider>
@@ -62,7 +83,7 @@
       <file leaf-file-name="UtilHelper.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/components/UtilHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="25" selection-start="1268" selection-end="1268" vertical-scroll-proportion="-22.333334" vertical-offset="109" max-vertical-offset="765">
+            <state line="43" column="25" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -71,7 +92,7 @@
       <file leaf-file-name="RegisterForm.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/RegisterForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="17" selection-start="1788" selection-end="1793" vertical-scroll-proportion="-13.583333" vertical-offset="454" max-vertical-offset="1035">
+            <state line="23" column="5" selection-start="297" selection-end="574" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1035">
               <folding />
             </state>
           </provider>
@@ -80,10 +101,10 @@
       <file leaf-file-name="Tucao.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/Tucao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="42" selection-start="5626" selection-end="5626" vertical-scroll-proportion="-0.5416667" vertical-offset="2762" max-vertical-offset="3330">
+            <state line="209" column="0" selection-start="6398" selection-end="6398" vertical-scroll-proportion="0.0" vertical-offset="2867" max-vertical-offset="3465">
               <folding>
-                <marker date="1418548309000" expanded="true" signature="4837:5366" placeholder="select TUCAO..tucao..." />
-                <marker date="1418548309000" expanded="true" signature="5686:6194" placeholder="select TUCAO..tucao..." />
+                <marker date="1418744137000" expanded="true" signature="4837:5366" placeholder="select TUCAO..tucao..." />
+                <marker date="1418744137000" expanded="true" signature="5686:6194" placeholder="select TUCAO..tucao..." />
               </folding>
             </state>
           </provider>
@@ -92,12 +113,21 @@
       <file leaf-file-name="Tucao_comment.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/Tucao_comment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="59" selection-start="3295" selection-end="3295" vertical-scroll-proportion="-16.791666" vertical-offset="1247" max-vertical-offset="1950">
+            <state line="13" column="3" selection-start="375" selection-end="375" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="2010">
               <folding>
-                <marker date="1418544092000" expanded="true" signature="2928:3292" placeholder="select COMME..tucao_comment..." />
-                <marker date="1418544092000" expanded="true" signature="2928:3291" placeholder="select COMME..tucao_comment..." />
-                <marker date="1418544092000" expanded="true" signature="2928:3380" placeholder="select COMME..tucao_comment..." />
+                <marker date="1418745865000" expanded="true" signature="3061:3425" placeholder="select COMME..tucao_comment..." />
+                <marker date="1418745865000" expanded="true" signature="3061:3424" placeholder="select COMME..tucao_comment..." />
+                <marker date="1418745865000" expanded="true" signature="3061:3513" placeholder="select COMME..tucao_comment..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tucao_support.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/models/Tucao_support.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="94" column="52" selection-start="2642" selection-end="2642" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1725">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,12 +154,15 @@
         <option value="$PROJECT_DIR$/protected/models/Users.php" />
         <option value="$PROJECT_DIR$/protected/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/protected/models/RegisterForm.php" />
-        <option value="$PROJECT_DIR$/protected/models/Tucao_comment.php" />
-        <option value="$PROJECT_DIR$/protected/controllers/Tucao_commentController.php" />
         <option value="$PROJECT_DIR$/protected/components/UtilHelper.php" />
         <option value="$PROJECT_DIR$/protected/controllers/TucaoController.php" />
         <option value="$PROJECT_DIR$/protected/models/Tucao.php" />
+        <option value="$PROJECT_DIR$/protected/models/Tucao_support.php" />
+        <option value="$PROJECT_DIR$/protected/models/Tucao_comment.php" />
+        <option value="$PROJECT_DIR$/protected/models/message.php" />
         <option value="$PROJECT_DIR$/protected/models/TucaoNearForm.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/Tucao_commentController.php" />
+        <option value="$PROJECT_DIR$/protected/models/NotificationForm.php" />
       </list>
     </option>
   </component>
@@ -193,6 +226,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -285,7 +319,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,10 +422,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33993903" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2358643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23909532" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3369863" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -400,11 +432,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.60518295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="22" width="1280" height="774" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -426,27 +459,12 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="32" selection-start="3109" selection-end="3109" vertical-scroll-proportion="0.0" vertical-offset="1354" max-vertical-offset="1935" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="42" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="285" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/ESmartyViewRenderer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3405" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/extensions/smarty.md">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="31" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="720" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/extensions/plugins/function.t.php">
@@ -520,11 +538,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/extensions/smarty.md">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="31" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="720" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/extensions/plugins/function.t.php">
@@ -584,9 +602,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Users_relation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1084" max-vertical-offset="1665">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1084" max-vertical-offset="1665" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/TopicController.php">
@@ -642,18 +658,9 @@
         <state line="9" column="41" selection-start="113" selection-end="150" vertical-scroll-proportion="0.103270225" vertical-offset="0" max-vertical-offset="581" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="10" selection-start="3149" selection-end="3149" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="39" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1245">
-          <folding />
-        </state>
+        <state line="64" column="39" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1245" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
@@ -663,66 +670,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Tucao_comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="59" selection-start="3295" selection-end="3295" vertical-scroll-proportion="-16.791666" vertical-offset="1247" max-vertical-offset="1950">
-          <folding>
-            <marker date="1418544092000" expanded="true" signature="2928:3292" placeholder="select COMME..tucao_comment..." />
-            <marker date="1418544092000" expanded="true" signature="2928:3291" placeholder="select COMME..tucao_comment..." />
-            <marker date="1418544092000" expanded="true" signature="2928:3380" placeholder="select COMME..tucao_comment..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/Tucao_commentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="9" selection-start="1722" selection-end="1722" vertical-scroll-proportion="-19.208334" vertical-offset="484" max-vertical-offset="1080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/components/UtilHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="25" selection-start="1268" selection-end="1268" vertical-scroll-proportion="-22.333334" vertical-offset="109" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Tucao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="42" selection-start="5626" selection-end="5626" vertical-scroll-proportion="-0.5416667" vertical-offset="2762" max-vertical-offset="3330">
-          <folding>
-            <marker date="1418548309000" expanded="true" signature="4837:5366" placeholder="select TUCAO..tucao..." />
-            <marker date="1418548309000" expanded="true" signature="5686:6194" placeholder="select TUCAO..tucao..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/RegisterForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="17" selection-start="1788" selection-end="1793" vertical-scroll-proportion="-13.583333" vertical-offset="454" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/TucaoNearForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="31" selection-start="2529" selection-end="2529" vertical-scroll-proportion="-6.25" vertical-offset="780" max-vertical-offset="1425">
+        <state line="43" column="25" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/db/ar/CActiveRecord.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1066" column="20" selection-start="39159" selection-end="39159" vertical-scroll-proportion="0.2535211" vertical-offset="15741" max-vertical-offset="36525">
+        <state line="1778" column="20" selection-start="65535" selection-end="65535" vertical-scroll-proportion="-8.208333" vertical-offset="26368" max-vertical-offset="36525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="10" selection-start="3149" selection-end="3149" vertical-scroll-proportion="0.0" vertical-offset="1382" max-vertical-offset="1950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Tucao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="209" column="0" selection-start="6398" selection-end="6398" vertical-scroll-proportion="0.0" vertical-offset="2867" max-vertical-offset="3465">
+          <folding>
+            <marker date="1418744137000" expanded="true" signature="4837:5366" placeholder="select TUCAO..tucao..." />
+            <marker date="1418744137000" expanded="true" signature="5686:6194" placeholder="select TUCAO..tucao..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Tucao_support.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="52" selection-start="2642" selection-end="2642" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="7" selection-start="371" selection-end="371" vertical-scroll-proportion="-0.30981067" vertical-offset="405" max-vertical-offset="1740" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/RegisterForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="5" selection-start="297" selection-end="574" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Tucao_comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="3" selection-start="375" selection-end="375" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="2010">
+          <folding>
+            <marker date="1418745865000" expanded="true" signature="3061:3425" placeholder="select COMME..tucao_comment..." />
+            <marker date="1418745865000" expanded="true" signature="3061:3424" placeholder="select COMME..tucao_comment..." />
+            <marker date="1418745865000" expanded="true" signature="3061:3513" placeholder="select COMME..tucao_comment..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/TucaoNearForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="21" selection-start="3304" selection-end="3304" vertical-scroll-proportion="-7.3333335" vertical-offset="979" max-vertical-offset="1560">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/TucaoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="34" selection-start="2773" selection-end="2773" vertical-scroll-proportion="0.3545611" vertical-offset="1159" max-vertical-offset="2595">
+        <state line="53" column="16" selection-start="1395" selection-end="1395" vertical-scroll-proportion="33.75" vertical-offset="1605" max-vertical-offset="2595">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/Tucao_commentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="47" selection-start="1080" selection-end="1080" vertical-scroll-proportion="-8.583333" vertical-offset="469" max-vertical-offset="1800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/NotificationForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="7" selection-start="584" selection-end="584" vertical-scroll-proportion="0.302926" vertical-offset="184" max-vertical-offset="1185">
+          <folding>
+            <element signature="e#6#90#0" expanded="true" />
+            <marker date="1418832840000" expanded="true" signature="642:2307" placeholder="SELECT c1.CO..." />
+            <marker date="1418832840000" expanded="true" signature="642:2285" placeholder="SELECT c1.CO..." />
+            <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
+            <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
+            <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
+            <marker date="1418832840000" expanded="true" signature="642:1421" placeholder="SELECT c1.CO..users..." />
+            <marker date="1418832840000" expanded="true" signature="642:1415" placeholder="SELECT c1.CO..users..." />
+            <marker date="1418832840000" expanded="true" signature="642:2022" placeholder="SELECT c1.CO..." />
+            <marker date="1418832840000" expanded="true" signature="1463:2285" placeholder="SELECT c1.CO..users..." />
+            <marker date="1418832840000" expanded="true" signature="1463:2285" placeholder="SELECT c1.CO..users..." />
+          </folding>
         </state>
       </provider>
     </entry>
