@@ -1,3 +1,8 @@
+//随机一个0~29的数
+function random29(){
+	return "portrait/"+Math.round(Math.random()*29)+".png";
+}
+
 //几分钟前、几小时前、几天前等时间差
 function jsDateDiff(dateStr){
 	var publishTime= new Date(dateStr.replace(/-/g,"/"))/1000;       

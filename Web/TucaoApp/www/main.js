@@ -347,6 +347,7 @@ function startEdit() {
 
 function startTucao(){
 	$("#navbar").css("height","35px");
+	refreshCommentList();
 }
 function closeTucao(){
 	$("#navbar").css("height","45px");

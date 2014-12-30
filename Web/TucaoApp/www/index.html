@@ -54,10 +54,19 @@
 			</table>
 			<table style="width: 100%;height: 20px;font-size: 8px;padding-right: 40px">
 				<tr>
-					<td width="25%" style="padding-left: 5px"><span id="t_interval">${tucao.CREATE_TIME|jsDateDiff}</span></td>
-					<td width="25%" align="center"><span>200m</span></td>
-					<td width="25%" align="center"><i class="icon mail"></i><span>30</span></td>
-					<td width="25%" align="right"><span>吐槽超人gc</span></td>
+					<td width="25%" style="padding-left: 5px">
+						<span id="t_interval">${tucao.CREATE_TIME|jsDateDiff}</span>
+					</td>
+					<td width="25%" align="center">
+						<span>200m</span>
+					</td>
+					<td width="25%" align="center">
+						<i class="icon mail"></i>
+						<span>30</span>
+					</td>
+					<td width="25%" align="right">
+						<span>吐槽超人gc</span>
+					</td>
 				</tr>
 			</table>
 			</div>
@@ -93,11 +102,35 @@
 
 		<script id="tplComment" type="text/template">
 			{@each data as comment,index}
-			<div class="colum">
+			<div style="border-bottom: 1px solid #dddddd;background: #ffffff">
 			<table style="width: 100%;">
-			<tr>
-			<td><span style="font-size: 0.8em;">${comment.COMMENT_CONTENT}</span></td>
-			</tr>
+				<tr>
+					<td rowspan="2" width="30px" style="margin-right: 5px">
+						<img src=${comment.COMMENT_CONTENT|random29} width="25px" height="25px"/>
+					</td>
+					<td height="15px" style="font-size: 8px;">
+						<span>评论员cky</span>
+						<span style="margin-left: ">abc</span>
+					</td>
+					<td rowspan="2" width="40px">
+						<div align="center" style="width: 100%">
+							<div onclick="upClick(this);" style="font-size: 0px">
+								<img src="icons/ios7-arrow-up.png" width="30px" height="20px"/>
+							</div>
+							<div style="font-size: 8px">
+								<span>0</span>
+							</div>
+							<div onclick="downClick(this);" style="font-size: 0px">
+								<img src="icons/ios7-arrow-down.png" width="30px" height="20px"/>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td align="left" style="font-size: 10px;vertical-align: middle">
+						<span>${comment.COMMENT_CONTENT}</span>
+					</td>
+				</tr>
 			</table>
 			</div>
 			{@/each}
@@ -118,8 +151,9 @@
 			var map = null;
 			var curTucaoId = 8;
 
-			juicer.register('jsDateDiff', jsDateDiff);
 			//注册自定义函数
+			juicer.register('jsDateDiff', jsDateDiff);
+			juicer.register('random29', random29);
 
 			// set to ios7 ---cky
 			$.ui.ready(function() {
@@ -208,55 +242,52 @@
 
 				<div class="panel" id="newMain" data-load="startNew"  data-footer="foot" data-header="head"></div>
 
-				<div class="panel" id="tucaoPanel" title="查看吐槽" selected="true" data-load="startTucao" data-unload="closeTucao" data-header="headEdit" data-footer="commentFoot" >
-					<div style="border-bottom: 1px solid #dddddd;background: #eeeeee">
-						<table style="width: 100%">
+				<div class="panel" id="tucaoPanel" title="查看吐槽" selected="true" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" >
+					<div style="border-bottom: 1px solid #dddddd;background: #eeeeee; ">
+						<table style="width: 100%;padding-left: 1px;padding-right:40px">
 							<tr>
-								<td width="35px" style="font-size:0px; padding-left: 1px">
+								<td width="35px" style="font-size:0px;">
 									<img src="portrait/9.png" width="30px" height="30px"/>
 								</td>
 								<td style="font-size:10px;vertical-align: bottom" >
 									<span>吐槽超人gc</span>
 								</td>
-								<td align="right" style="font-size:10px;vertical-align:bottom; padding-right:40px">
+								<td align="right" style="font-size:10px;vertical-align:bottom; ">
 									<span>30分钟前</span>
 								</td>
 							</tr>
 						</table>
-						<table style="width: 100%;font-size: 1.2em;">
+						<table style="width: 100%;">
 							<tr>
-								<td align="left" valign="top">
-									<span id="t_content" style="">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span>
+								<td align="left" valign="top" style="padding: 10px;font-size: 15px;">
+									<span id="t_content">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span>
 								</td>
-								<td style="width: 20px">
+								<td style="width: 40px">
 									<div align="center" style="width: 100%">
-										<div onclick="upClick(this);">
-											<a class="icon up small" ></a>
+										<div onclick="upClick(this);" style="font-size: 0px">
+											<img src="icons/ios7-arrow-up.png" width="35px" height="25px"/>
 										</div>
-										<div>
+										<div style="font-size: 12px;padding-bottom: 10px;padding-top: 10px">
 											<span>0</span>
 										</div>
-										<div onclick="downClick(this);">
-											<a class="icon down small" ></a>
+										<div onclick="downClick(this);" style="font-size: 0px">
+											<img src="icons/ios7-arrow-down.png" width="35px" height="25px"/>
 										</div>
 									</div>
 								</td>
 							</tr>
 						</table>
-						<table style="width: 100%">
+						<table style="width: 100%;font-size: 10px;padding-right: 40px;padding-left: 5px">
 							<tr>
-								<td>
+								<td width="33%" align="left">
 									<span>200m</span>
 								</td>
-								<td>
-									<a class="icon message"></a>
+								<td width="33%" align="center">
+									<i class="icon mail" style="font-size: 15px"></i>
 									<span>30</span>
 								</td>
-								<td>
-									<span id="t_interval">2小时前</span>
-								</td>
-								<td>
-									<a class="icon upload"></a>
+								<td width="33%" align="right" style="font-size: 0px">
+									<img src="icons/share.png" width="20px" height="20px" />
 								</td>
 							</tr>
 						</table>
@@ -265,6 +296,24 @@
 
 					</div>
 				</div>
+				<div class="panel" id="editPanel" title="编辑吐槽" data-header="headEdit" data-load="startEdit" data-footer="none">
+					<div style="width: 100%;padding: 5px;height: 100%">
+						<div style="width: 100%;">
+							<textarea id="tContent" placeholder="我要吐槽..." style="width: 100%; height:30vh; overflow:auto;margin-bottom: 0"></textarea>
+						</div>
+						<div style="width: 100%">
+							<div style="float: left;margin-left: 25px;">
+								<input id="cAnony" type="checkbox" checked="true" name="checkAnony" value="1" style=""/>
+								<label for="cAnony" style="font-size: 15px;width: 100%">匿名发表</label>
+							</div>
+							<div style="float:right;margin-right: 5px;">
+								<a class="button green" href="#" id="aSubmit" onclick="apply();">发表</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel" id="discoveryPanel" title="发现" data-load="startDiscovery" data-footer="foot" ></div>
+				<div class="panel" id="messagePanel" title="消息" data-load="" data-footer="foot" ></div>
 				<div class="panel" id="userPanel" title="用户管理" data-load="startUser" data-footer="foot" >
 					<div>
 						<span>chenkaiyan</span>
@@ -290,24 +339,6 @@
 				</div>
 				<div class="panel" id="mylistPanel" title="我发表的吐槽" data-load="startMylist" data-footer="foot" ></div>
 				<div class="panel" id="mycommentPanel" title="我评论过的吐槽" data-load="startMycomment" data-footer="foot" ></div>
-				<div class="panel" id="discoveryPanel" title="发现" data-load="startDiscovery" data-footer="foot" ></div>
-				<div class="panel" id="messagePanel" title="消息" data-load="" data-footer="foot" ></div>
-				<div class="panel" id="editPanel" title="编辑吐槽"  data-load="startEdit" data-footer="none">
-					<div style="width: 100%;margin-top: 5px;height: 100%">
-						<div style="width: 100%;">
-							<textarea id="tContent" placeholder="我要吐槽..." style="width: 100%; height:30vh; overflow:auto;"></textarea>
-						</div>
-						<div style="width: 100%">
-							<div style="margin-left: 10%;float: left">
-								<input id="cAnony" type="checkbox" checked="true" name="checkAnony" value="1" style=""/>
-								<label for="cAnony" style="width: 100%">匿名</label>
-							</div>
-							<div style="float:right;margin-right: 2%;">
-								<a class="button green" href="#" id="aSubmit" onclick="apply();">发表</a>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 
 			<header id="head" style="height: 100%">
@@ -327,10 +358,16 @@
 			<header id="backHeader">
 				<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
 			</header>
+			<header id="headDetail">
+				<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
+				<div style="float: right">
+					<img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
+				</div>
+			</header>
 			<header id="headEdit">
 				<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
 				<div style="float: right">
-				<img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
+					<img src="icons/ios7-paperplane-outline.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
 				</div>
 			</header>
 			<footer id="foot">
@@ -342,10 +379,12 @@
 			<footer id="commentFoot" style="height: 100%">
 				<table style="width:100%; height: 100%">
 					<tr>
-						<td>
-						<input id="commentContent" placeholder="我来评论一句" style="width: 100%;height: 100%"/>
+						<td style="padding-left: 5px">
+							<input id="commentContent" placeholder="我来评论一句" style="width: 100%;height:30px; border-right: 0;border-top: 0;border-left: 0;border-bottom-color: gray;border-bottom-width: 1px;"/>
 						</td>
-						<td style="width: 50px;padding: 2px"><a class="button yellow" style="margin: 0;padding: 0;height: 100%;width: 100%;" href="#" onclick="applycomment();">评论</a></td>
+						<td width="40px" align="center">
+							<img src="icons/ios7-paperplane-outline.png" width="30px" height="30px"/>
+						</td>
 					</tr>
 				</table>
 			</footer>
