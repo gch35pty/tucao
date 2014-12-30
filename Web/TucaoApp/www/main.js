@@ -1,3 +1,14 @@
+function showDistanceSelect (img) {
+  $(img).attr("src","icons/grid.png");
+  $(img).attr("onclick","hideDistanceSelect(this);");
+  $("#distanceSelectDiv").show();
+}
+function hideDistanceSelect (img) {
+  $(img).attr("src","icons/ios7-more-outline.png");
+  $(img).attr("onclick","showDistanceSelect(this);");
+  $("#distanceSelectDiv").hide();
+}
+
 //发表评论
 function applycomment () {
 	var content = trim($("#commentContent").val());
