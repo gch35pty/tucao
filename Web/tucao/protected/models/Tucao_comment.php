@@ -10,6 +10,7 @@
  * @property string $CREATE_TIME
  * @property integer $COMMENT_USER
  * @property integer $REPLY_COMMENT
+ * @property integer $STATUS
  */
 class Tucao_comment extends CActiveRecord
 {
@@ -30,12 +31,12 @@ class Tucao_comment extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('TUCAO_ID', 'required'),
-			array('TUCAO_ID, COMMENT_USER, REPLY_COMMENT', 'numerical', 'integerOnly'=>true),
+			array('TUCAO_ID, COMMENT_USER, REPLY_COMMENT, STATUS', 'numerical', 'integerOnly'=>true),
 			array('COMMENT_CONTENT', 'length', 'max'=>200),
 			array('CREATE_TIME', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('COMMENT_ID, TUCAO_ID, COMMENT_CONTENT, CREATE_TIME, COMMENT_USER, REPLY_COMMENT', 'safe', 'on'=>'search'),
+			array('COMMENT_ID, TUCAO_ID, COMMENT_CONTENT, CREATE_TIME, COMMENT_USER, REPLY_COMMENT, STATUS', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,6 +63,7 @@ class Tucao_comment extends CActiveRecord
 			'CREATE_TIME' => 'Create Time',
 			'COMMENT_USER' => 'Comment User',
 			'REPLY_COMMENT' => 'Reply Comment',
+            'STATUS' => 'Status',
 		);
 	}
 
@@ -94,6 +96,8 @@ class Tucao_comment extends CActiveRecord
 		$criteria->compare('COMMENT_USER',$this->COMMENT_USER);
 
 		$criteria->compare('REPLY_COMMENT',$this->REPLY_COMMENT);
+
+        $criteria->compare('STATUS', $this->STATUS);
 
 		return new CActiveDataProvider('Tucao_comment', array(
 			'criteria'=>$criteria,

@@ -37,7 +37,11 @@ class TucaoNearForm extends CFormModel {
             $lng_left = $location['lng_left'];
             $lng_right = $location['lng_right'];
             //print_r($location);
-            $sql = "select *,GETDISTANCE(LADTITUDE, LONGITUDE, {$this->lat},{$this->lng}) as distanceFrom from tucao where
+            $sql = "select *,GETDISTANCE(LADTITUDE, LONGITUDE, {$this->lat},{$this->lng}) as distanceFrom,
+                        users.NICK_NAME as user_name
+                    from tucao, users
+                    where
+                        users.USER_ID = tucao.USER_ID and
                         LADTITUDE between $lat_left and $lat_right and
                         LONGITUDE between $lng_left and $lng_right ".
                         "and (
@@ -73,10 +77,14 @@ class TucaoNearForm extends CFormModel {
             $lat_right = $location['lat_right'];
             $lng_left = $location['lng_left'];
             $lng_right = $location['lng_right'];
-            $sql = "select *,GETDISTANCE(LADTITUDE, LONGITUDE, {$this->lat},{$this->lng}) as distanceFrom from tucao where
+            $sql = "select *,GETDISTANCE(LADTITUDE, LONGITUDE, {$this->lat},{$this->lng}) as distanceFrom,
+                        users.NICK_NAME as user_name
+                    from tucao, users
+                    where
+                        users.USER_ID = tucao.USER_ID and
                         LADTITUDE between $lat_left and $lat_right and
                         LONGITUDE between $lng_left and $lng_right ".
-                "and (
+                        "and (
 	                        DISTANCE > GETDISTANCE (
 		                    LADTITUDE,LONGITUDE,{$this->lat},{$this->lng}
 	                        ) OR (
@@ -85,9 +93,10 @@ class TucaoNearForm extends CFormModel {
 	                    ) ".$scoreCon." limit {$this->offset},{$this->length}";
         }
         else {
-            $sql = "select *, null as distanceFrom from tucao ".$scoreCon." limit {$this->offset},{$this->length}";
+            $sql = "select *, null as distanceFrom, users.NICK_NAME as user_name from tucao, users
+                    where users.USER_ID = tucao.USER_ID ".$scoreCon." limit {$this->offset},{$this->length}";
         }
-        echo $sql;
+        //echo $sql;
         $rs = Yii::app()->db->createCommand($sql)->queryAll();
         return $rs;
     }

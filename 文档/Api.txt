@@ -209,9 +209,11 @@ desp: 获取用户周边区域的热门吐槽
 				‘disagree_num’:xxx,
 				'share_num': xxx,
 				'create_time': xxx,
-				'lat' : xxx.xxx 纬度，浮点类型,
-    			'lng' : xxx.xxx 经度，浮点类型,
+				'LADTITUDE' : xxx.xxx 纬度，浮点类型,
+    			'LONGITUDE' : xxx.xxx 经度，浮点类型,
     			‘user_name': xxx
+    			'user_id': xxx
+    			'distanceFrom': xxx
 			},
 			{},
 			{},
@@ -252,9 +254,11 @@ desp: 获取用户周边区域的最新吐槽
 				'disagree_num':xxx,
 				'share_num': xxx,
 				'create_time': xxx,
-				'lat' : xxx.xxx 纬度，浮点类型,
-    			'lng' : xxx.xxx 经度，浮点类型,
+				'LADTITUDE' : xxx.xxx 纬度，浮点类型,
+    			'LONGITUDE' : xxx.xxx 经度，浮点类型,
     			'user_name': xxx,
+    			'user_id': xxx,
+    			'distanceFrom': xxx
 			},
 			{},
 			{},
@@ -328,7 +332,7 @@ desp: 获取某条吐槽的评论
 				‘comment_id': xxx,
 				'comment_content':xxx,
 				'user_name': xxx,
-				'create_time': xxx
+				'createre_time': xxx
 			},
 			{},
 			{},
@@ -386,6 +390,7 @@ desp: 获取全区域的最热吐槽
 				'lat' : xxx.xxx 纬度，浮点类型,
     			'lng' : xxx.xxx 经度，浮点类型,
     			'user_name': xxx,
+    			'user_id': xxx
 			},
 			{},
 			{},
@@ -406,7 +411,7 @@ desp: 获取用户的未读消息
 {
 	‘user_id’: xxx, 用户id
 	’offset‘: xxx,
-	'size': xxx,
+	'length': xxx,
 }
 返回：
 {

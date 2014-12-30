@@ -206,6 +206,15 @@ class Tucao extends CActiveRecord
         return $rs;
     }
 
+    public function addComment($id) {
+
+        if(is_null($id)) {
+            return null;
+        }
+        $rs = $this->updateCounters(array('COMMENT_NUM'=>1),"TUCAO_ID={$id}");
+        return $rs;
+    }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Tucao the static model class

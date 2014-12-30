@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-12-14 17:12:07
+<?php /* Smarty version Smarty-3.1.13, created on 2014-12-17 23:20:45
          compiled from "/Users/gongchen/Project/tucao/Web/Tucao/protected/views/test/do.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:219585539548d5467928a70-65438880%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:21060470054919f4d243035-41461539%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '219585539548d5467928a70-65438880',
+  'nocache_hash' => '21060470054919f4d243035-41461539',
   'function' => 
   array (
   ),
@@ -23,9 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_548d546798dc45_13931586',
+  'unifunc' => 'content_54919f4d2a6c51_01270517',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_548d546798dc45_13931586')) {function content_548d546798dc45_13931586($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['url_prefix'] = new Smarty_variable($_smarty_tpl->tpl_vars['Yii']->value->params['url_prefix'], null, 0);?>
+<?php if ($_valid && !is_callable('content_54919f4d2a6c51_01270517')) {function content_54919f4d2a6c51_01270517($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['url_prefix'] = new Smarty_variable($_smarty_tpl->tpl_vars['Yii']->value->params['url_prefix'], null, 0);?>
 <?php $_smarty_tpl->tpl_vars['link_prefix'] = new Smarty_variable($_smarty_tpl->tpl_vars['Yii']->value->params['link_prefix'], null, 0);?>
 
 <!DOCTYPE html>
