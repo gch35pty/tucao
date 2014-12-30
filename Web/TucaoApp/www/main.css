@@ -1,20 +1,26 @@
-body {
-	font-family: " 宋体";
+#afui.ios7 {
+	font-family: "微软雅黑";
+}
+#afui .panel {
+	padding: 0px;
+}
+#afui .header {
+	height: 40px;
+}
+table {
+	border-collapse: separate;
+	border-spacing: 0px;
 }
 
 #afui #navbar {
-	height: 30px;
+	height: 45px;
 }
-#afui #navbar a {
-	line-height: 20px;
-}
-a {
+/*a {
 	TEXT-DECORATION: none
-}
+}*/
 .colum {
 	width: 100%;
 	min-height: 5.5em;
-	background: #fff;
 	padding-top: 0.3em;
 	padding-bottom: 0.1em;
 	margin-top: 0.1em;
@@ -27,11 +33,9 @@ a {
 	width: 90%;
 	font-size: 0.875em;
 	/*font-family: "微软雅黑";*/
-	color: #333;
 }
 .colum .content .words {
 	font-size: 1.1em;
-	color: #333;
 	min-height: 3.5em;
 	/*display:block;
 	 white-space:nowrap;
@@ -40,7 +44,6 @@ a {
 }
 .colum .content .wordsHot {
 	font-size: 1.1em;
-	color: #333;
 	min-height: 1.5em;
 	display: block;
 	white-space: nowrap;
@@ -55,7 +58,6 @@ a {
 	float: right;
 	width: 10%;
 	/*font-family: "微软雅黑";*/
-	color: #333;
 }
 .colum .score .uparrow {
 	float: right;
