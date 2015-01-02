@@ -15,6 +15,9 @@ table {
 #afui #navbar {
 	height: 45px;
 }
+#afui .list > li > a {
+	padding: 10px 20px 10px 10px
+}
 /*a {
 	TEXT-DECORATION: none
 }*/

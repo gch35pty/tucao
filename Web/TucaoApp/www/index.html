@@ -108,7 +108,7 @@
 					<td rowspan="2" width="30px" style="margin-right: 5px">
 						<img src=${comment.COMMENT_CONTENT|random29} width="25px" height="25px"/>
 					</td>
-					<td height="15px" style="font-size: 8px;">
+					<td height="15px" style="font-size: 8px;color: #999999">
 						<span>评论员cky</span>
 						<span style="margin-left: ">abc</span>
 					</td>
@@ -297,7 +297,7 @@
 
 					</div>
 				</div>
-				<div class="panel" id="editPanel" title="编辑吐槽" selected="true" data-header="headEdit" data-load="startEdit" data-footer="none">
+				<div class="panel" id="editPanel" title="编辑吐槽" data-header="headEdit" data-load="startEdit" data-footer="none">
 					<div style="width: 100%;padding: 5px;height: 100%">
 						<div style="width: 100%;">
 							<textarea id="tContent" placeholder="我要吐槽..." style="width: 100%; height:30vh; overflow:auto;margin-bottom: 0"></textarea>
@@ -323,22 +323,31 @@
 				</div>
 				<div class="panel" id="discoveryPanel" title="发现" data-load="startDiscovery" data-footer="foot" ></div>
 				<div class="panel" id="messagePanel" title="消息" data-load="" data-footer="foot" ></div>
-				<div class="panel" id="userPanel" title="用户管理" data-load="startUser" data-footer="foot" >
-					<div>
-						<span>chenkaiyan</span>
-						<br />
-						<a class="icon pencil" ></a>
-						<br />
-						<br />
-					</div>
-					<ul class="list">
+				<div class="panel" id="userPanel" title="用户管理" selected="true" data-load="startUser" data-header="none" data-footer="foot" >
+					<table style="height: 75px;width: 100%;background: white;">
+						<tr>
+							<td align="center" style="width: 75px;height: 100%">
+								<img src="portrait/20.png" width="70px" height="70px"/>							
+							</td>
+							<td align="center">
+								<span style="font-size: 18px">吐槽超人gc</span>
+								<i class="icon user big" style="margin-left: 10px;color: #ff0000"></i>
+								<br />
+								<span style="font-size: 12px;font-family: '楷体'">吐槽菜鸟 能量80</span>
+							</td>
+							<td align="center" style="width: 40px;height: 100%">
+								<a class="icon pencil" ></a>
+							</td>
+						</tr>
+					</table>
+					<ul class="list" style="margin: 0px 0px">
 						<li class="divider">
 						</li>
 						<li>
 						<a class="" href="#mylistPanel">我发表的吐槽</a>
 						</li>
 						<li>
-						<a class="" href="#mycommentPanel">我评论过的吐槽</a>
+						<a class="icon message" href="#mycommentPanel">我评论过的吐槽</a>
 						</li>
 						<li class="divider"></li>
 						<li>
