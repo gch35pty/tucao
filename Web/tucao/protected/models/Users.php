@@ -174,4 +174,15 @@ class Users extends CActiveRecord
         $criteria->params = $par;
         return Users::model()->find($criteria);
     }
+
+    public function checkNickName($nick_name) {
+        $rs = $this->countByAttributes(array('NICK_NAME'=>$nick_name));
+        return $rs;
+    }
+
+    public function checkUserName($user_name) {
+        $rs1 = $this->countByAttributes(array('REG_PHONE_NUM'=>$user_name));
+        $rs2 = $this->countByAttributes(array('REG_EMAIL'=>$user_name));
+        return $rs1 + $rs2;
+    }
 }

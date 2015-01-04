@@ -118,6 +118,16 @@ class Tucao_comment extends CActiveRecord
         return $rs;
     }
 
+    public function setRead($comment_id) {
+        $comment = $this->findByPk($comment_id);
+        if($comment == null) {
+            return null;
+        }
+        $comment->STATUS = 1;
+        return $comment->save();
+
+    }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Tucao_comment the static model class
