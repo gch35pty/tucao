@@ -31,151 +31,77 @@ class UsersController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
+			array('deny',  // deny no login users
+				'users'=>array('?'),
 			),
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 */
-	public function actionView()
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel(),
-		));
-	}
+    public function actionInfo()
+    {
+        if(!isset($_POST['user_id']) || $_POST['user_id']!=Yii::app()->user->id) {
+            $this->sendAjax(null);
+            return;
+        }
+        $user = new Users();
+//        $columns = array('user_id','gender','nick_name','reg_phone_num','reg_email','level','score','user_status',
+//                            'default_pic','head_pic','create_time');
+        $rs = $user->findByPk($_POST['user_id']);
+        if($rs!= null) {
+            $this->sendAjax($rs, true);
+        } else {
+            $this->sendAjax(null);
+        }
+    }
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new Users;
+    public function actionUpdate()
+    {
+        print_r(PwdHelper::encode("123456"));
+        if(!isset($_POST['user_id']) || $_POST['user_id'] != Yii::app()->user->id) {
+            $this->sendAjax(null);
+            return;
+        }
+        $user_id = $_POST['user_id'];
+        $updateItems = array();
+        if(isset($_POST['nick_name'])) {
+            $record = Users::model()->findIdByAttributes(array('nick_name'=>$_POST['nick_name']), "OR");
+            if($record != null) {
+                $this->sendAjax(null);
+                return;
+            }
+            $updateItems['NICK_NAME'] = $_POST['nick_name'];
+        }
+        if(isset($_POST['gender']) && ($_POST['gender'] == 0 || $_POST['gender'] == 1)) {
+            $updateItems['GENDER'] = $_POST['gender'];
+        }
+        //print_r($updateItems);
+        $rs = Users::model()->updateAll($updateItems,"USER_ID = $user_id");
+        if($rs > 0) {
+            $this->sendAjax($rs,true);
+        } else {
+            $this->sendAjax(false);
+        }
+    }
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Users']))
-		{
-			$model->attributes=$_POST['Users'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->USER_ID));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionUpdate()
-	{
-		$model=$this->loadModel();
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Users']))
-		{
-			$model->attributes=$_POST['Users'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->USER_ID));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 */
-	public function actionDelete()
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel()->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(array('index'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Users');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Users('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Users']))
-			$model->attributes=$_GET['Users'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 */
-	public function loadModel()
-	{
-		if($this->_model===null)
-		{
-			if(isset($_GET['id']))
-				$this->_model=Users::model()->findbyPk($_GET['id']);
-			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
-		}
-		return $this->_model;
-	}
-
-	/**
-	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
-	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='users-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
+    public function actionPassword() {
+        if(!isset($_POST['user_id']) || $_POST['user_id'] != Yii::app()->user->id ||
+            !isset($_POST['old_password']) || !isset($_POST['new_password'])) {
+            $this->sendAjax(null);
+            return;
+        }
+        $user_id = $_POST['user_id'];
+        $old_password = PwdHelper::encode($_POST['old_password']);
+        $new_password = PwdHelper::encode($_POST['new_password']);
+        $record = Users::model()->findIdByAttributes(array('user_id'=>$_POST['user_id'],
+                                                            'password'=>$old_password), "AND");
+        if($record == null) {
+            $this->sendAjax(null);
+        }
+        $rs = Users::model()->updateAll(array('PASSWORD'=>$new_password), "USER_ID = $user_id");
+        if($rs > 0) {
+            $this->sendAjax($rs,true);
+        } else {
+            $this->sendAjax(false);
+        }
+    }
 }

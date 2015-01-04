@@ -42,6 +42,7 @@ class Tucao_commentController extends Controller
         $notiForm = new NotificationForm();
         if(!isset($_POST['user_id']) || $_POST['user_id']!= Yii::app()->user->id) {
             $this->sendAjax(null);
+            return;
         }
         $notiForm->user_id = $_POST['user_id'];
         if(!isset($_POST['offset']) || !isset($_POST['length'])) {
@@ -63,11 +64,27 @@ class Tucao_commentController extends Controller
 
     }
 
+    public function actionSetread()
+    {
+        if(!isset($_POST['comment_id']) || !is_numeric($_POST['comment_id'])) {
+            $this->sendAjax(null);
+            return;
+        }
+        $tc_comm = new Tucao_comment();
+        $rs = $tc_comm->setRead($_POST['comment_id']);
+        if($rs >= 0) {
+            $this->sendAjax($rs);
+        } else {
+            $this->sendAjax(null);
+        }
+    }
+
     public function actionApply() {
         $tc_comm = new Tucao_comment();
         $tc = new Tucao();
         if(isset($_POST['user_id']) && $_POST['user_id'] != Yii::app()->user->id) {
             $this->sendAjax(null);
+            return;
         }
         if(!isset($_POST['tucao_id']) || !isset($_POST['content']) || !isset($_POST['hide'])) {
             $this->sendAjax(null);

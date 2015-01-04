@@ -77,9 +77,12 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
+        if(!isset($_POST['username']) || !isset($_POST['password'])) {
+            $this->sendAjax(null);
+        }
+        $password = PwdHelper::encode($_POST['password']);
 		$model=new LoginForm;
-
-        $model->attributes = array('username'=>$_POST['username'], 'password'=>$_POST['password']);
+        $model->attributes = array('username'=>$_POST['username'], 'password'=>$password);
 
         if($model->validate() && $model->login()) {
             $user = Yii::app()->user;
@@ -122,4 +125,34 @@ class SiteController extends Controller
         }
         $this->sendAjax($rtn, true);
     }
+
+    public function actionCheckNickName() {
+        if(!isset($_POST['nick_name'])) {
+            $this->sendAjax(null);
+        }
+        $users = new Users();
+        $rs = $users->checkNickName($_POST['nick_name']);
+        //print_r($rs);
+        if($rs!= null && 0 == $rs) {
+            $this->sendAjax(true,true);
+        } else {
+            $this->sendAjax(null);
+        }
+    }
+
+    public function actionCheckUserName() {
+        if(!isset($_POST['user_name'])) {
+            $this->sendAjax(null);
+            return;
+        }
+        $users = new Users();
+        $rs = $users->checkUserName($_POST['user_name']);
+        if(0 === $rs) {
+            $this->sendAjax(true,true);
+        } else {
+            $this->sendAjax(null);
+        }
+    }
 }
+
+

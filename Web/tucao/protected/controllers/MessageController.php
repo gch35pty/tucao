@@ -31,151 +31,84 @@ class MessageController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
+
+			array('deny',  // deny no login users
+				'users'=>array('?'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
+
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 */
-	public function actionView()
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel(),
-		));
-	}
+    public function actionList()
+    {
+        if(!isset($_POST['offset']) || !isset($_POST['length'])
+            || !is_numeric($_POST['offset']) || !is_numeric($_POST['length'])) {
+            $offset = 0;
+            $length = 10;
+        } else {
+            $offset = $_POST['offset'];
+            $length = $_POST['length'];
+        }
+        if($_POST['user_id'] != Yii::app()->user->id) {
+            $this->sendAjax(null);
+            return;
+        }
+        $m = new message();
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new message;
+        $rs = $m->getList($_POST['user_id'], $offset, $length);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+        if($rs!= null) {
+            $this->sendAjax($rs, true);
+        } else {
+            $this->sendAjax(null);
+        }
 
-		if(isset($_POST['message']))
-		{
-			$model->attributes=$_POST['message'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->MESSAGE_ID));
-		}
+    }
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
+    public function actionChat()
+    {
+        if(!isset($_POST['offset']) || !isset($_POST['length'])
+            || !is_numeric($_POST['offset']) || !is_numeric($_POST['length'])) {
+            $offset = 0;
+            $length = 10;
+        } else {
+            $offset = $_POST['offset'];
+            $length = $_POST['length'];
+        }
+        if(!isset($_POST['login_user']) || $_POST['login_user'] != Yii::app()->user->id) {
+            $this->sendAjax(null);
+            return;
+        }
+        if(!isset($_POST['user_id']) || !is_numeric($_POST['user_id'])) {
+            $this->sendAjax(null);
+            return;
+        }
+        $m = new message();
+        $rs = $m->getChat($_POST['login_user'], $_POST['user_id'], $offset, $length);
+        if($rs!=null){
+            $this->sendAjax($rs, true);
+        } else {
+            $this->sendAjax(null);
+        }
+    }
 
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionUpdate()
-	{
-		$model=$this->loadModel();
+    public function actionSetread()
+    {
+        if(!isset($_POST['login_user']) || $_POST['login_user'] != Yii::app()->user->id) {
+            $this->sendAjax(null);
+            return;
+        }
+        if(!isset($_POST['user_id']) || !is_numeric($_POST['user_id'])) {
+            $this->sendAjax(null);
+            return;
+        }
+        $m = new message();
+        $rs = $m->setRead($_POST['login_user'], $_POST['user_id']);
+        if($rs>=0){
+            $this->sendAjax($rs, true);
+        } else {
+            $this->sendAjax(null);
+        }
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['message']))
-		{
-			$model->attributes=$_POST['message'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->MESSAGE_ID));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 */
-	public function actionDelete()
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel()->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(array('index'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('message');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new message('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['message']))
-			$model->attributes=$_GET['message'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 */
-	public function loadModel()
-	{
-		if($this->_model===null)
-		{
-			if(isset($_GET['id']))
-				$this->_model=message::model()->findbyPk($_GET['id']);
-			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
-		}
-		return $this->_model;
-	}
-
-	/**
-	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
-	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='message-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
+    }
 }

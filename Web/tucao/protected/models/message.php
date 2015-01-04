@@ -100,6 +100,46 @@ class message extends CActiveRecord
 		));
 	}
 
+    public function getList($user_id, $offset, $length)
+    {
+        //这个sql得到message表中某个用户自己的消息列表，每个发送用户保留最新的一条，用户列表先是未读，后是已读
+
+        $sql = "select u.user_id, u.NICK_NAME, a.CONTENT, a.CREATE_TIME, a.MESSAGE_STATUS
+                from message a, users u where a.CREATE_TIME >=
+	                (select CREATE_TIME from message b
+	                      where a.SEND_USER = b.SEND_USER order by b.CREATE_TIME desc limit 1)
+                AND RECEIVE_USER = $user_id  AND a.SEND_USER = u.USER_ID order by MESSAGE_STATUS
+                limit $offset, $length;";
+        $rs = Yii::app()->db->createCommand($sql)->queryAll();
+
+        return $rs;
+    }
+
+    public function getChat($login_user, $user_id, $offset, $length)
+    {
+        //这个sql得打login用户与某个user_id用户的聊天记录，按时间顺序排列。
+        $sql = "";
+
+        $criteria = new CDbCriteria();
+        //$criteria->select = '*';
+        $criteria->addInCondition("SEND_USER", array($login_user, $user_id));
+        $criteria->addInCondition("RECEIVE_USER", array($login_user, $user_id), 'AND');
+        $criteria->offset = $offset;
+        $criteria->limit = $length;
+        $criteria->order = 'CREATE_TIME desc';
+        $rs = message::model()->findAll($criteria);
+        //$rs =  new CActiveDataProvider($this, array('criteria'=>$criteria));
+        //print_r($rs);
+        return $rs;
+    }
+
+    public function setRead($login_user, $user_id)
+    {
+        $rs = $this->updateAll(array('MESSAGE_STATUS'=>1),"SEND_USER=$user_id && RECEIVE_USER=$login_user");
+        //print_r($rs);
+        return $rs;
+    }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return message the static model class
@@ -108,4 +148,7 @@ class message extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
 }
+
+

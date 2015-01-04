@@ -23,19 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TucaoNearForm.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/models/TucaoNearForm.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="21" selection-start="3304" selection-end="3304" vertical-scroll-proportion="-7.3333335" vertical-offset="979" max-vertical-offset="1560">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TucaoController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/TucaoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="16" selection-start="1395" selection-end="1395" vertical-scroll-proportion="33.75" vertical-offset="1605" max-vertical-offset="2595">
+            <state line="130" column="0" selection-start="3697" selection-end="3697" vertical-scroll-proportion="-4.8333335" vertical-offset="1834" max-vertical-offset="2595">
               <folding />
             </state>
           </provider>
@@ -44,46 +35,52 @@
       <file leaf-file-name="Tucao_commentController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/Tucao_commentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="47" selection-start="1080" selection-end="1080" vertical-scroll-proportion="-8.583333" vertical-offset="469" max-vertical-offset="1800">
+            <state line="27" column="39" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="265" max-vertical-offset="2055">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotificationForm.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/models/NotificationForm.php">
+      <file leaf-file-name="MessageController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controllers/MessageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="7" selection-start="584" selection-end="584" vertical-scroll-proportion="0.302926" vertical-offset="184" max-vertical-offset="1185">
-              <folding>
-                <element signature="e#6#90#0" expanded="true" />
-                <marker date="1418832840000" expanded="true" signature="642:2307" placeholder="SELECT c1.CO..." />
-                <marker date="1418832840000" expanded="true" signature="642:2285" placeholder="SELECT c1.CO..." />
-                <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
-                <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
-                <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
-                <marker date="1418832840000" expanded="true" signature="642:1421" placeholder="SELECT c1.CO..users..." />
-                <marker date="1418832840000" expanded="true" signature="642:1415" placeholder="SELECT c1.CO..users..." />
-                <marker date="1418832840000" expanded="true" signature="642:2022" placeholder="SELECT c1.CO..." />
-                <marker date="1418832840000" expanded="true" signature="1463:2285" placeholder="SELECT c1.CO..users..." />
-                <marker date="1418832840000" expanded="true" signature="1463:2285" placeholder="SELECT c1.CO..users..." />
-              </folding>
+            <state line="59" column="24" selection-start="1379" selection-end="1379" vertical-scroll-proportion="5.1666665" vertical-offset="1009" max-vertical-offset="1800">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SiteController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Users.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="158" column="38" selection-start="4462" selection-end="4480" vertical-scroll-proportion="-16.708334" vertical-offset="1969" max-vertical-offset="2895">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controllers/UsersController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="71" selection-start="3184" selection-end="3184" vertical-scroll-proportion="-7.9583335" vertical-offset="1294" max-vertical-offset="1695">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SiteController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="10" selection-start="3149" selection-end="3149" vertical-scroll-proportion="0.0" vertical-offset="1382" max-vertical-offset="1950">
+            <state line="79" column="65" selection-start="2013" selection-end="2013" vertical-scroll-proportion="0.15463917" vertical-offset="1125" max-vertical-offset="2460">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UtilHelper.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/components/UtilHelper.php">
+      <file leaf-file-name="TestController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="25" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="765">
+            <state line="18" column="0" selection-start="403" selection-end="403" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
@@ -92,8 +89,20 @@
       <file leaf-file-name="RegisterForm.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/RegisterForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="5" selection-start="297" selection-end="574" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1035">
+            <state line="52" column="61" selection-start="1540" selection-end="1593" vertical-scroll-proportion="-5.5416665" vertical-offset="572" max-vertical-offset="1035">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="message.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/models/message.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="137" column="108" selection-start="4213" selection-end="4307" vertical-scroll-proportion="-9.291667" vertical-offset="1832" max-vertical-offset="2400">
+              <folding>
+                <marker date="1420356377000" expanded="true" signature="2943:3359" placeholder="select u.use..message..." />
+                <marker date="1420356377000" expanded="true" signature="3098:3186" placeholder="select CREAT..message..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,33 +110,10 @@
       <file leaf-file-name="Tucao.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/Tucao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="0" selection-start="6398" selection-end="6398" vertical-scroll-proportion="0.0" vertical-offset="2867" max-vertical-offset="3465">
+            <state line="176" column="36" selection-start="5280" selection-end="5280" vertical-scroll-proportion="0.0" vertical-offset="2451" max-vertical-offset="3465">
               <folding>
                 <marker date="1418744137000" expanded="true" signature="4837:5366" placeholder="select TUCAO..tucao..." />
-                <marker date="1418744137000" expanded="true" signature="5686:6194" placeholder="select TUCAO..tucao..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tucao_comment.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/models/Tucao_comment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="3" selection-start="375" selection-end="375" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="2010">
-              <folding>
-                <marker date="1418745865000" expanded="true" signature="3061:3425" placeholder="select COMME..tucao_comment..." />
-                <marker date="1418745865000" expanded="true" signature="3061:3424" placeholder="select COMME..tucao_comment..." />
-                <marker date="1418745865000" expanded="true" signature="3061:3513" placeholder="select COMME..tucao_comment..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tucao_support.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/models/Tucao_support.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="52" selection-start="2642" selection-end="2642" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1725">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -151,18 +137,20 @@
         <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/protected/components/PWdHelper.php" />
         <option value="$PROJECT_DIR$/protected/components/Controller.php" />
-        <option value="$PROJECT_DIR$/protected/models/Users.php" />
-        <option value="$PROJECT_DIR$/protected/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/protected/models/RegisterForm.php" />
         <option value="$PROJECT_DIR$/protected/components/UtilHelper.php" />
         <option value="$PROJECT_DIR$/protected/controllers/TucaoController.php" />
         <option value="$PROJECT_DIR$/protected/models/Tucao.php" />
         <option value="$PROJECT_DIR$/protected/models/Tucao_support.php" />
-        <option value="$PROJECT_DIR$/protected/models/Tucao_comment.php" />
-        <option value="$PROJECT_DIR$/protected/models/message.php" />
-        <option value="$PROJECT_DIR$/protected/models/TucaoNearForm.php" />
-        <option value="$PROJECT_DIR$/protected/controllers/Tucao_commentController.php" />
         <option value="$PROJECT_DIR$/protected/models/NotificationForm.php" />
+        <option value="$PROJECT_DIR$/protected/models/TucaoNearForm.php" />
+        <option value="$PROJECT_DIR$/protected/models/message.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/Tucao_commentController.php" />
+        <option value="$PROJECT_DIR$/protected/models/Tucao_comment.php" />
+        <option value="$PROJECT_DIR$/protected/models/Users.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/MessageController.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/UsersController.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/SiteController.php" />
       </list>
     </option>
   </component>
@@ -416,15 +404,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="774" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33993903" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27439025" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23909532" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25444266" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3369863" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -432,7 +421,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.60518295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="22" width="1280" height="774" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -455,43 +443,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/extensions/smarty.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="31" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="720" />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/plugins/function.t.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/plugins/function.link.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="4" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="124" max-vertical-offset="705" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245" />
@@ -525,11 +480,6 @@
     <entry file="file://$PROJECT_DIR$/js/bootstrap-alert.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1170" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/TestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="525" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/extensions/ESmartyViewRenderer.php">
@@ -612,16 +562,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/base/CModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="19" selection-start="694" selection-end="694" vertical-scroll-proportion="-2.0334506" vertical-offset="1335" max-vertical-offset="9270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/yiilite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7531" column="39" selection-start="220280" selection-end="220294" vertical-scroll-proportion="-8.208333" vertical-offset="112468" max-vertical-offset="155865">
-          <folding />
-        </state>
+        <state line="19" column="19" selection-start="694" selection-end="694" vertical-scroll-proportion="-2.0334506" vertical-offset="1335" max-vertical-offset="9270" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/gii/components/UserIdentity.php">
@@ -636,138 +577,178 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/components/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="20" selection-start="938" selection-end="938" vertical-scroll-proportion="0.6282272" vertical-offset="115" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="68" selection-start="3709" selection-end="3747" vertical-scroll-proportion="0.32874355" vertical-offset="2224" max-vertical-offset="2805" />
+        <state line="32" column="20" selection-start="938" selection-end="938" vertical-scroll-proportion="0.6282272" vertical-offset="115" max-vertical-offset="720" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_3.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="444" column="9" selection-start="11056" selection-end="11056" vertical-scroll-proportion="0.34595525" vertical-offset="6459" max-vertical-offset="15915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/components/PWdHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="41" selection-start="113" selection-end="150" vertical-scroll-proportion="0.103270225" vertical-offset="0" max-vertical-offset="581" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="39" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1245" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="2139" max-vertical-offset="2730">
-          <folding />
-        </state>
+        <state line="444" column="9" selection-start="11056" selection-end="11056" vertical-scroll-proportion="0.34595525" vertical-offset="6459" max-vertical-offset="15915" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/components/UtilHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="25" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="765">
-          <folding />
-        </state>
+        <state line="43" column="25" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="765" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/db/ar/CActiveRecord.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/TucaoNearForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1778" column="20" selection-start="65535" selection-end="65535" vertical-scroll-proportion="-8.208333" vertical-offset="26368" max-vertical-offset="36525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="10" selection-start="3149" selection-end="3149" vertical-scroll-proportion="0.0" vertical-offset="1382" max-vertical-offset="1950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Tucao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="0" selection-start="6398" selection-end="6398" vertical-scroll-proportion="0.0" vertical-offset="2867" max-vertical-offset="3465">
-          <folding>
-            <marker date="1418744137000" expanded="true" signature="4837:5366" placeholder="select TUCAO..tucao..." />
-            <marker date="1418744137000" expanded="true" signature="5686:6194" placeholder="select TUCAO..tucao..." />
-          </folding>
-        </state>
+        <state line="99" column="62" selection-start="4105" selection-end="4159" vertical-scroll-proportion="-17.958334" vertical-offset="979" max-vertical-offset="1560" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Tucao_support.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="52" selection-start="2642" selection-end="2642" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1725">
+        <state line="94" column="52" selection-start="2642" selection-end="2642" vertical-scroll-proportion="0.49823943" vertical-offset="1127" max-vertical-offset="1725" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_superglobals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="0" selection-start="2457" selection-end="2457" vertical-scroll-proportion="0.346831" vertical-offset="1033" max-vertical-offset="3480">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/message.php">
+    <entry file="file://$PROJECT_DIR$/protected/controllers/ShareController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="371" selection-end="371" vertical-scroll-proportion="-0.30981067" vertical-offset="405" max-vertical-offset="1740" />
+        <state line="37" column="80" selection-start="929" selection-end="929" vertical-scroll-proportion="-4.7534246" vertical-offset="2290" max-vertical-offset="2805">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/RegisterForm.php">
+    <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/db/schema/CDbCommandBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="5" selection-start="297" selection-end="574" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1035">
+        <state line="421" column="36" selection-start="14066" selection-end="14072" vertical-scroll-proportion="0.69602275" vertical-offset="5965" max-vertical-offset="13080" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/NotificationForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="20" selection-start="1042" selection-end="1042" vertical-scroll-proportion="-6.5" vertical-offset="369" max-vertical-offset="1185" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/db/ar/CActiveRecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="802" column="20" selection-start="30161" selection-end="30161" vertical-scroll-proportion="0.3530928" vertical-offset="11788" max-vertical-offset="36525">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Tucao_comment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="3" selection-start="375" selection-end="375" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="2010">
+        <state line="101" column="41" selection-start="2928" selection-end="2928" vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="2160">
           <folding>
-            <marker date="1418745865000" expanded="true" signature="3061:3425" placeholder="select COMME..tucao_comment..." />
-            <marker date="1418745865000" expanded="true" signature="3061:3424" placeholder="select COMME..tucao_comment..." />
-            <marker date="1418745865000" expanded="true" signature="3061:3513" placeholder="select COMME..tucao_comment..." />
+            <marker date="1420357421000" expanded="true" signature="-1:-1" placeholder="select COMME..tucao_comment..." />
+            <marker date="1420357421000" expanded="true" signature="-1:-1" placeholder="select COMME..tucao_comment..." />
+            <marker date="1420357421000" expanded="true" signature="-1:-1" placeholder="select COMME..tucao_comment..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/TucaoNearForm.php">
+    <entry file="file://$PROJECT_DIR$/protected/controllers/Tucao_commentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="21" selection-start="3304" selection-end="3304" vertical-scroll-proportion="-7.3333335" vertical-offset="979" max-vertical-offset="1560">
+        <state line="27" column="39" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="265" max-vertical-offset="2055">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Tucao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="36" selection-start="5280" selection-end="5280" vertical-scroll-proportion="0.0" vertical-offset="2451" max-vertical-offset="3465">
+          <folding>
+            <marker date="1418744137000" expanded="true" signature="4837:5366" placeholder="select TUCAO..tucao..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/gii/models/LoginForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="35" selection-start="946" selection-end="951" vertical-scroll-proportion="0.68827933" vertical-offset="354" max-vertical-offset="825" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="34" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.7256858" vertical-offset="759" max-vertical-offset="1245" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="953" column="11" selection-start="28519" selection-end="28519" vertical-scroll-proportion="0.35162094" vertical-offset="14154" max-vertical-offset="16890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="38" selection-start="4462" selection-end="4480" vertical-scroll-proportion="-16.708334" vertical-offset="1969" max-vertical-offset="2895">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/TucaoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="16" selection-start="1395" selection-end="1395" vertical-scroll-proportion="33.75" vertical-offset="1605" max-vertical-offset="2595">
+        <state line="130" column="0" selection-start="3697" selection-end="3697" vertical-scroll-proportion="-4.8333335" vertical-offset="1834" max-vertical-offset="2595">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/Tucao_commentController.php">
+    <entry file="file://$PROJECT_DIR$/../../../yii-1.1.15.022a51/framework/yiilite.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="47" selection-start="1080" selection-end="1080" vertical-scroll-proportion="-8.583333" vertical-offset="469" max-vertical-offset="1800">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/NotificationForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="7" selection-start="584" selection-end="584" vertical-scroll-proportion="0.302926" vertical-offset="184" max-vertical-offset="1185">
+        <state line="8012" column="20" selection-start="233168" selection-end="233168" vertical-scroll-proportion="0.3530928" vertical-offset="119743" max-vertical-offset="155865">
           <folding>
-            <element signature="e#6#90#0" expanded="true" />
-            <marker date="1418832840000" expanded="true" signature="642:2307" placeholder="SELECT c1.CO..." />
-            <marker date="1418832840000" expanded="true" signature="642:2285" placeholder="SELECT c1.CO..." />
-            <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
-            <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
-            <marker date="1418832840000" expanded="true" signature="642:1449" placeholder="SELECT c1.CO..users..." />
-            <marker date="1418832840000" expanded="true" signature="642:1421" placeholder="SELECT c1.CO..users..." />
-            <marker date="1418832840000" expanded="true" signature="642:1415" placeholder="SELECT c1.CO..users..." />
-            <marker date="1418832840000" expanded="true" signature="642:2022" placeholder="SELECT c1.CO..." />
-            <marker date="1418832840000" expanded="true" signature="1463:2285" placeholder="SELECT c1.CO..users..." />
-            <marker date="1418832840000" expanded="true" signature="1463:2285" placeholder="SELECT c1.CO..users..." />
+            <marker date="1404087888000" expanded="true" signature="-1:-1" placeholder="SELECT MAX(`..." />
+            <marker date="1404087888000" expanded="true" signature="-1:-1" placeholder="UPDATE sqlit..." />
+            <marker date="1404087888000" expanded="true" signature="-1:-1" placeholder="SELECT DISTI..sqlite_master..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/MessageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="24" selection-start="1379" selection-end="1379" vertical-scroll-proportion="5.1666665" vertical-offset="1009" max-vertical-offset="1800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="108" selection-start="4213" selection-end="4307" vertical-scroll-proportion="-9.291667" vertical-offset="1832" max-vertical-offset="2400">
+          <folding>
+            <marker date="1420356377000" expanded="true" signature="2943:3359" placeholder="select u.use..message..." />
+            <marker date="1420356377000" expanded="true" signature="3098:3186" placeholder="select CREAT..message..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/PWdHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="33" selection-start="136" selection-end="142" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/RegisterForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="61" selection-start="1540" selection-end="1593" vertical-scroll-proportion="-5.5416665" vertical-offset="572" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="403" selection-end="403" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="71" selection-start="3184" selection-end="3184" vertical-scroll-proportion="-7.9583335" vertical-offset="1294" max-vertical-offset="1695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="65" selection-start="2013" selection-end="2013" vertical-scroll-proportion="0.15463917" vertical-offset="1125" max-vertical-offset="2460">
+          <folding />
         </state>
       </provider>
     </entry>
