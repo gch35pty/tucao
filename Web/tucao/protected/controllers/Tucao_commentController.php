@@ -104,14 +104,15 @@ class Tucao_commentController extends Controller
         }
         if($tc_comm->validate()) {
 
-            $rs = $tc->addComment($_POST['tucao_id']);
-            if($rs <=0) {
-                $this->sendAjax(null);
-                return;
-            }
             $transaction = Yii::app()->db->beginTransaction(); //创建事务
             try {
                 $tc_comm->save(false);
+                $rs = $tc->addComment($_POST['tucao_id']);
+                if($rs <=0) {
+                    $this->sendAjax(null);
+                    $transaction->rollback();
+                    return;
+                }
                 $transaction->commit(); //提交事务会真正的执行数据库操作
                 $rtn = true;
             } catch (Exception $e) {
@@ -124,6 +125,27 @@ class Tucao_commentController extends Controller
             }
             $this->sendAjax(array("comment_id"=>$tc_comm->attributes['COMMENT_ID']),true);
 
+        } else {
+            $this->sendAjax(null);
+        }
+    }
+
+    public function actionSupport()
+    {
+        if(!UtilHelper::checkNumParam($_POST['comment_id']) || !UtilHelper::checkLoginU($_POST['user_id']))
+        {
+            $this->sendAjax(null);
+            return null;
+        }
+        if(UtilHelper::checkNumParam($_POST['status'])) {
+            $status = $_POST['status'];
+        } else {
+            $status = 1;
+        }
+        $tc_comment = new Tucao_comment();
+        $rs = $tc_comment->support($_POST['comment_id'],$_POST['user_id'],$status);
+        if($rs != null) {
+            $this->sendAjax($rs, true);
         } else {
             $this->sendAjax(null);
         }

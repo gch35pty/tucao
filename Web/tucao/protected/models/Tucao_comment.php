@@ -128,6 +128,44 @@ class Tucao_comment extends CActiveRecord
 
     }
 
+    public function support($comment_id, $user_id, $status) {
+        if($status != 0 && $status != 1) {
+            return null;
+        }
+
+        $comm_support = new comment_support();
+        //用户不能重复支持或反对同一条吐槽
+        $record = $comm_support->findAllByAttributes(array('COMMENT_ID'=>$comment_id, 'USER_ID'=>$user_id));
+        if($record != null) {
+            return null;
+        }
+        $comm_support->COMMENT_ID = $comment_id;
+        $comm_support->USER_ID = $user_id;
+        $comm_support->SUPPORT_STATUS = $status;
+
+        $transaction = Yii::app()->db->beginTransaction(); //创建事务
+        try {
+            $comm_support->save(false);
+            if($status ==1) {
+                $rs = $this->updateCounters(array('SUPPORT_NUM'=>1),"COMMENT_ID=$comment_id");
+            } else {
+                $rs = $this->updateCounters(array('DISAGREE_NUM'=>1),"COMMENT_ID=$comment_id");
+            }
+            if($rs<=0) {
+                $transaction->rollback();
+                return null;
+            }
+            $transaction->commit(); //提交事务会真正的执行数据库操作
+            $rtn = true;
+        } catch (Exception $e) {
+            $transaction->rollback(); //如果操作失败, 数据回滚
+            echo $e->getMessage();
+            $rtn = null;
+        }
+
+        return $rtn;
+    }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Tucao_comment the static model class

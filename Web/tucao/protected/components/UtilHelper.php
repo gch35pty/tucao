@@ -43,4 +43,21 @@ class UtilHelper {
         $scoreCon =" order by (COMMENT_NUM*5 + SUPPORT_NUM*2 + DISAGREE_NUM + SHARE_NUM*3) desc";
         return $scoreCon;
     }
+
+    public static function checkNumParam($param)
+    {
+        if(isset($param) && is_numeric($param)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function checkLoginU($user_id) {
+        if(isset($user_id) && $user_id == Yii::app()->user->id) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

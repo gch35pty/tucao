@@ -215,6 +215,46 @@ class Tucao extends CActiveRecord
         return $rs;
     }
 
+    public function support($tucao_id, $user_id, $status) {
+
+        if($status != 0 && $status != 1) {
+            return null;
+        }
+
+        $tc_support = new Tucao_support();
+        //用户不能重复支持或反对同一条吐槽
+        $record = $tc_support->findAllByAttributes(array('TUCAO_ID'=>$tucao_id, 'USER_ID'=>$user_id));
+        if($record != null) {
+            return null;
+        }
+        $tc_support->TUCAO_ID = $tucao_id;
+        $tc_support->USER_ID = $user_id;
+        $tc_support->SUPPORT_STATUS = $status;
+
+        $transaction = Yii::app()->db->beginTransaction(); //创建事务
+        try {
+            $tc_support->save(false);
+            if($status ==1) {
+                $rs = $this->updateCounters(array('SUPPORT_NUM'=>1),"TUCAO_ID=$tucao_id");
+            } else {
+                $rs = $this->updateCounters(array('DISAGREE_NUM'=>1),"TUCAO_ID=$tucao_id");
+            }
+            if($rs<=0) {
+                $transaction->rollback();
+                return null;
+            }
+            $transaction->commit(); //提交事务会真正的执行数据库操作
+            $rtn = true;
+        } catch (Exception $e) {
+            $transaction->rollback(); //如果操作失败, 数据回滚
+            echo $e->getMessage();
+            $rtn = null;
+        }
+
+        return $rtn;
+    }
+
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Tucao the static model class
