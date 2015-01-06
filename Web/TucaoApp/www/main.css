@@ -18,6 +18,19 @@ table {
 #afui .list > li > a {
 	padding: 10px 20px 10px 10px
 }
+#afui .panel .list {
+	margin: 0 0
+}
+#afui .af-badge{
+	top:0px;
+	height: 15px;
+	min-width: 15px;
+	border-radius: 15px;
+	line-height: 15px;
+}
+#afui footer>a:not(.button) .af-badge {
+	margin-left: -8px;
+}
 /*a {
 	TEXT-DECORATION: none
 }*/

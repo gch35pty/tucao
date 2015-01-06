@@ -25,7 +25,7 @@
 		<script type="text/javascript" src="juicer-min.js"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=VWt0QeFL3rjEI29tyiAldir9&v=1.0"></script>
 
-		<!-- <link rel="stylesheet" type="text/css" href="build/css/ionicons.css" /> -->
+		<link rel="stylesheet" type="text/css" href="build/css/ionicons.css" />
 		<link rel="stylesheet" type="text/css" href="main.css" />
 		<script type="text/javascript" src="tool.js"></script>
 
@@ -167,6 +167,7 @@
 				$.ui.launch();
 				$("#loginError").hide();
 				$("#distanceSelectDiv").hide();
+				$.ui.updateBadge("#messageIcon",'2','tr','red');
 			});
 
 			var onDeviceReady = function() {// called when Cordova is ready
@@ -297,6 +298,12 @@
 
 					</div>
 				</div>
+					<header id="headDetail">
+						<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
+						<div style="float: right">
+							<img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
+						</div>
+					</header>
 				<div class="panel" id="editPanel" title="编辑吐槽" data-header="headEdit" data-load="startEdit" data-footer="none">
 					<div style="width: 100%;padding: 5px;height: 100%">
 						<div style="width: 100%;">
@@ -321,9 +328,45 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel" id="discoveryPanel" title="发现" data-load="startDiscovery" data-footer="foot" ></div>
+					<header id="headEdit">
+						<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
+						<div style="float: right">
+							<img src="icons/ios7-paperplane-outline.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
+						</div>
+					</header>
+					
+				<div class="panel" id="chatPanel" title="私信" data-load="" selected="true" data-header="headChat" data-footer="foot" >
+					
+				</div>
+					<header id="headChat">
+						<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
+						<span>私信</span>
+						<div style="float: right">
+							<a class="" style="font-size: 10px">我不是外星人</a>
+							<img src="portrait/1.png" width="30px" height="30px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
+						</div>
+					</header>
+					
+				<div class="panel" id="discoveryPanel" title="发现" data-load="startDiscovery" data-footer="foot" >
+					<ul class="list">
+						<li>
+							<a class="icon ion-ios-star-outline big" href="#">XX城最热吐槽</a>
+						</li>
+						<li>
+							<a class="icon ion-ios-star big" href="#">全国最热吐槽</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a class="icon ion-ios-people-outline big" href="#">热点话题</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a class="icon ion-android-share big" href="#">告诉朋友</a>
+						</li>
+					</ul>
+				</div>
 				<div class="panel" id="messagePanel" title="消息" data-load="" data-footer="foot" ></div>
-				<div class="panel" id="userPanel" title="用户管理" selected="true" data-load="startUser" data-header="none" data-footer="foot" >
+				<div class="panel" id="userPanel" title="用户管理" data-load="startUser" data-header="none" data-footer="foot" >
 					<table style="height: 75px;width: 100%;background: white;">
 						<tr>
 							<td align="center" style="width: 75px;height: 100%">
@@ -331,7 +374,7 @@
 							</td>
 							<td align="center">
 								<span style="font-size: 18px">吐槽超人gc</span>
-								<i class="icon user big" style="margin-left: 10px;color: #ff0000"></i>
+								<i class="icon ion-woman big" style="margin-left: 10px;color: #ff0000"></i>
 								<br />
 								<span style="font-size: 12px;font-family: '楷体'">吐槽菜鸟 能量80</span>
 							</td>
@@ -340,18 +383,42 @@
 							</td>
 						</tr>
 					</table>
-					<ul class="list" style="margin: 0px 0px">
-						<li class="divider">
-						</li>
-						<li>
-						<a class="" href="#mylistPanel">我发表的吐槽</a>
-						</li>
-						<li>
-						<a class="icon message" href="#mycommentPanel">我评论过的吐槽</a>
-						</li>
+					<ul class="list">
 						<li class="divider"></li>
 						<li>
-						<a class="icon settings big" >设置</a>
+							<a class="icon ion-ios-world-outline big" href="#mylistPanel">我的吐槽足迹</a>
+						</li>
+						<li>
+							<a class="icon ion-ios-browsers-outline big" href="#mylistPanel">我发表的吐槽</a>
+						</li>
+						<li>
+							<a class="icon ion-ios-photos-outline big" href="#mycommentPanel">我评论过的吐槽</a>
+						</li>
+						<li>
+							<a class="icon ion-ios-chatboxes-outline big" href="#mycommentPanel">我的私信</a>
+						</li>
+						
+						<li class="divider"></li>
+						<li style="padding: 0 20px 0 10px">
+							<i class="icon ion-ios-pricetag-outline big"></i>
+							<span style="font-size: 14px">关注距离：</span>
+							<select id="distanceSelect" style="width: 120px; color:#000000;margin-bottom: 1px">
+								<option>2500米以内</option>
+								<option>1500米以内</option>
+								<option>50米以内</option>
+							</select>
+							<i class="icon ion-ios-help-outline" style="margin-left: 15px"></i>
+						</li>
+						<li>
+							<a class="icon ion-ios-gear-outline big" >账户设置</a>
+						</li>
+						
+						<li class="divider"></li>
+						<li>
+							<a class="" href="#">意见反馈</a>
+						</li>
+						<li>
+							<a class="" href="#">版本更新</a>
 						</li>
 					</ul>
 				</div>
@@ -362,31 +429,23 @@
 			<header id="head" style="height: 100%">
 				<table style="width:100%; height: 100%">
 					<tr>
-						<td width="40px" align="center"><img src="icons/xbox.png" width="30px" height="30px"/></td>
-						<td align="center"><a class="button " href="#hotMain">热点吐槽</a><a class="button " href="#newMain">最新吐槽</a></td>
-						<td width="40px" align="center"><img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/></td>
+						<td width="40px" align="center">
+							<img src="icons/xbox.png" width="30px" height="30px"/>
+						</td>
+						<td align="center">
+							<a class="button " href="#hotMain">热点吐槽</a>
+							<a class="button " href="#newMain">最新吐槽</a>
+						</td>
+						<td width="40px" align="center">
+							<img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
+						</td>
 					</tr>
 				</table>
-			</header>
-			<header id="backHeader">
-				<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
-			</header>
-			<header id="headDetail">
-				<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
-				<div style="float: right">
-					<img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
-				</div>
-			</header>
-			<header id="headEdit">
-				<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
-				<div style="float: right">
-					<img src="icons/ios7-paperplane-outline.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
-				</div>
 			</header>
 			<footer id="foot">
 				<a class="icon home" style="font-size: 10px" href="#newMain">主页</a>
 				<a class="icon magnifier" style="font-size: 10px" href="#discoveryPanel">发现</a>
-				<a class="icon message" style="font-size: 10px" href="#messagePanel">消息</a>
+				<a id="messageIcon" class="icon message" style="font-size: 10px" href="#messagePanel">消息</a>
 				<a class="icon user" style="font-size: 10px" href="#userPanel">我</a>
 			</footer>
 			<footer id="commentFoot" style="height: 100%">
