@@ -148,6 +148,26 @@ class TucaoController extends Controller
 
     }
 
+    public function actionSupport()
+    {
+        if(!UtilHelper::checkNumParam($_POST['tucao_id']) || !UtilHelper::checkLoginU($_POST['user_id'])) {
+            $this->sendAjax(null);
+            return;
+        }
+        if(UtilHelper::checkNumParam($_POST['status'])) {
+            $status = $_POST['status'];
+        } else {
+            $status = 1;
+        }
+        $tc = new Tucao();
+        $rs = $tc->support($_POST['tucao_id'],$_POST['user_id'],$status);
+        if($rs != null) {
+            $this->sendAjax($rs, true);
+        } else {
+            $this->sendAjax(null);
+        }
+    }
+
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.

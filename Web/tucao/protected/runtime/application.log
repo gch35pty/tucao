@@ -3203,3 +3203,7 @@ Stack trace:
 REQUEST_URI=/Tucao/index.php/site/login
 in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php (80)
 in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/06 23:35:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'SUPPORT_ID' doesn't have a default value. The SQL statement executed was: INSERT INTO `comment_support` (`COMMENT_ID`, `USER_ID`, `SUPPORT_STATUS`) VALUES (:yp0, :yp1, :yp2).
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao_comment.php (148)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/Tucao_commentController.php (146)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
