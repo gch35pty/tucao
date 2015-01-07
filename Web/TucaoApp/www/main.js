@@ -1,181 +1,18 @@
-function showDistanceSelect (img) {
-  $(img).attr("src","icons/grid.png");
-  $(img).attr("onclick","hideDistanceSelect(this);");
-  $("#distanceSelectDiv").show();
-}
-function hideDistanceSelect (img) {
-  $(img).attr("src","icons/ios7-more-outline.png");
-  $(img).attr("onclick","showDistanceSelect(this);");
-  $("#distanceSelectDiv").hide();
-}
-
-//发表评论
-function applycomment () {
-	var content = trim($("#commentContent").val());
-
-	if (content == "") {
-		alert("空");
-		return;
+function startHot() {
+	$.ui.clearHistory();
+	if (map == null) {//仅第一遍时候加载nearHot
+		nearHot();
 	};
-  	$.ajax({
-		type : "POST",
-		url : webRoot + 'applycomment',
-		data : {
-			"tucao_id" : curTucaoId,
-			"user_id" : userId,
-			"content" : content,
-			"reply_comment" : -1,
-			"hide" : false,
-			"lat" : position.coords.latitude,
-			"lng" : position.coords.longitude
-		},
-		success : function(data) {
-			if (data.success) {
-				// alert(JSON.stringify(data));
-				refreshCommentList();
-				$("#commentContent").val("");
-			} else {
-				alert("error");
-			}
-		},
-		dataType : "json"
-	});
 }
 
-function refreshCommentList () {
-  $.ajax({
-		type : "POST",
-		url : webRoot + 'comment',
-		data : {
-			"tucao_id" : curTucaoId,
-		},
-		success : function(data) {
-			if (data.success) {
-				// alert(JSON.stringify(data));
-				var tplComment = document.getElementById('tplComment').innerHTML;
-				var html = juicer(tplComment, data);
-				$("#commentsList").html(html);
-			} else {
-				alert("error");
-			}
-		},
-		dataType : "json"
-	});
-}
-
-//点击后打开吐槽详情页
-function detail(tucaoId) {
-	// alert(tucaoId);
-	$.ajax({
-		type : "POST",
-		url : webRoot + 'detail',
-		data : {
-			"tucao_id" : tucaoId,
-		},
-		success : function(data) {
-			if (data.success) {
-				// alert(JSON.stringify(data));
-				$("#t_content").html(data.data.CONTENT);
-				$("#t_interval").html(jsDateDiff(data.data.CREATE_TIME));
-				curTucaoId=tucaoId;
-				refreshCommentList();
-			} else {
-				alert("error");
-			}
-		},
-		dataType : "json"
-	});
-	$.ui.loadContent("tucaoPanel", null, null, "");
-
-}
-
-//向上顶起
-function upClick(obj) {
-	// alert($(obj).siblings(".num").get(0).innerHTML);
-
-	notEvaluated = true;
-
-	if ($(obj).parent().hasClass('changed')) {
-		notEvaluated = false;
-	} else {
-		//更新数据库
-
-	}
-
-	//是否未被评价
-	if (!notEvaluated) {
-		$.ui.showMask("已经评价过了");
-		window.setTimeout(function() {
-			$.ui.hideMask();
-		}, 500);
-	} else {
-		var numNode = obj.parentNode.getElementsByTagName("span")[0];
-		numNode.innerHTML = parseInt(numNode.innerHTML) + 1;
+function startNew() {
+	$.ui.clearHistory();
+	if ($("#newMain").find(".colum").length== 0) {//仅第一遍时候加载nearNew
+		nearNew();
 	};
-
-	$(obj).parent().addClass('changed');
+	// $.ui.resetScrollers=false; //Do not reset the scrollers when switching panels
 }
 
-//向下踩
-function downClick(obj) {
-	// alert($(obj).siblings(".num").get(0).innerHTML);
-
-	notEvaluated = true;
-
-	if ($(obj).parent().hasClass('changed')) {
-		notEvaluated = false;
-	} else {
-		//更新数据库
-
-	}
-
-	//是否未被评价
-	if (!notEvaluated) {
-		$.ui.showMask("已经评价过了");
-		window.setTimeout(function() {
-			$.ui.hideMask();
-		}, 500);
-	} else {
-		var numNode = obj.parentNode.getElementsByTagName("span")[0];
-		numNode.innerHTML = parseInt(numNode.innerHTML) - 1;
-	};
-
-	$(obj).parent().addClass('changed');
-}
-
-function apply() {
-	var content = trim($("#tContent").val());
-
-	if (content == "") {
-		alert("空");
-		return;
-	};
-
-	// var isHide = Boolean($("#cAnony").val());
-	var isHide = $("#cAnony").val();
-
-	$.ajax({
-		type : "POST",
-		url : webRoot + 'apply',
-		data : {
-			"user_id" : userId,
-			"content" : content,
-			"hide" : isHide,
-			"lat" : position.coords.latitude,
-			"lng" : position.coords.longitude
-		},
-		success : function(data) {
-			if (data.success) {
-				// alert(data.data);
-				nearNew();
-				$.ui.loadContent("newMain", null, null, "");
-			} else {
-				alert("error");
-			}
-		},
-		dataType : "json"
-	});
-}
 
 function nearHot() {
 	$.ajax({
@@ -302,117 +139,82 @@ function drawMap(tucaos) {
 
 
 
-function signIn() {
-	$("#loginError").hide();
-	$.post(webRoot + 'login', $("#loginForm").serialize(), function(data) {
-		if (data.success) {
-			userId = data.data.USER_ID;
-			// alert(userId);
-			$.ui.loadContent("hotMain", null, null, "");
-		} else {
-			$("#loginError").show();
-		}
-	}, "json");
-}
+//向上顶起
+function upClick(obj) {
+	// alert($(obj).siblings(".num").get(0).innerHTML);
 
-function signUp() {
-	$.post(webRoot + 'signup', $("#signupForm").serialize(), function(data) {
-		if (data.success) {
-			// alert(userId);
-			$.ui.loadContent("hotMain", null, null, "");
-		} else {
-			$.ui.showMask("该邮箱或手机已经注册！");
-			window.setTimeout(function() {
-				$.ui.hideMask();
-			}, 2000);
-		}
-	}, "json");
-}
+	notEvaluated = true;
 
-function startHot() {
-	$.ui.clearHistory();
-	if (map == null) {//仅第一遍时候加载nearHot
-		nearHot();
+	if ($(obj).parent().hasClass('changed')) {
+		notEvaluated = false;
+	} else {
+		//更新数据库
+
+	}
+
+	//是否未被评价
+	if (!notEvaluated) {
+		$.ui.showMask("已经评价过了");
+		window.setTimeout(function() {
+			$.ui.hideMask();
+		}, 500);
+	} else {
+		var numNode = obj.parentNode.getElementsByTagName("span")[0];
+		numNode.innerHTML = parseInt(numNode.innerHTML) + 1;
 	};
+
+	$(obj).parent().addClass('changed');
 }
 
-function startNew() {
-	$.ui.clearHistory();
-	if ($("#newMain").find(".colum").length== 0) {//仅第一遍时候加载nearNew
-		nearNew();
+//向下踩
+function downClick(obj) {
+	// alert($(obj).siblings(".num").get(0).innerHTML);
+
+	notEvaluated = true;
+
+	if ($(obj).parent().hasClass('changed')) {
+		notEvaluated = false;
+	} else {
+		//更新数据库
+
+	}
+
+	//是否未被评价
+	if (!notEvaluated) {
+		$.ui.showMask("已经评价过了");
+		window.setTimeout(function() {
+			$.ui.hideMask();
+		}, 500);
+	} else {
+		var numNode = obj.parentNode.getElementsByTagName("span")[0];
+		numNode.innerHTML = parseInt(numNode.innerHTML) - 1;
 	};
-	// $.ui.resetScrollers=false; //Do not reset the scrollers when switching panels
+
+	$(obj).parent().addClass('changed');
 }
 
-function startUser() {
-
-}
-
-function startDiscovery() {
-
-}
-
-function startEdit() {
-}
-
-
-function startTucao(){
-	$("#navbar").css("height","35px");
-	refreshCommentList();
-}
-function closeTucao(){
-	$("#navbar").css("height","45px");
-}
-
-function startMylist(){
+//点击后打开吐槽详情页
+function detail(tucaoId) {
+	// alert(tucaoId);
 	$.ajax({
 		type : "POST",
-		url : webRoot + 'nearnew',
+		url : webRoot + 'detail',
 		data : {
-			"user_id" : userId,
-			"distance" : distance,
-			"offset" : 0,
-			"length" : -1,
-			"lat" : position.coords.latitude,
-			"lng" : position.coords.longitude
+			"tucao_id" : tucaoId,
 		},
 		success : function(data) {
 			if (data.success) {
 				// alert(JSON.stringify(data));
-				var tpl = document.getElementById('tpl').innerHTML;
-				var html = juicer(tpl, data);
-				// document.getElementById("newMain").firstChild.innerHTML = html;
-				$("#mylistPanel .afScrollPanel").html(html);
+				$("#t_content").html(data.data.CONTENT);
+				$("#t_interval").html(jsDateDiff(data.data.CREATE_TIME));
+				curTucaoId=tucaoId;
+				refreshCommentList();
 			} else {
 				alert("error");
 			}
 		},
 		dataType : "json"
 	});
-}
-function startMycomment(){
-	$.ajax({
-		type : "POST",
-		url : webRoot + 'nearnew',
-		data : {
-			"user_id" : userId,
-			"distance" : distance,
-			"offset" : 6,
-			"length" : 3,
-			"lat" : position.coords.latitude,
-			"lng" : position.coords.longitude
-		},
-		success : function(data) {
-			if (data.success) {
-				// alert(JSON.stringify(data));
-				var tpl = document.getElementById('tpl').innerHTML;
-				var html = juicer(tpl, data);
-				// document.getElementById("newMain").firstChild.innerHTML = html;
-				$("#mycommentPanel .afScrollPanel").html(html);
-			} else {
-				alert("error");
-			}
-		},
-		dataType : "json"
-	});
+	$.ui.loadContent("tucaoPanel", null, null, "");
+
 }

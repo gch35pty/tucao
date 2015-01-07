@@ -75,28 +75,28 @@
 		</script>
 		<script id="tplBlock" type="text/template">
 			<div class="colum">
-			<div class="content">
-			<div class="words">
-			<span>${CONTENT}</span>
-			</div>
-			<div class="detail">
-			<span>200m</span>
-			<a class="icon message" style="margin-left: 20%"></a>
-			<span>30</span>
-			<span style="margin-left: 40%">2小时前</span>
-			</div>
-			</div>
-			<div class="score">
-			<div class="uparrow" onclick="upClick(this);">
-			<a class="icon up small" ></a>
-			</div>
-			<div class="num">
-			<span>100</span>
-			</div>
-			<div class="uparrow">
-			<a class="icon down small" ></a>
-			</div>
-			</div>
+				<div class="content">
+					<div class="words">
+					<	span>${CONTENT}</span>
+					</div>
+					<div class="detail">
+						<span>200m</span>
+						<a class="icon message" style="margin-left: 20%"></a>
+						<span>30</span>
+						<span style="margin-left: 40%">2小时前</span>
+					</div>
+				</div>
+				<div class="score">
+					<div class="uparrow" onclick="upClick(this);">
+						<a class="icon up small" ></a>
+					</div>
+					<div class="num">
+						<span>100</span>
+					</div>
+					<div class="uparrow">
+						<a class="icon down small" ></a>
+					</div>
+				</div>
 			</div>
 		</script>
 
@@ -182,6 +182,12 @@
 
 		<script type="text/javascript" src="scroll.js"></script>
 		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="editPanel.js"></script>
+		<script type="text/javascript" src="chatPanel.js"></script>
+		<script type="text/javascript" src="loginPanel.js"></script>
+		<script type="text/javascript" src="signupPanel.html"></script>
+		<script type="text/javascript" src="tucaoPanel.js"></script>
+		<script type="text/javascript" src="userPanel.js"></script>
 
 		<!-- phantom library, needed for XDK "legacy" container api calls -->
 		<script src="intelxdk.js"></script>
@@ -196,234 +202,26 @@
 			<div id="content" style="">
 				<!-- Views -->
 
-				<!-- Welcome View -->
-				<div class="panel" title="Welcome" id="page1" data-footer="foot" data-header="none">
-					<div style="text-align:center">
-						<br>
-						<br>
-						<br>
-						<br>
-						<h1>周边吐槽</h1>
-						<br>
-						<br>
-					</div>
-					<form id="loginForm">
-						<input name="email" type="text" placeholder="邮箱/手机" />
-						<input name="password" type="password" placeholder="密码" />
-						<a class="button block green" href="#" id="login" onclick="signIn();">Login</a>
-					</form>
-					<div id="loginError" style="text-align:center; color: #FF0000">
-						<p>
-							用户名或密码错误
-						</p>
-					</div>
-					<a href="#signup" class="icon pencil" style="text-align:center">注册</a>
-				</div>
+				<div class="panel" id="loginPanel" title="登录" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
 
-				<!-- Register View -->
-				<div class="panel" title="注册" id="signup" data-footer="none" >
-					<div style="text-align:center">
-						<br>
-						<br>
-						<br>
-						<br>
-					</div>
-					<form id="signupForm">
-						<input name="email" type="text" placeholder="邮箱/手机" />
-						<input name="username" type="text" placeholder="用户名" />
-						<input name="password" type="password" placeholder="密码" />
-						<input name="password2" type="password" placeholder="确认密码" />
-						<a class="button block green" href="#" id="register" onclick="signUp();">注册</a>
-					</form>
-				</div>
+				<div class="panel" id="signupPanel" title="注册" data-defer="signupPanel.html" data-footer="none" ></div>
 
-				<!-- Main App View -->
-				<div class="panel" id="hotMain" data-load="startHot" data-footer="foot" data-header="head" style="overflow:hidden;padding: 0px">
+				<div class="panel" id="hotMain" title="热门吐槽" selected="true" data-load="startHot" data-footer="foot" data-header="head" style="overflow:hidden;padding: 0px">
 					<div id="hotmap"></div>
 				</div>
 
-				<div class="panel" id="newMain" data-load="startNew"  data-footer="foot" data-header="head"></div>
-
-				<div class="panel" id="tucaoPanel" title="查看吐槽" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" >
-					<div style="border-bottom: 1px solid #dddddd;background: #eeeeee; ">
-						<table style="width: 100%;padding-left: 1px;padding-right:40px">
-							<tr>
-								<td width="35px" style="font-size:0px;">
-									<img src="portrait/9.png" width="30px" height="30px"/>
-								</td>
-								<td style="font-size:10px;vertical-align: bottom" >
-									<span>吐槽超人gc</span>
-								</td>
-								<td align="right" style="font-size:10px;vertical-align:bottom; ">
-									<span>30分钟前</span>
-								</td>
-							</tr>
-						</table>
-						<table style="width: 100%;">
-							<tr>
-								<td align="left" valign="top" style="padding: 10px;font-size: 15px;">
-									<span id="t_content">东南枝你伤不起啊！没事不要都来挂东南枝啊，你不嫌重得慌啊！你以为这是排石悬案呐！你以为这是死神的阴谋啊！呕吐曼也来挂有木有，什么猥琐的东西都往上面挂有木有！为什么劳资意见这么大？劳资我就是东南枝啊啊啊啊啊啊啊啊！</span>
-								</td>
-								<td style="width: 40px">
-									<div align="center" style="width: 100%">
-										<div onclick="upClick(this);" style="font-size: 0px">
-											<img src="icons/ios7-arrow-up.png" width="35px" height="25px"/>
-										</div>
-										<div style="font-size: 12px;padding-bottom: 10px;padding-top: 10px">
-											<span>0</span>
-										</div>
-										<div onclick="downClick(this);" style="font-size: 0px">
-											<img src="icons/ios7-arrow-down.png" width="35px" height="25px"/>
-										</div>
-									</div>
-								</td>
-							</tr>
-						</table>
-						<table style="width: 100%;font-size: 10px;padding-right: 40px;padding-left: 5px">
-							<tr>
-								<td width="33%" align="left">
-									<span>200m</span>
-								</td>
-								<td width="33%" align="center">
-									<i class="icon mail" style="font-size: 15px"></i>
-									<span>30</span>
-								</td>
-								<td width="33%" align="right" style="font-size: 0px">
-									<img src="icons/share.png" width="20px" height="20px" />
-								</td>
-							</tr>
-						</table>
-					</div>
-					<div id="commentsList">
-
-					</div>
-				</div>
-					<header id="headDetail">
-						<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
-						<div style="float: right">
-							<img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
-						</div>
-					</header>
-				<div class="panel" id="editPanel" title="编辑吐槽" data-header="headEdit" data-load="startEdit" data-footer="none">
-					<div style="width: 100%;padding: 5px;height: 100%">
-						<div style="width: 100%;">
-							<textarea id="tContent" placeholder="我要吐槽..." style="width: 100%; height:30vh; overflow:auto;margin-bottom: 0"></textarea>
-						</div>
-						<div style="width: 100%;height: 40px">
-							<div style="float: left;margin-left: 25px;">
-								<input id="cAnony" type="checkbox" checked="true" name="checkAnony" value="1" style=""/>
-								<label for="cAnony" style="font-size: 15px;width: 100%">匿名发表</label>
-							</div>
-							<div style="float:right;margin-right: 5px;margin-top: 5px">
-								<img src="icons/ios7-more-outline.png" width="30px" height="30px" onclick="showDistanceSelect(this);"/>
-							</div>
-						</div>
-						<div id="distanceSelectDiv" style="float:right; font-size: 12px">
-							<span>此吐槽可见范围：</span>
-							<select id="distanceSelect" style="width: 120px; color:#000000">
-								<option>2500米以内</option>
-								<option>1500米以内</option>
-								<option>50米以内</option>
-							</select>
-						</div>
-					</div>
-				</div>
-					<header id="headEdit">
-						<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
-						<div style="float: right">
-							<img src="icons/ios7-paperplane-outline.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
-						</div>
-					</header>
+				<div class="panel" id="newMain" title="最新吐槽" data-load="startNew"  data-footer="foot" data-header="head"></div>
+					<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
+						<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
+					<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>
 					
-				<div class="panel" id="chatPanel" title="私信" data-load="" selected="true" data-header="headChat" data-footer="foot" >
-					
-				</div>
-					<header id="headChat">
-						<a id="backButton" onclick="$.ui.goBack()" class='button'></a>
-						<span>私信</span>
-						<div style="float: right">
-							<a class="" style="font-size: 10px">我不是外星人</a>
-							<img src="portrait/1.png" width="30px" height="30px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
-						</div>
-					</header>
-					
-				<div class="panel" id="discoveryPanel" title="发现" data-load="startDiscovery" data-footer="foot" >
-					<ul class="list">
-						<li>
-							<a class="icon ion-ios-star-outline big" href="#">XX城最热吐槽</a>
-						</li>
-						<li>
-							<a class="icon ion-ios-star big" href="#">全国最热吐槽</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a class="icon ion-ios-people-outline big" href="#">热点话题</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a class="icon ion-android-share big" href="#">告诉朋友</a>
-						</li>
-					</ul>
-				</div>
+				<div class="panel" id="discoveryPanel" title="发现" data-defer="discoveryPanel.html" data-load="startDiscovery" data-footer="foot" ></div>
+				
 				<div class="panel" id="messagePanel" title="消息" data-load="" data-footer="foot" ></div>
-				<div class="panel" id="userPanel" title="用户管理" data-load="startUser" data-header="none" data-footer="foot" >
-					<table style="height: 75px;width: 100%;background: white;">
-						<tr>
-							<td align="center" style="width: 75px;height: 100%">
-								<img src="portrait/20.png" width="70px" height="70px"/>							
-							</td>
-							<td align="center">
-								<span style="font-size: 18px">吐槽超人gc</span>
-								<i class="icon ion-woman big" style="margin-left: 10px;color: #ff0000"></i>
-								<br />
-								<span style="font-size: 12px;font-family: '楷体'">吐槽菜鸟 能量80</span>
-							</td>
-							<td align="center" style="width: 40px;height: 100%">
-								<a class="icon pencil" ></a>
-							</td>
-						</tr>
-					</table>
-					<ul class="list">
-						<li class="divider"></li>
-						<li>
-							<a class="icon ion-ios-world-outline big" href="#mylistPanel">我的吐槽足迹</a>
-						</li>
-						<li>
-							<a class="icon ion-ios-browsers-outline big" href="#mylistPanel">我发表的吐槽</a>
-						</li>
-						<li>
-							<a class="icon ion-ios-photos-outline big" href="#mycommentPanel">我评论过的吐槽</a>
-						</li>
-						<li>
-							<a class="icon ion-ios-chatboxes-outline big" href="#mycommentPanel">我的私信</a>
-						</li>
-						
-						<li class="divider"></li>
-						<li style="padding: 0 20px 0 10px">
-							<i class="icon ion-ios-pricetag-outline big"></i>
-							<span style="font-size: 14px">关注距离：</span>
-							<select id="distanceSelect" style="width: 120px; color:#000000;margin-bottom: 1px">
-								<option>2500米以内</option>
-								<option>1500米以内</option>
-								<option>50米以内</option>
-							</select>
-							<i class="icon ion-ios-help-outline" style="margin-left: 15px"></i>
-						</li>
-						<li>
-							<a class="icon ion-ios-gear-outline big" >账户设置</a>
-						</li>
-						
-						<li class="divider"></li>
-						<li>
-							<a class="" href="#">意见反馈</a>
-						</li>
-						<li>
-							<a class="" href="#">版本更新</a>
-						</li>
-					</ul>
-				</div>
-				<div class="panel" id="mylistPanel" title="我发表的吐槽" data-load="startMylist" data-footer="foot" ></div>
-				<div class="panel" id="mycommentPanel" title="我评论过的吐槽" data-load="startMycomment" data-footer="foot" ></div>
+				
+				<div class="panel" id="userPanel" title="用户管理" data-defer="userPanel.html" data-load="startUser" data-header="none" data-footer="foot" ></div>
+					<div class="panel" id="mylistPanel" title="我发表的吐槽" data-load="startMylist" data-footer="foot" ></div>
+					<div class="panel" id="mycommentPanel" title="我评论过的吐槽" data-load="startMycomment" data-footer="foot" ></div>
 			</div>
 
 			<header id="head" style="height: 100%">
@@ -447,18 +245,6 @@
 				<a class="icon magnifier" style="font-size: 10px" href="#discoveryPanel">发现</a>
 				<a id="messageIcon" class="icon message" style="font-size: 10px" href="#messagePanel">消息</a>
 				<a class="icon user" style="font-size: 10px" href="#userPanel">我</a>
-			</footer>
-			<footer id="commentFoot" style="height: 100%">
-				<table style="width:100%; height: 100%">
-					<tr>
-						<td style="padding-left: 5px">
-							<input id="commentContent" placeholder="我来评论一句" style="width: 100%;height:30px; border-right: 0;border-top: 0;border-left: 0;border-bottom-color: gray;border-bottom-width: 1px;"/>
-						</td>
-						<td width="40px" align="center">
-							<img src="icons/ios7-paperplane-outline.png" width="30px" height="30px"/>
-						</td>
-					</tr>
-				</table>
 			</footer>
 	</body>
 </html>
