@@ -86,7 +86,6 @@ class SiteController extends Controller
 
         if($model->validate() && $model->login()) {
             $user = Yii::app()->user;
-
             $this->sendAjax(array(
                 'email'=>$user->reg_email,
                 'phone'=>$user->reg_phone_num,
@@ -94,6 +93,7 @@ class SiteController extends Controller
                 'nick_name'=>$user->name,
                 'head_pic'=>$user->head_pic,
                 'level'=>$user->level,
+                'score'=>$user->score,
                 'sid'=>session_id(),
             ), true);
         } else {

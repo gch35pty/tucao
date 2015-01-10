@@ -82,9 +82,13 @@ class Tucao_commentController extends Controller
     public function actionApply() {
         $tc_comm = new Tucao_comment();
         $tc = new Tucao();
+        $user = new Users();
         if(isset($_POST['user_id']) && $_POST['user_id'] != Yii::app()->user->id) {
             $this->sendAjax(null);
             return;
+        }
+        if(!isset($_POST['user_id'])) {
+            $user_id = Yii::app()->user->id;
         }
         if(!isset($_POST['tucao_id']) || !isset($_POST['content']) || !isset($_POST['hide'])) {
             $this->sendAjax(null);
@@ -109,45 +113,44 @@ class Tucao_commentController extends Controller
                 $tc_comm->save(false);
                 $rs = $tc->addComment($_POST['tucao_id']);
                 if($rs <=0) {
-                    $this->sendAjax(null);
                     $transaction->rollback();
+                    $this->sendAjax(null);
                     return;
                 }
+                $user->addScoreByComment($user_id, $_POST['tucao_id']);
                 $transaction->commit(); //提交事务会真正的执行数据库操作
-                $rtn = true;
             } catch (Exception $e) {
                 $transaction->rollback(); //如果操作失败, 数据回滚
                 echo $e->getMessage();
 
-                $this->sendAjax(array(
-                'comment_id' => $tc_comm->attributes['COMMENT_ID']),
-                true);
+                $this->sendAjax("comment save fail", false);
             }
             $this->sendAjax(array("comment_id"=>$tc_comm->attributes['COMMENT_ID']),true);
 
         } else {
-            $this->sendAjax(null);
+            $this->sendAjax("params validate fail",false);
         }
     }
 
     public function actionSupport()
     {
-        if(!UtilHelper::checkNumParam($_POST['comment_id']) || !UtilHelper::checkLoginU($_POST['user_id']))
+        if(!isset($_POST['comment_id']) || !UtilHelper::checkNumParam($_POST['comment_id']) ||
+            !isset($_POST['user_id']) || !UtilHelper::checkLoginU($_POST['user_id']))
         {
             $this->sendAjax(null);
             return null;
         }
-        if(UtilHelper::checkNumParam($_POST['status'])) {
+        if(isset($_POST['status']) && UtilHelper::checkNumParam($_POST['status'])) {
             $status = $_POST['status'];
         } else {
             $status = 1;
         }
         $tc_comment = new Tucao_comment();
         $rs = $tc_comment->support($_POST['comment_id'],$_POST['user_id'],$status);
-        if($rs != null) {
+        if($rs === true) {
             $this->sendAjax($rs, true);
         } else {
-            $this->sendAjax(null);
+            $this->sendAjax($rs, false);
         }
     }
 }

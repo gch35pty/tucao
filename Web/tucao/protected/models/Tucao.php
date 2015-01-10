@@ -174,7 +174,8 @@ class Tucao extends CActiveRecord
             LADTITUDE as lat,
             LONGITUDE as lng,
             users.NICK_NAME as user_name,
-            users.USER_ID as user_id
+            users.USER_ID as user_id,
+            users.LEVEL as level
             from tucao,users where tucao_id = {$id} and users.user_id = tucao.user_id";
         $rs = Yii::app()->db->createCommand($sql)->queryAll();
         return $rs;
@@ -217,6 +218,7 @@ class Tucao extends CActiveRecord
 
     public function support($tucao_id, $user_id, $status) {
 
+        $user = new Users();
         if($status != 0 && $status != 1) {
             return null;
         }
@@ -225,7 +227,7 @@ class Tucao extends CActiveRecord
         //用户不能重复支持或反对同一条吐槽
         $record = $tc_support->findAllByAttributes(array('TUCAO_ID'=>$tucao_id, 'USER_ID'=>$user_id));
         if($record != null) {
-            return null;
+            return "can not support twice";
         }
         $tc_support->TUCAO_ID = $tucao_id;
         $tc_support->USER_ID = $user_id;
@@ -241,14 +243,15 @@ class Tucao extends CActiveRecord
             }
             if($rs<=0) {
                 $transaction->rollback();
-                return null;
+                return "tucao_id invalid";
             }
+            $user->addScoreBySupport($user_id);
             $transaction->commit(); //提交事务会真正的执行数据库操作
             $rtn = true;
         } catch (Exception $e) {
             $transaction->rollback(); //如果操作失败, 数据回滚
             echo $e->getMessage();
-            $rtn = null;
+            $rtn = "db fail";
         }
 
         return $rtn;

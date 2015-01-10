@@ -185,4 +185,34 @@ class Users extends CActiveRecord
         $rs2 = $this->countByAttributes(array('REG_EMAIL'=>$user_name));
         return $rs1 + $rs2;
     }
+
+    public function addScoreByApply($user_id) {
+        $rt = $this->updateCounters(array('SCORE'=>UtilHelper::$__ScoreByApply),'USER_ID='.$user_id);
+        $record = $this->findByPk($user_id);
+        //print_r($record);
+        UtilHelper::ifUpgradeUser($record['SCORE'],$record['USER_ID'],$record['LEVEL']);
+        return $rt;
+    }
+
+    public function addScoreBySupport($user_id) {
+        $rt = $this->updateCounters(array('SCORE'=>UtilHelper::$__ScoreByAgree),'USER_ID='.$user_id);
+        $record = $this->findByPk($user_id);
+        //print_r($record);
+        UtilHelper::ifUpgradeUser($record['SCORE'],$record['USER_ID'],$record['LEVEL']);
+        return $rt;
+    }
+
+    public function addScoreByComment($user_id, $tucao_id) {
+        $tc_comment = new Tucao_comment();
+        $record = $tc_comment->findAllByAttributes(array('TUCAO_ID'=>$tucao_id, 'COMMENT_USER'=>$user_id));
+        if($record == null || sizeof($record)!= 1) {
+            //print_r($record);
+            return true;
+        }
+        $rt = $this->updateCounters(array('SCORE'=>UtilHelper::$__ScoreByComment),'USER_ID='.$user_id);
+        $record = $this->findByPk($user_id);
+        //print_r($record);
+        UtilHelper::ifUpgradeUser($record['SCORE'],$record['USER_ID'],$record['LEVEL']);
+        return $rt;
+    }
 }

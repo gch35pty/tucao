@@ -32,7 +32,7 @@ class UserIdentity extends CUserIdentity
             $type = "nick_name";
         }
 
-        $record = Users::model()->findColumnByAttributes(array("USER_ID", "NICK_NAME", "REG_EMAIL", "REG_PHONE_NUM", "HEAD_PIC", "LEVEL","PASSWORD"),array($type=>$this->username));
+        $record = Users::model()->findColumnByAttributes(array("USER_ID", "NICK_NAME", "REG_EMAIL", "REG_PHONE_NUM", "HEAD_PIC", "LEVEL","SCORE","PASSWORD"),array($type=>$this->username));
         //$record = Users::model()->findbyPk("1");
         //echo $type;
         $arra = $record->attributes;
@@ -51,11 +51,22 @@ class UserIdentity extends CUserIdentity
             $this->_id=$record->USER_ID;
             $this->_name = $record->NICK_NAME;
             $user = Yii::app()->user;
+            $userA = array();
+            $userA['nick_name'] = $record->NICK_NAME;
+            $userA['user_id'] = $record->USER_ID;
+            $userA['head_pic'] = $record->HEAD_PIC;
+            $userA['level'] = $record->LEVEL;
+            $userA['score'] = $record->SCORE;
+            $userA['reg_email'] = $record->REG_EMAIL;
+            $userA['reg_phone_num'] = $record->REG_PHONE_NUM;
+
+            $user->user_id = $record->USER_ID;
             $user->head_pic = $record->HEAD_PIC;
             $user->level = $record->LEVEL;
+            $user->score = $record->SCORE;
             $user->reg_email = $record->REG_EMAIL;
             $user->reg_phone_num = $record->REG_PHONE_NUM;
-
+            $this->setPersistentStates($userA);
             $this->errorCode=self::ERROR_NONE;
         }
         //return false;
