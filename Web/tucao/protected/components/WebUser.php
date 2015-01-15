@@ -11,6 +11,8 @@ class WebUser extends CWebUser{
     public $level;
     public $reg_email;
     public $reg_phone_num;
+    public $score;
+    public $user_id;
 
     public function isAdmin() {
         return $this->getState("isAdmin", false);

@@ -3207,3 +3207,267 @@ in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
 in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao_comment.php (148)
 in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/Tucao_commentController.php (146)
 in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/10 20:01:45 [error] [php] Undefined index: user_id (/Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/Tucao_commentController.php:117)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): Tucao_commentController->runAction()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): Tucao_commentController->filterAccessControl()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): Tucao_commentController->runActionWithFilters()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): Tucao_commentController->run()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/tucao_comment/apply
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/Tucao_commentController.php (117)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/10 21:26:48 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.score" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/auth/CWebUser.php(160): CComponent->__set('score', NULL)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UserIdentity.php(56): CWebUser->__set('score', NULL)
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php(87): CModel->validate()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('login')
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/Tucao/index.php/site/login
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2015/01/10 21:27:48 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.score" is not defined.' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/auth/CWebUser.php(160): CComponent->__set('score', '30')
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UserIdentity.php(56): CWebUser->__set('score', '30')
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#6 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php(87): CModel->validate()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('login')
+#17 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#18 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/Tucao/index.php/site/login
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2015/01/10 21:56:11 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (50)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 21:57:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (51)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 21:58:17 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (51)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 21:58:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (51)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 22:00:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (51)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 22:01:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (53)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 22:02:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (53)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 22:02:47 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (53)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 22:02:54 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (53)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 22:07:01 [error] [php] Attempt to assign property of non-object (/Users/gongchen/Project/tucao/Web/Tucao/protected/components/UserIdentity.php:55)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(159): CInlineValidator->validate()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php(87): LoginForm->validate()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): SiteController->run()
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/site/login
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UserIdentity.php (55)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/LoginForm.php (52)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php (87)
+2015/01/10 22:07:04 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (53)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 22:07:10 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: UPDATE `Users` SET `LEVEL`=:yp0 WHERE USER_ID=.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UtilHelper.php (53)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Users.php (193)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (96)
+2015/01/10 22:10:48 [error] [php] Attempt to assign property of non-object (/Users/gongchen/Project/tucao/Web/Tucao/protected/components/UserIdentity.php:55)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(159): CInlineValidator->validate()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php(87): LoginForm->validate()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): SiteController->run()
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/site/login
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UserIdentity.php (55)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/LoginForm.php (52)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php (87)
+2015/01/10 22:10:53 [error] [php] Attempt to assign property of non-object (/Users/gongchen/Project/tucao/Web/Tucao/protected/components/UserIdentity.php:55)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CModel.php(159): CInlineValidator->validate()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php(87): LoginForm->validate()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): SiteController->run()
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/site/login
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/components/UserIdentity.php (55)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/LoginForm.php (52)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/SiteController.php (87)
+2015/01/10 22:50:07 [error] [php] Undefined index: status (/Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/Tucao_commentController.php:142)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): Tucao_commentController->runAction()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): Tucao_commentController->filterAccessControl()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): Tucao_commentController->runActionWithFilters()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): Tucao_commentController->run()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/tucao_comment/support
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/Tucao_commentController.php (142)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/10 22:53:45 [error] [php] Undefined index: status (/Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php:171)
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): TucaoController->runAction()
+#1 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): TucaoController->filterAccessControl()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): TucaoController->runActionWithFilters()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): TucaoController->run()
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CWebApplication->run()
+REQUEST_URI=/Tucao/index.php/tucao/support
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (171)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/10 23:01:33 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from tucao,users where tucao_id = 1 and users.user_id = tucao.user_id' at line 15. The SQL statement executed was: select
+            TUCAO_ID as tucao_id,
+            TITLE as title,
+            CONTENT as content,
+            COMMENT_NUM as comment_num,
+            SUPPORT_NUM as support_num,
+            DISAGREE_NUM as disagree_num,
+            SHARE_NUM as share_num,
+            tucao.CREATE_TIME as create_time,
+            LADTITUDE as lat,
+            LONGITUDE as lng,
+            users.NICK_NAME as user_name,
+            users.USER_ID as user_id,
+            users.LEVEL as level,
+            from tucao,users where tucao_id = 1 and users.user_id = tucao.user_id.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao.php (180)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (33)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/10 23:01:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from tucao,users where tucao_id = 1 and users.user_id = tucao.user_id' at line 15. The SQL statement executed was: select
+            TUCAO_ID as tucao_id,
+            TITLE as title,
+            CONTENT as content,
+            COMMENT_NUM as comment_num,
+            SUPPORT_NUM as support_num,
+            DISAGREE_NUM as disagree_num,
+            SHARE_NUM as share_num,
+            tucao.CREATE_TIME as create_time,
+            LADTITUDE as lat,
+            LONGITUDE as lng,
+            users.NICK_NAME as user_name,
+            users.USER_ID as user_id,
+            users.LEVEL as level,
+            from tucao,users where tucao_id = 1 and users.user_id = tucao.user_id' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/Tucao.php(180): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(33): Tucao->get('1')
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionDetail()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('detail')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/detail')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/detail
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---

@@ -129,6 +129,7 @@ class Tucao_comment extends CActiveRecord
     }
 
     public function support($comment_id, $user_id, $status) {
+        $user = new Users();
         if($status != 0 && $status != 1) {
             return null;
         }
@@ -137,12 +138,12 @@ class Tucao_comment extends CActiveRecord
         //用户不能重复支持或反对同一条吐槽
         $record = $comm_support->findAllByAttributes(array('COMMENT_ID'=>$comment_id, 'USER_ID'=>$user_id));
         if($record != null) {
-            return null;
+            return "can not support twice.";
         }
         $comm_support->COMMENT_ID = $comment_id;
         $comm_support->USER_ID = $user_id;
         $comm_support->SUPPORT_STATUS = $status;
-
+        //事务主要处理的任务包括保存点赞，添加评论的赞数，给用户增加积分
         $transaction = Yii::app()->db->beginTransaction(); //创建事务
         try {
             $comm_support->save(false);
@@ -153,14 +154,15 @@ class Tucao_comment extends CActiveRecord
             }
             if($rs<=0) {
                 $transaction->rollback();
-                return null;
+                return "comment_id invalid";
             }
+            $user->addScoreBySupport($user_id);
             $transaction->commit(); //提交事务会真正的执行数据库操作
             $rtn = true;
         } catch (Exception $e) {
             $transaction->rollback(); //如果操作失败, 数据回滚
             echo $e->getMessage();
-            $rtn = null;
+            $rtn = "db fail";
         }
 
         return $rtn;

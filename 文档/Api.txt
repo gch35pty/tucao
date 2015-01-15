@@ -165,7 +165,7 @@ desp: 发表吐槽
 	‘user_id’: xxx, 
 	‘title’: xxx, 吐槽标题
 	‘content’: xxx, 吐槽内容
-	‘hide’: true/false  是否匿名
+	'hide': 1/0  是否匿名
 	'lat' : xxx.xxx 纬度，浮点类型
     'lng' : xxx.xxx 经度，浮点类型
     ‘distance’： xxx 吐槽的可见距离fa  非必须, 0表示无线距离
@@ -295,6 +295,7 @@ desp: 获取某条吐槽的详情
 		'lat' : xxx.xxx 纬度，浮点类型,
 		'lng' : xxx.xxx 经度，浮点类型,
     	'user_name': xxx,
+    	'level': xxx,
 		‘comment’ [
 			{
 				‘comment_id': xxx,

@@ -68,13 +68,15 @@ class TucaoController extends Controller
         if($_POST['user_id'] != Yii::app()->user->id) {
             $this->sendAjax(null);
         }
-        if(!isset($_POST['user_id']) || !isset($_POST['content']) ||!isset($_POST['title']) ||
+        if(!isset($_POST['user_id']) || !isset($_POST['content']) ||
             !isset($_POST['hide']) || !isset($_POST['lat']) || !isset($_POST['lng']))
         {
             $this->sendAjax(null);
         }
         $tc->USER_ID = $_POST['user_id'];
-        $tc->TITLE = $_POST['title'];
+        if(isset($_POST['title'])) {
+            $tc->TITLE = $_POST['title'];
+        }
         $tc->CONTENT = $_POST['content'];
         $tc->IS_ANONYMOUS = $_POST['hide'];
         $tc->LADTITUDE = $_POST['lat'];
@@ -87,14 +89,26 @@ class TucaoController extends Controller
             $tc->TOPIC_ID = $_POST['topic_id'];
         if(isset($_POST['father_id']))
             $tc->FATHER_ID = $_POST['father_id'];
-        if($tc->validate() && $tc->save(false)) {
-            //print_r($tc->attributes);
-            $this->sendAjax(array(
-                'tucao_id'=>$tc->attributes['TUCAO_ID']),
-                true);
-
-        } else {
-            $this->sendAjax(null);
+        $user = new Users();
+        //事务包含了存储tucao，给用户加分两个任务
+        $transaction = Yii::app()->db->beginTransaction(); //创建事务
+        try {
+            $user->addScoreByApply($_POST['user_id']);
+            if($tc->validate() && $tc->save(false)) {
+                $transaction->commit(); //提交事务会真正的执行数据库操作
+                //print_r($tc->attributes);
+                $this->sendAjax(array(
+                        'tucao_id'=>$tc->attributes['TUCAO_ID']),
+                    true);
+            } else {
+                $transaction->rollback();
+                $this->sendAjax("tucao save fail",false);
+                return;
+            }
+        } catch (Exception $e) {
+            $transaction->rollback(); //如果操作失败, 数据回滚
+            echo "error:".$e->getMessage();
+            $this->sendAjax("db fail",false);
         }
 
     }
@@ -150,21 +164,23 @@ class TucaoController extends Controller
 
     public function actionSupport()
     {
-        if(!UtilHelper::checkNumParam($_POST['tucao_id']) || !UtilHelper::checkLoginU($_POST['user_id'])) {
+        if(!isset($_POST['tucao_id']) ||!UtilHelper::checkNumParam($_POST['tucao_id']) ||
+            !isset($_POST['user_id']) || !UtilHelper::checkLoginU($_POST['user_id'])) {
             $this->sendAjax(null);
             return;
         }
-        if(UtilHelper::checkNumParam($_POST['status'])) {
+        if(isset($_POST['status']) && UtilHelper::checkNumParam($_POST['status'])) {
             $status = $_POST['status'];
         } else {
             $status = 1;
         }
         $tc = new Tucao();
         $rs = $tc->support($_POST['tucao_id'],$_POST['user_id'],$status);
-        if($rs != null) {
+        print_r($rs);
+        if($rs === true) {
             $this->sendAjax($rs, true);
         } else {
-            $this->sendAjax(null);
+            $this->sendAjax($rs, false);
         }
     }
 
