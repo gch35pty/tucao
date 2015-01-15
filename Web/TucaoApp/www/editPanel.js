@@ -23,25 +23,27 @@ function apply() {
 
 	// var isHide = Boolean($("#cAnony").val());
 	var isHide = $("#cAnony").val();
+	alert(isHide);
+	var distance = $("#distanceSelect").val();
 
 	$.ajax({
 		type : "POST",
-		url : webRoot + 'apply',
+		url : webRoot + 'tucao/apply',
 		data : {
 			"user_id" : userId,
 			"content" : content,
 			"hide" : isHide,
 			"lat" : position.coords.latitude,
 			"lng" : position.coords.longitude,
-			"distance" : position.coords.longitude,
+			"distance" : distance,
 		},
 		success : function(data) {
 			if (data.success) {
-				// alert(data.data);
-				nearNew();
-				$.ui.loadContent("newMain", null, null, "");
+				alert(data.data.tucao_id);
+				// nearNew();
+				// $.ui.loadContent("newMain", null, null, "");
 			} else {
-				alert("error");
+				alert(data.data);
 			}
 		},
 		dataType : "json"

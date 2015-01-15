@@ -138,9 +138,10 @@
 		
 		<script>
 			//******此段定义常量********//
-			var userId = 3;
+			var userId = 2;
 			var distance = 1500;
 			var FIRST_LENGTH = 10;
+			var newTucaoId =-1;
 			var position = {
 				coords : {
 					latitude : 31.274913,
@@ -211,10 +212,10 @@
 					<div id="hotmap"></div>
 				</div>
 
-				<div class="panel" id="newMain" title="最新吐槽" selected="true" data-load="startNew"  data-footer="foot" data-header="head"></div>
+				<div class="panel" id="newMain" title="最新吐槽" data-load="startNew"  data-footer="foot" data-header="head"></div>
 					<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
 						<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
-					<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>
+					<div class="panel" id="editPanel" title="编辑吐槽" selected="true" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>
 					
 				<div class="panel" id="discoveryPanel" title="发现" data-defer="discoveryPanel.html" data-load="startDiscovery" data-footer="foot" ></div>
 				
