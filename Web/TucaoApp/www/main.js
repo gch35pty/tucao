@@ -41,14 +41,14 @@ function nearHot() {
 function nearNew() {
 	$.ajax({
 		type : "POST",
-		url : webRoot + 'nearnew',
+		url : webRoot + 'tucao/nearnew',
 		data : {
 			"user_id" : userId,
+			"lat" : position.coords.latitude,
+			"lng" : position.coords.longitude,
 			"distance" : distance,
 			"offset" : 0,
 			"length" : FIRST_LENGTH,
-			"lat" : position.coords.latitude,
-			"lng" : position.coords.longitude
 		},
 		success : function(data) {
 			if (data.success) {

@@ -23,7 +23,6 @@ function apply() {
 
 	// var isHide = Boolean($("#cAnony").val());
 	var isHide = $("#cAnony").val();
-	alert(isHide);
 	var distance = $("#distanceSelect").val();
 
 	$.ajax({
