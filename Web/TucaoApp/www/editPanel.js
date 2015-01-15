@@ -12,6 +12,7 @@ function hideDistanceSelect (img) {
   $("#distanceSelectDiv").hide();
 }
 
+//发表吐槽
 function apply() {
 	var content = trim($("#tContent").val());
 
@@ -31,7 +32,8 @@ function apply() {
 			"content" : content,
 			"hide" : isHide,
 			"lat" : position.coords.latitude,
-			"lng" : position.coords.longitude
+			"lng" : position.coords.longitude,
+			"distance" : position.coords.longitude,
 		},
 		success : function(data) {
 			if (data.success) {
