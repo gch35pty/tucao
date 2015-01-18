@@ -52,11 +52,11 @@ class TucaoNearForm extends CFormModel {
 	                        )
 	                    )"
                         .$timeCon.
-                        " order by CREATE_TIME desc limit {$this->offset},{$this->length} ";
+                        " order by tucao.CREATE_TIME desc limit {$this->offset},{$this->length} ";
         }
         else {
             $sql = "select *, null as distanceFrom from tucao ".$timeCon.
-                        " order by CREATE_TIME desc limit {$this->offset},{$this->length}";
+                        " order by tucao.CREATE_TIME desc limit {$this->offset},{$this->length}";
         }
         //echo $sql;
         $rs = Yii::app()->db->createCommand($sql)->queryAll();

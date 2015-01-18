@@ -34,7 +34,7 @@
 			<div style="border-bottom: 1px solid #dddddd;background: #eeeeee">
 			<table style="width:100%;">
 				<tr>
-					<td align="left" valign="top" style="font-size: 10px;padding: 5px" onclick="detail (${tucao.TC_TUCAO})">
+					<td align="left" valign="top" style="font-size: 10px;padding: 5px" onclick="detail (${tucao.TUCAO_ID})">
 						<span>${tucao.CONTENT}</span>
 					</td>
 					<td style="width: 40px">
@@ -55,17 +55,17 @@
 			<table style="width: 100%;height: 20px;font-size: 8px;padding-right: 40px">
 				<tr>
 					<td width="25%" style="padding-left: 5px">
-						<span id="t_interval">${tucao.CREATE_TIME|jsDateDiff}</span>
+						<span>${tucao.CREATE_TIME|jsDateDiff}</span>
 					</td>
 					<td width="25%" align="center">
-						<span>200m</span>
+						<span>${tucao.distanceFrom}</span>
 					</td>
 					<td width="25%" align="center">
 						<i class="icon mail"></i>
-						<span>30</span>
+						<span>${tucao.COMMENT_NUM}</span>
 					</td>
 					<td width="25%" align="right">
-						<span>吐槽超人gc</span>
+						<span>${tucao.user_name}</span>
 					</td>
 				</tr>
 			</table>
@@ -139,13 +139,21 @@
 		<script>
 			//******此段定义常量********//
 			var userId = 2;
-			var distance = 1500;
-			var FIRST_LENGTH = 10;
+			var userDistance = 10000;
 			var newTucaoId =-1;
+/*
 			var position = {
 				coords : {
 					latitude : 31.274913,
 					longitude : 120.755755
+				}
+			};*/
+
+			//gc的经纬度：
+			var position = {
+				coords : {
+					latitude : 118.766414,
+					longitude : 31.834680
 				}
 			};
 			// var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
@@ -182,7 +190,6 @@
 			document.addEventListener("deviceready", onDeviceReady, false);
 		</script>
 
-		<script type="text/javascript" src="scroll.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 		<script type="text/javascript" src="editPanel.js"></script>
 		<script type="text/javascript" src="chatPanel.js"></script>
@@ -204,7 +211,7 @@
 			<div id="content" style="">
 				<!-- Views -->
 
-				<div class="panel" id="loginPanel" title="登录" selected="true" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
+				<div class="panel" id="loginPanel" title="登录" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
 
 				<div class="panel" id="signupPanel" title="注册" data-defer="signupPanel.html" data-footer="none" ></div>
 
@@ -212,7 +219,7 @@
 					<div id="hotmap"></div>
 				</div>
 
-				<div class="panel" id="newMain" title="最新吐槽" data-load="startNew"  data-footer="foot" data-header="head"></div>
+				<div class="panel" id="newMain" title="最新吐槽" selected="true" data-load="startNew"  data-footer="foot" data-header="head"></div>
 					<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
 						<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
 					<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>
@@ -230,14 +237,14 @@
 				<table style="width:100%; height: 100%">
 					<tr>
 						<td width="40px" align="center">
-							<img src="icons/xbox.png" width="30px" height="30px"/>
+							<a class="ion-xbox" style="font-size: 30px"></a>
 						</td>
 						<td align="center">
-							<a class="button " href="#hotMain">热点吐槽</a>
-							<a class="button " href="#newMain">最新吐槽</a>
+							<a class="" href="#hotMain">热点吐槽</a>
+							<a class="" href="#newMain">最新吐槽</a>
 						</td>
 						<td width="40px" align="center">
-							<img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
+							<a class="ion-plus" style="font-size: 30px" href="#editPanel"></a>
 						</td>
 					</tr>
 				</table>
