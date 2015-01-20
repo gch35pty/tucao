@@ -124,7 +124,7 @@ class TucaoController extends Controller
         if($rs!= null) {
             $this->sendAjax($rs,true);
         } else {
-            $this->sendAjax(null);
+            $this->sendAjax("no data",true);
         }
     }
 
@@ -139,7 +139,7 @@ class TucaoController extends Controller
         if($rs!= null) {
             $this->sendAjax($rs, true);
         } else {
-            $this->sendAjax(null);
+            $this->sendAjax("no data", true);
         }
     }
 
@@ -157,7 +157,7 @@ class TucaoController extends Controller
         if($rs != null) {
             $this->sendAjax($rs,true);
         } else {
-            $this->sendAjax(null);
+            $this->sendAjax("no data", true);
         }
 
     }

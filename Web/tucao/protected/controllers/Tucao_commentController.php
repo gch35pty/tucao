@@ -59,7 +59,7 @@ class Tucao_commentController extends Controller
         if($rs != null) {
             $this->sendAjax($rs,true);
         } else {
-            $this->sendAjax(null);
+            $this->sendAjax("no data", true);
         }
 
     }

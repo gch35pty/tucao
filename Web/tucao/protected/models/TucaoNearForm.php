@@ -28,7 +28,7 @@ class TucaoNearForm extends CFormModel {
     public function searchNew() {
         $timeCon = "";
         if(isset($this->lastTime)) {
-            $timeCon = " and CREATE_TIME < '".$this->lastTime."' ";
+            $timeCon = " and tucao.CREATE_TIME < '".$this->lastTime."' ";
         }
         if(isset($this->lat) && isset($this->lng) && isset($this->distance) && $this->distance>0) {
             $location = UtilHelper::getLocationSize($this->lat, $this->lng, $this->distance);
@@ -52,11 +52,13 @@ class TucaoNearForm extends CFormModel {
 	                        )
 	                    )"
                         .$timeCon.
-                        " order by CREATE_TIME desc limit {$this->offset},{$this->length} ";
+                        " order by tucao.CREATE_TIME desc limit {$this->offset},{$this->length} ";
         }
         else {
-            $sql = "select *, null as distanceFrom from tucao ".$timeCon.
-                        " order by CREATE_TIME desc limit {$this->offset},{$this->length}";
+            $sql = "select *, null as distanceFrom, users.NICK_NAME as user_name from tucao,users
+                        where users.USER_ID = tucao.USER_ID "
+                               .$timeCon.
+                        " order by tucao.CREATE_TIME desc limit {$this->offset},{$this->length}";
         }
         //echo $sql;
         $rs = Yii::app()->db->createCommand($sql)->queryAll();

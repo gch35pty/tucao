@@ -3471,3 +3471,243 @@ Stack trace:
 REQUEST_URI=/Tucao/index.php/tucao/detail
 HTTP_REFERER=http://localhost/Tucao/index.php/test/do
 ---
+2015/01/16 23:35:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by CREATE_TIME desc limit ,.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (62)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (123)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/16 23:35:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by CREATE_TIME desc limit ,' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(62): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(123): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearNew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearNew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearNew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2015/01/16 23:35:10 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by CREATE_TIME desc limit ,.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (62)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (123)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/16 23:35:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, null as distanceFrom from tucao  order by CREATE_TIME desc limit ,' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(62): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(123): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearNew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearNew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearNew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2015/01/16 23:36:52 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 13. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 31.1223,118.12312) as distanceFrom,
+                        users.NICK_NAME as user_name
+                    from tucao, users
+                    where
+                        users.USER_ID = tucao.USER_ID and
+                        LADTITUDE between 30.222978394081 and 32.021621605919 and
+                        LONGITUDE between 117.07258769088 and 119.17365230912 and (
+	                        DISTANCE > GETDISTANCE (
+		                    LADTITUDE,LONGITUDE,31.1223,118.12312
+	                        ) OR (
+		                        DISTANCE = 0
+	                        )
+	                    ) order by CREATE_TIME desc limit , .
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (62)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (123)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/16 23:36:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 13. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 31.1223,118.12312) as distanceFrom,
+                        users.NICK_NAME as user_name
+                    from tucao, users
+                    where
+                        users.USER_ID = tucao.USER_ID and
+                        LADTITUDE between 30.222978394081 and 32.021621605919 and
+                        LONGITUDE between 117.07258769088 and 119.17365230912 and (
+	                        DISTANCE > GETDISTANCE (
+		                    LADTITUDE,LONGITUDE,31.1223,118.12312
+	                        ) OR (
+		                        DISTANCE = 0
+	                        )
+	                    ) order by CREATE_TIME desc limit , ' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(62): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(123): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2015/01/16 23:39:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'CREATE_TIME' in order clause is ambiguous. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 31.1223,118.12312) as distanceFrom,
+                        users.NICK_NAME as user_name
+                    from tucao, users
+                    where
+                        users.USER_ID = tucao.USER_ID and
+                        LADTITUDE between 30.222978394081 and 32.021621605919 and
+                        LONGITUDE between 117.07258769088 and 119.17365230912 and (
+	                        DISTANCE > GETDISTANCE (
+		                    LADTITUDE,LONGITUDE,31.1223,118.12312
+	                        ) OR (
+		                        DISTANCE = 0
+	                        )
+	                    ) order by CREATE_TIME desc limit 0,10 .
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (62)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (123)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/16 23:39:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'CREATE_TIME' in order clause is ambiguous. The SQL statement executed was: select *,GETDISTANCE(LADTITUDE, LONGITUDE, 31.1223,118.12312) as distanceFrom,
+                        users.NICK_NAME as user_name
+                    from tucao, users
+                    where
+                        users.USER_ID = tucao.USER_ID and
+                        LADTITUDE between 30.222978394081 and 32.021621605919 and
+                        LONGITUDE between 117.07258769088 and 119.17365230912 and (
+	                        DISTANCE > GETDISTANCE (
+		                    LADTITUDE,LONGITUDE,31.1223,118.12312
+	                        ) OR (
+		                        DISTANCE = 0
+	                        )
+	                    ) order by CREATE_TIME desc limit 0,10 ' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(62): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(123): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2015/01/20 23:38:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'users.NICK_NAME as user_name from tucao,users
+                        where user' at line 1. The SQL statement executed was: select *, null as distanceFrom users.NICK_NAME as user_name from tucao,users
+                        where users.USER_ID = tucao.USER_ID  and CREATE_TIME < '20140101'  order by tucao.CREATE_TIME desc limit 0,10.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (64)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (123)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/20 23:38:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'users.NICK_NAME as user_name from tucao,users
+                        where user' at line 1. The SQL statement executed was: select *, null as distanceFrom users.NICK_NAME as user_name from tucao,users
+                        where users.USER_ID = tucao.USER_ID  and CREATE_TIME < '20140101'  order by tucao.CREATE_TIME desc limit 0,10' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(64): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(123): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2015/01/20 23:39:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'users.NICK_NAME as user_name from tucao,users
+                        where user' at line 1. The SQL statement executed was: select *, null as distanceFrom users.NICK_NAME as user_name from tucao,users
+                        where users.USER_ID = tucao.USER_ID  and CREATE_TIME < '20140101'  order by tucao.CREATE_TIME desc limit 0,10.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (64)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (123)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/20 23:39:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'users.NICK_NAME as user_name from tucao,users
+                        where user' at line 1. The SQL statement executed was: select *, null as distanceFrom users.NICK_NAME as user_name from tucao,users
+                        where users.USER_ID = tucao.USER_ID  and CREATE_TIME < '20140101'  order by tucao.CREATE_TIME desc limit 0,10' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(64): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(123): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
+2015/01/20 23:40:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'CREATE_TIME' in where clause is ambiguous. The SQL statement executed was: select *, null as distanceFrom, users.NICK_NAME as user_name from tucao,users
+                        where users.USER_ID = tucao.USER_ID  and CREATE_TIME < '20140101'  order by tucao.CREATE_TIME desc limit 0,10.
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php (64)
+in /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php (123)
+in /Users/gongchen/Project/tucao/Web/Tucao/index.php (13)
+2015/01/20 23:40:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'CREATE_TIME' in where clause is ambiguous. The SQL statement executed was: select *, null as distanceFrom, users.NICK_NAME as user_name from tucao,users
+                        where users.USER_ID = tucao.USER_ID  and CREATE_TIME < '20140101'  order by tucao.CREATE_TIME desc limit 0,10' in /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/gongchen/Project/yii-1.1.15.022a51/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/gongchen/Project/tucao/Web/Tucao/protected/models/TucaoNearForm.php(64): CDbCommand->queryAll()
+#2 /Users/gongchen/Project/tucao/Web/Tucao/protected/controllers/TucaoController.php(123): TucaoNearForm->searchNew()
+#3 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/actions/CInlineAction.php(49): TucaoController->actionNearnew()
+#4 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('nearnew')
+#13 /Users/gongchen/Project/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('tucao/nearnew')
+#14 /Users/gongchen/Project/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/gongchen/Project/tucao/Web/Tucao/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Tucao/index.php/tucao/nearnew
+HTTP_REFERER=http://localhost/Tucao/index.php/test/do
+---
