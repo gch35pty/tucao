@@ -1,17 +1,17 @@
 <?php /* Smarty version Smarty-3.1.13, created on 2015-01-25 20:19:28
-         compiled from "/Users/gongchen/Project/tucao/Web/Tucao/protected/views/test/do.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:180031827554c4df50ae7383-17535914%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+         compiled from "/Users/gongchen/Project/tucao/Web/tucao/protected/views/test/do.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:38451509954c4df50ad9874-04617896%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '2ee538e375314108e15c1bcd53d36f681a5a9bce' => 
+    '8d651c93a6633fb8fac2268509dd9f81f2aa3904' => 
     array (
-      0 => '/Users/gongchen/Project/tucao/Web/Tucao/protected/views/test/do.tpl',
+      0 => '/Users/gongchen/Project/tucao/Web/tucao/protected/views/test/do.tpl',
       1 => 1417045002,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '180031827554c4df50ae7383-17535914',
+  'nocache_hash' => '38451509954c4df50ad9874-04617896',
   'function' => 
   array (
   ),
@@ -23,9 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_54c4df50c6a5c1_95229069',
+  'unifunc' => 'content_54c4df50c6cde5_58515030',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54c4df50c6a5c1_95229069')) {function content_54c4df50c6a5c1_95229069($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['url_prefix'] = new Smarty_variable($_smarty_tpl->tpl_vars['Yii']->value->params['url_prefix'], null, 0);?>
+<?php if ($_valid && !is_callable('content_54c4df50c6cde5_58515030')) {function content_54c4df50c6cde5_58515030($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['url_prefix'] = new Smarty_variable($_smarty_tpl->tpl_vars['Yii']->value->params['url_prefix'], null, 0);?>
 <?php $_smarty_tpl->tpl_vars['link_prefix'] = new Smarty_variable($_smarty_tpl->tpl_vars['Yii']->value->params['link_prefix'], null, 0);?>
 
 <!DOCTYPE html>

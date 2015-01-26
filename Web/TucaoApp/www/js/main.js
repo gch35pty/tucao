@@ -3,11 +3,23 @@
  */
 require.config({
     paths: {
-        "jquery": "./build/jquery-1.11.0.min",
-        "jqaf": "./build/jq.appframework.min",
-        "appframeworkui": "./build/ui/appframework.ui",
-        "appframework": "./build/appframework",
-        "juicer": "./build/juicer-min"
+        "jquery": "../build/jquery-1.11.0-min",
+        "jqaf": "../build/jq.appframework.min",
+        "appframeworkui": "../build/ui/appframework.ui",
+        "af": "../build/appframework",
+        "juicer": "../build/juicer-min",
+
+        "tool" : "tool",
+        "scroll" : "scroll",
+        "startMain" : "startMain",
+        "editPanel" : "editPanel",
+        "chatPanel" : "chatPanel",
+        "loginPanel" : "loginPanel",
+        "signupPanel" : "signupPanel",
+        "tucaoPanel" : "tucaoPanel",
+        "userPanel" : "userPanel",
+
+        "af.scroller" : "../plugins/af.scroller"
     },
     shim: {
         jqaf: {
@@ -19,6 +31,12 @@ require.config({
             deps: [
                 'jqaf'
             ]
+        },
+        juicer: {
+            deps: [
+                'jquery'
+            ],
+            exports: "juicer"
         }
     }
 });
@@ -27,27 +45,13 @@ require.config({
 // Now that we have configured a named alias for the App Framework
 // library, let's try to load it using the named module.
 require(
-    ["jquery","jqaf","appframeworkui"],//,"jqaf","appframeworkui"],
-    function(){
-        //******此段定义常量********//
-        var userId = 2;
-        var distance = 1500;
-        var FIRST_LENGTH = 10;
-        var newTucaoId =-1;
-        var position = {
-            coords : {
-                latitude : 31.274913,
-                longitude : 120.755755
-            }
-        };
-        // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
-        var webRoot = "http://127.0.0.1/tucao/index.php/";
-        var map = null;
-        var curTucaoId = 8;
+    ["jquery","tool","juicer","af","jqaf","appframeworkui","af.scroller","startMain","editPanel",
+    "chatPanel","loginPanel","signupPanel","tucaoPanel","userPanel"],//,"jqaf","appframeworkui"],
+    function(jquery,tool,juicer){
 
         //注册自定义函数
-        juicer.register('jsDateDiff', jsDateDiff);
-        juicer.register('random29', random29);
+        juicer.register('jsDateDiff', tool.jsDateDiff);
+        juicer.register('random29', tool.random29);
 
         // set to ios7 ---cky
         $.ui.ready(function() {

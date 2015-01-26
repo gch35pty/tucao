@@ -30,6 +30,10 @@ class TucaoNearForm extends CFormModel {
         if(isset($this->lastTime)) {
             $timeCon = " and tucao.CREATE_TIME < '".$this->lastTime."' ";
         }
+        if(!isset($this->offset) || !isset($this->length)) {
+            $this->offset = 0;
+            $this->length = 10;
+        }
         if(isset($this->lat) && isset($this->lng) && isset($this->distance) && $this->distance>0) {
             $location = UtilHelper::getLocationSize($this->lat, $this->lng, $this->distance);
             $lat_left = $location['lat_left'];
