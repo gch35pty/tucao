@@ -1,6 +1,5 @@
 function startTucao(){
 	$("#navbar").css("height","35px");
-	// refreshCommentList();
 }
 function closeTucao(){
 	$("#navbar").css("height","45px");
@@ -26,41 +25,7 @@ function detail(tucaoId) {
 				$("#t_interval").html(jsDateDiff(data.data[0].create_time));
 				curTucaoId=tucaoId;
 				$.ui.loadContent("tucaoPanel", null, null, "");
-				// refreshCommentList();
-			} else {
-				alert("error");
-			}
-		},
-		dataType : "json"
-	});
-}
-
-
-//发表评论
-function applycomment () {
-	var content = trim($("#commentContent").val());
-
-	if (content == "") {
-		alert("空");
-		return;
-	};
-  	$.ajax({
-		type : "POST",
-		url : webRoot + 'applycomment',
-		data : {
-			"tucao_id" : curTucaoId,
-			"user_id" : userId,
-			"content" : content,
-			"reply_comment" : -1,
-			"hide" : false,
-			"lat" : position.coords.latitude,
-			"lng" : position.coords.longitude
-		},
-		success : function(data) {
-			if (data.success) {
-				// alert(JSON.stringify(data));
 				refreshCommentList();
-				$("#commentContent").val("");
 			} else {
 				alert("error");
 			}
@@ -72,6 +37,7 @@ function applycomment () {
 var commentOffset = 0;
 var NEW_LENGTH_COMMENT = 5;
 var ADD_LENGTH_COMMENT = 5;
+//首次加载全部的comment列表
 function refreshCommentList () {
   $.ajax({
 		type : "POST",
@@ -83,9 +49,10 @@ function refreshCommentList () {
 		},
 		success : function(data) {
 			if (data.success) {
-				// alert(JSON.stringify(data));
+				console.log("commentReturn:",JSON.stringify(data));
 				var tplComment = document.getElementById('tplComment').innerHTML;
 				var html = juicer(tplComment, data);
+				commentOffset+=data.data.length;
 				$("#commentsList").html(html);
 			} else {
 				alert("error");
@@ -94,3 +61,37 @@ function refreshCommentList () {
 		dataType : "json"
 	});
 }
+
+//发表评论
+function applycomment () {
+	var content = trim($("#commentContent").val());
+
+	if (content == "") {
+		alert("空");
+		return;
+	};
+  	$.ajax({
+		type : "POST",
+		url : webRoot + 'tucao_comment/apply',
+		data : {
+			"tucao_id" : curTucaoId,
+			// "user_id" : userId,
+			"content" : content,
+			"reply_comment" : -1,
+			"hide" : 0,
+			// "lat" : position.coords.latitude,
+			// "lng" : position.coords.longitude
+		},
+		success : function(data) {
+			if (data.success) {
+				// alert(JSON.stringify(data));
+				// ********************refreshCommentList();
+				$("#commentContent").val("");
+			} else {
+				alert("error");
+			}
+		},
+		dataType : "json"
+	});
+}
+

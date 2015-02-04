@@ -106,11 +106,11 @@
 			<table style="width: 100%;">
 				<tr>
 					<td rowspan="2" width="30px" style="margin-right: 5px">
-						<img src=${comment.COMMENT_CONTENT|random29} width="25px" height="25px"/>
+						<img src=${comment.comment_content|random29} width="25px" height="25px"/>
 					</td>
 					<td height="15px" style="font-size: 8px;color: #999999">
-						<span>评论员cky</span>
-						<span style="margin-left: ">abc</span>
+						<span>${comment.user_name}</span>
+						<span style="margin-left:20px">${comment.create_time|jsDateDiff}</span>
 					</td>
 					<td rowspan="2" width="40px">
 						<div align="center" style="width: 100%">
@@ -118,7 +118,7 @@
 								<img src="icons/ios7-arrow-up.png" width="30px" height="20px"/>
 							</div>
 							<div style="font-size: 8px">
-								<span>0</span>
+								<span>??</span>
 							</div>
 							<div onclick="downClick(this);" style="font-size: 0px">
 								<img src="icons/ios7-arrow-down.png" width="30px" height="20px"/>
@@ -128,7 +128,7 @@
 				</tr>
 				<tr>
 					<td align="left" style="font-size: 10px;vertical-align: middle">
-						<span>${comment.COMMENT_CONTENT}</span>
+						<span>${comment.comment_content}</span>
 					</td>
 				</tr>
 			</table>

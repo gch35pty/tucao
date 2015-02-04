@@ -164,7 +164,7 @@ $.ui.ready(function() {
 						self.scrollToBottom();
 						if (data.data.length == 0) {
 							$(self.el).append('<div class="iNoContent"></div>');
-							offset += ADD_LENGTH;
+							// offset += ADD_LENGTH;
 							flagMyScroller = true;
 							return;
 						}
@@ -174,7 +174,7 @@ $.ui.ready(function() {
 						// var html = "<div style='margin-top:10px;width:100%;height:20px;text-align:center;'>！！！</div>";
 						$("#newMain .afScrollPanel").append(html);
 						//*********
-						offset += ADD_LENGTH;
+						offset += data.data.length;
 						flagMyScroller = true;
 					} else {
 						alert("error");
