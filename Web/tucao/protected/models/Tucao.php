@@ -181,6 +181,28 @@ class Tucao extends CActiveRecord
         return $rs;
     }
 
+    public function getByTopic($topic_id, $offset, $length) {
+        $sql = "select
+                    TUCAO_ID as tucao_id,
+                    TITLE as title,
+                    CONTENT as content,
+                    COMMENT_NUM as comment_num,
+                    SUPPORT_NUM as support_num,
+                    DISAGREE_NUM as disagree_num,
+                    SHARE_NUM as share_num,
+                    tucao.CREATE_TIME as create_time,
+                    LADTITUDE as lat,
+                    LONGITUDE as lng,
+                    users.NICK_NAME as user_name,
+                    users.USER_ID as user_id,
+                    users.LEVEL as level
+                from tucao, users
+                where tucao.TOPIC_ID= {$topic_id} and users.USER_ID=tucao.USER_ID
+                limit {$offset},{$length} ";
+        $rs = Yii::app()->db->createCommand($sql)->queryAll();
+        return $rs;
+    }
+
     public function getHot($offset, $length) {
         $scoreCon = UtilHelper::getHotCalSql();
         echo $offset.$length;

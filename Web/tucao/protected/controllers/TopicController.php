@@ -23,6 +23,85 @@ class TopicController extends Controller
 		);
 	}
 
+    public function actionDetail() {
+        $topic = new Topic();
+        $tc = new Tucao();
+        if(isset($_POST['topic_id']))
+            $topic_id = $_POST["topic_id"];
+        else{
+            $this->sendAjax("invalid params", false);
+            return;
+        }
+        $data = $topic->get($topic_id);
+        if($data == null) {
+            $this->sendAjax("no topic find",false);
+        } else {
+            $tucaos = $tc->getByTopic($topic_id,0,10);
+            $data[0]['tucao'] = $tucaos;
+            $this->sendAjax($data, true);
+        }
+    }
+
+    public function actionApply() {
+        $topic = new Topic();
+//        //user can only send topic by himself
+        if($_POST['user_id'] != Yii::app()->user->id) {
+            $this->sendAjax(null);
+        }
+        if(!isset($_POST['user_id']) || !isset($_POST['content']) ||
+            !isset($_POST['hide']) || !isset($_POST['lat']) || !isset($_POST['lng']))
+        {
+            $this->sendAjax(null);
+        }
+        $topic->CREATE_USER = $_POST['user_id'];
+        if(isset($_POST['title'])) {
+            $topic->TOPIC_TITLE = $_POST['title'];
+        }
+        $topic->TOPIC_CONTENT = $_POST['content'];
+        $topic->IS_ANONYMOUS = $_POST['hide'];
+        $topic->LADTITUDE = $_POST['lat'];
+        $topic->LONGITUDE = $_POST['lng'];
+        if(isset($_POST['distance']))
+            $topic->DISTANCE = $_POST['distance'];
+        else
+            $topic->DISTANCE = 0;
+        //事务包含了存储topic，  任务
+        $transaction = Yii::app()->db->beginTransaction(); //创建事务
+        try {
+            if($topic->validate() && $topic->save(false)) {
+                $transaction->commit(); //提交事务会真正的执行数据库操作
+                //print_r($tc->attributes);
+                $this->sendAjax(array(
+                        'topic_id'=>$topic->attributes['TOPIC_ID']),
+                    true);
+            } else {
+                $transaction->rollback();
+                $this->sendAjax("topic save fail",false);
+                return;
+            }
+        } catch (Exception $e) {
+            $transaction->rollback(); //如果操作失败, 数据回滚
+            echo "error:".$e->getMessage();
+            $this->sendAjax("db fail",false);
+        }
+
+    }
+
+    //search the hot topic nearby with page
+    public function actionNearhot() {
+        $m = new TopicNearForm();
+        $m->attributes = $_POST;
+        if(!$m->validate()) {
+            $this->sendAjax("invalid params",false);
+        }
+        $rs =  $m->searchHot();
+        if($rs!= null) {
+            $this->sendAjax($rs, true);
+        } else {
+            $this->sendAjax("no data", true);
+        }
+    }
+
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -31,51 +110,10 @@ class TopicController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
+			array('deny',  // deny not login users
+				'users'=>array('?'),
 			),
 		);
 	}
 
-
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 */
-	public function loadModel()
-	{
-		if($this->_model===null)
-		{
-			if(isset($_GET['id']))
-				$this->_model=Topic::model()->findbyPk($_GET['id']);
-			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
-		}
-		return $this->_model;
-	}
-
-	/**
-	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
-	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='topic-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
 }

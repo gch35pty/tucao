@@ -575,9 +575,117 @@ desp: 支持或者反对某条吐槽
 }
 说明：这个接口同时服务了支持和反对两种情况
 
+/***********************************************************************************************/
 
+22. 发布新的话题
+url: topic/apply
+desp: 发布新话题，这个借口可能不需要真正对外暴露，但是会自动调用
+输入参数：
+{
+	‘user_id’: xxx, 
+	‘title’: xxx, 话题标题
+	‘content’: xxx, 话题内容
+	'hide': 1/0  是否匿名
+	'lat' : xxx.xxx 纬度，浮点类型
+    'lng' : xxx.xxx 经度，浮点类型
+    ‘distance’： xxx 话题的可见距离  非必须, 0表示无限距离
+}
+返回：
+{
+	‘data':{
+		topic_id: xxx
+	}
+	'success':,
+	'msg:'
+}
+说明：发布新的话题
 
+/***********************************************************************************************/
 
+23. 获得周边热门话题
+url: topic/nearhot
+desp: 获取用户周边区域的热门吐槽
+输入参数：
+{
+	‘user_id’: xxx 用户id
+	'lat' : xxx.xxx 纬度，浮点类型
+    'lng' : xxx.xxx 经度，浮点类型
+	'distance': xxx 周边距离，INT型单位米
+	‘offset’: xxx 分页开始位置
+	'length': xxx 每次返回的吐槽数量
+}
+返回：
+{
+	‘data':{
+		[
+			{
+				'topic_id': xxx,
+				‘title’: xxx,
+				'content': xxx,
+				'create_time': xxx,
+				'LADTITUDE' : xxx.xxx 纬度，浮点类型,
+    			'LONGITUDE' : xxx.xxx 经度，浮点类型,
+    			‘user_name': xxx
+    			'CREATE_USER': xxx
+    			'distanceFrom': xxx
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：对应于周边热门吐槽页面。通过用户id以及用户的当前位置返回一定数量的topic基本信息。话题的数量由offset和length来确定，客户端通过调整这两个参数获得更多的周边热门话题。推荐的前端调用方式：通过热门话题显示一定数量的话题（1~3）个，其他还是通过热门吐槽来获得热门的吐槽。
 
+/***********************************************************************************************/
+
+24. 获得话题详情 
+url: topic/detail
+desp: 获得某个话题的详细信息（包含其他吐槽的简要信息）
+输入参数：
+{
+	‘topic_id’: xxx 吐槽id
+}
+返回：
+{
+	‘data':{
+		'topic_id': xxx,
+		‘title’: xxx,
+		'content': xxx,
+		'tucao_num': xxx,
+		'create_time': xxx,
+		'lat' : xxx.xxx 纬度，浮点类型,
+		'lng' : xxx.xxx 经度，浮点类型,
+    	'user_name': xxx,
+    	'level': xxx,
+		'tucao' [
+			{
+				'tucao_id': xxx,
+				‘title’: xxx,
+				'content': xxx,
+				'comment_num': xxx,
+				'support_num': xxx,
+				‘disagree_num’:xxx,
+				'share_num': xxx,
+				'create_time': xxx,
+				'LADTITUDE' : xxx.xxx 纬度，浮点类型,
+    			'LONGITUDE' : xxx.xxx 经度，浮点类型,
+    			‘user_name': xxx,
+    			'user_id': xxx,
+    			'level' : xxx  发布用户的等级
+			},
+			{},
+			{},
+			...
+		]
+	}
+	'success':,
+	'msg:'
+}
+说明：吐槽详情页面的调用接口，通过吐槽id返回吐槽的详细信息。注意comment是一个数组，默认返回前10条评论，如果不足就返回完所有评论
+注意，这里评论之间的回复关系，直接通过content中表示。比如：“回复 陈开颜：你真是个帅哥！”，数据库中的REPLY_COMMENT字段主要作用是
+查询个人信息。
 
 

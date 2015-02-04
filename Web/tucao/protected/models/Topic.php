@@ -15,6 +15,9 @@
  * @property string $LONGITUDE
  * @property string $CITY
  * @property string $POSITION_DESC
+ * @property integer $IS_ANONYMOUS
+ * @property integer $DISTANCE
+ * @property integer $TUCAO_NUM
  */
 class Topic extends CActiveRecord
 {
@@ -34,14 +37,14 @@ class Topic extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('HAS_PIC, CREATE_USER', 'numerical', 'integerOnly'=>true),
+			array('HAS_PIC, CREATE_USER, IS_ANONYMOUS,DISTANCE, TUCAO_NUM', 'numerical', 'integerOnly'=>true),
 			array('TOPIC_TITLE, POSITION_DESC', 'length', 'max'=>100),
 			array('LADTITUDE, LONGITUDE', 'length', 'max'=>10),
 			array('CITY', 'length', 'max'=>50),
 			array('TOPIC_CONTENT, CREATE_TIME, END_TIME', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('TOPIC_ID, TOPIC_TITLE, TOPIC_CONTENT, CREATE_TIME, END_TIME, HAS_PIC, CREATE_USER, LADTITUDE, LONGITUDE, CITY, POSITION_DESC', 'safe', 'on'=>'search'),
+			array('TOPIC_ID, TOPIC_TITLE, TOPIC_CONTENT, CREATE_TIME, END_TIME, HAS_PIC,IS_ANONYMOUS, DISTANCE, TUCAO_NUM, CREATE_USER, LADTITUDE, LONGITUDE, CITY, POSITION_DESC', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -129,4 +132,34 @@ class Topic extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public function get($id) {
+        if($id == null) {
+            return null;
+        }
+        $sql = "select
+            TOPIC_ID as topic_id,
+            TOPIC_TITLE as title,
+            TOPIC_CONTENT as content,
+            TUCAO_NUM as tucao_num,
+            topic.CREATE_TIME as create_time,
+            LADTITUDE as lat,
+            LONGITUDE as lng,
+            users.NICK_NAME as user_name,
+            users.USER_ID as user_id,
+            users.LEVEL as level
+            from topic,users where topic_id = {$id} and users.user_id = topic.CREATE_USER";
+        $rs = Yii::app()->db->createCommand($sql)->queryAll();
+        return $rs;
+    }
+
+    //add tucao_num while new tucao from the topic created
+    public function addTucao($id) {
+
+        if(is_null($id)) {
+            return null;
+        }
+        $rs = $this->updateCounters(array('TUCAO_NUM'=>1),"TOPIC_ID={$id}");
+        return $rs;
+    }
 }

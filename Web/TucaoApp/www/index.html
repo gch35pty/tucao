@@ -10,25 +10,15 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<link rel="stylesheet" type="text/css" href="build/css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="build/css/af.ui.css"  />
-		<script type="text/javascript" charset="utf-8" src="build/ui/appframework.ui.min.js"></script>
-		<!-- emulate touch events on desktop browsers only -->
-		<script>
-			if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
-				var script = document.createElement("script");
-				script.src = "plugins/af.desktopBrowsers.js";
-				var tag = $("head").append(script);
-			}
-		</script>
-		<!-- <script type="text/javascript" charset="utf-8" src="build/af.plugins.min.js"></script> -->
-		<script type="text/javascript" charset="utf-8" src="plugins/af.scroller.js"></script>
-		<!-- <script type="text/javascript" charset="utf-8" src="plugins/af.scrollScreen.js"></script> -->
-		<script type="text/javascript" src="juicer-min.js"></script>
+
+        <script src="build/require.js" data-main="js/main"></script>
+
 		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=VWt0QeFL3rjEI29tyiAldir9&v=1.0"></script>
 
 		<link rel="stylesheet" type="text/css" href="build/css/ionicons.css" />
 		<link rel="stylesheet" type="text/css" href="main.css" />
-		<script type="text/javascript" src="tool.js"></script>
 
+        <!-- template starts here -->
 		<script id="tpl" type="text/template">
 			{@each data as tucao,index}
 			<div style="border-bottom: 1px solid #dddddd;background: #eeeeee">
@@ -135,75 +125,25 @@
 			</div>
 			{@/each}
 		</script>
-		
-		<script>
-			//******此段定义常量********//
-			var userId = 2;
-			var userDistance = 10000;
-			var newTucaoId =-1;
-/*
-			var position = {
-				coords : {
-					latitude : 31.274913,
-					longitude : 120.755755
-				}
-			};*/
 
-			//gc的经纬度：
-			var position = {
-				coords : {
-					latitude : 118.766414,
-					longitude : 31.834680
-				}
-			};
-			// var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
-			var webRoot = "http://127.0.0.1/tucao/index.php/";
-			var map = null;
-			var curTucaoId = 8;
+        <script>
+            //******此段定义常量********//
+            var userId = 2;
+            var distance = 1500;
+            var FIRST_LENGTH = 10;
+            var newTucaoId =-1;
+            var position = {
+                coords : {
+                    latitude : 31.274913,
+                    longitude : 120.755755
+                }
+            };
+            // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
+            var webRoot = "http://127.0.0.1/tucao/index.php/";
+            var map = null;
+            var curTucaoId = 8;
 
-			//注册自定义函数
-			juicer.register('jsDateDiff', jsDateDiff);
-			juicer.register('random29', random29);
-
-			// set to ios7 ---cky
-			$.ui.ready(function() {
-				$("#afui").get(0).className = 'ios7';
-			});
-
-			$.ui.autoLaunch = false;
-			$.ui.backButtonText = " ";
-
-			$(document).ready(function() {
-				$.ui.launch();
-				$("#loginError").hide();
-				$("#distanceSelectDiv").hide();
-				$.ui.updateBadge("#messageIcon",'2','tr','red');
-			});
-
-			var onDeviceReady = function() {// called when Cordova is ready
-				if (window.Cordova && navigator.splashscreen) {// Cordova API detected
-					$.ui.launch();
-					navigator.splashscreen.hide();
-					// hide splash screen
-				}
-			};
-			document.addEventListener("deviceready", onDeviceReady, false);
-		</script>
-
-		<script type="text/javascript" src="main.js"></script>
-		<script type="text/javascript" src="editPanel.js"></script>
-		<script type="text/javascript" src="chatPanel.js"></script>
-		<script type="text/javascript" src="loginPanel.js"></script>
-		<script type="text/javascript" src="signupPanel.js"></script>
-		<script type="text/javascript" src="tucaoPanel.js"></script>
-		<script type="text/javascript" src="userPanel.js"></script>
-
-		<!-- phantom library, needed for XDK "legacy" container api calls -->
-		<script src="intelxdk.js"></script>
-		<!-- phantom library, needed for Cordova api calls -->
-		<script src="cordova.js"></script>
-		<!-- phantom library, needed for XDK "legacy" container CORS -->
-		<script src="xhr.js"></script>
+        </script>
 
 	</head>
 	<body>
@@ -220,9 +160,9 @@
 				</div>
 
 				<div class="panel" id="newMain" title="最新吐槽" selected="true" data-load="startNew"  data-footer="foot" data-header="head"></div>
-					<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
-						<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
-					<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>
+				<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
+				<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
+				<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>
 					
 				<div class="panel" id="discoveryPanel" title="发现" data-defer="discoveryPanel.html" data-load="startDiscovery" data-footer="foot" ></div>
 				

@@ -64,6 +64,8 @@ class TucaoController extends Controller
 
     public function actionApply() {
         $tc = new Tucao();
+        $topic = new Topic();
+        $topic_add = 0; //topic num add
 //        //user can only send tucao by himself
         if($_POST['user_id'] != Yii::app()->user->id) {
             $this->sendAjax(null);
@@ -85,15 +87,20 @@ class TucaoController extends Controller
             $tc->DISTANCE = $_POST['distance'];
         else
             $tc->DISTANCE = 0;
-        if(isset($_POST['topic_id']))
+        if(isset($_POST['topic_id'])) {
             $tc->TOPIC_ID = $_POST['topic_id'];
+            $topic_add = 1;
+        }
         if(isset($_POST['father_id']))
             $tc->FATHER_ID = $_POST['father_id'];
         $user = new Users();
-        //事务包含了存储tucao，给用户加分两个任务
+        //事务包含了存储tucao，给用户加分(还可能包含增加topic吐槽数目)两个任务
         $transaction = Yii::app()->db->beginTransaction(); //创建事务
         try {
             $user->addScoreByApply($_POST['user_id']);
+            if($topic_add == 1) {
+                $topic->addTucao($_POST['topic_id']);
+            }
             if($tc->validate() && $tc->save(false)) {
                 $transaction->commit(); //提交事务会真正的执行数据库操作
                 //print_r($tc->attributes);

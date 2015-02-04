@@ -30,6 +30,10 @@ class TucaoNearForm extends CFormModel {
         if(isset($this->lastTime)) {
             $timeCon = " and CREATE_TIME < '".$this->lastTime."' ";
         }
+        if(!isset($this->offset) || !isset($this->length)) {
+            $this->offset = 0;
+            $this->length = 10;
+        }
         if(isset($this->lat) && isset($this->lng) && isset($this->distance) && $this->distance>0) {
             $location = UtilHelper::getLocationSize($this->lat, $this->lng, $this->distance);
             $lat_left = $location['lat_left'];
@@ -77,7 +81,7 @@ class TucaoNearForm extends CFormModel {
             $lat_right = $location['lat_right'];
             $lng_left = $location['lng_left'];
             $lng_right = $location['lng_right'];
-            $sql = "select *,GETDISTANCE(LADTITUDE, LONGITUDE, {$this->lat},{$this->lng}) as distanceFrom,
+            $sql = "select tucao.*,GETDISTANCE(LADTITUDE, LONGITUDE, {$this->lat},{$this->lng}) as distanceFrom,
                         users.NICK_NAME as user_name
                     from tucao, users
                     where
@@ -93,7 +97,7 @@ class TucaoNearForm extends CFormModel {
 	                    ) ".$scoreCon." limit {$this->offset},{$this->length}";
         }
         else {
-            $sql = "select *, null as distanceFrom, users.NICK_NAME as user_name from tucao, users
+            $sql = "select tucao.*, null as distanceFrom, users.NICK_NAME as user_name from tucao, users
                     where users.USER_ID = tucao.USER_ID ".$scoreCon." limit {$this->offset},{$this->length}";
         }
         //echo $sql;
