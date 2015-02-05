@@ -38,7 +38,8 @@ function apply() {
 		},
 		success : function(data) {
 			if (data.success) {
-				alert(data.data.tucao_id);
+				// alert(data.data.tucao_id);
+				
 				// nearNew();
 				// $.ui.loadContent("newMain", null, null, "");
 			} else {

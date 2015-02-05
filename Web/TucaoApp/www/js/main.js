@@ -10,7 +10,6 @@ require.config({
         "juicer": "../build/juicer-min",
 
         "tool" : "tool",
-        "scroll" : "scroll",
         "startMain" : "startMain",
         "editPanel" : "editPanel",
         "chatPanel" : "chatPanel",
