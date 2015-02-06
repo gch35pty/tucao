@@ -11,8 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="build/css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="build/css/af.ui.css"  />
 
-        <script src="build/require.js" data-main="js/main"></script>
-
+		 <script src="build/require.js" data-main="js/main"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=VWt0QeFL3rjEI29tyiAldir9&v=1.0"></script>
 
 		<link rel="stylesheet" type="text/css" href="build/css/ionicons.css" />
@@ -129,9 +128,8 @@
         <script>
             //******此段定义常量********//
             var userId = 2;
-            var distance = 1500;
-            var FIRST_LENGTH = 10;
-            var newTucaoId =-1;
+			var userDistance = 10000;
+			var newTucaoId =-1;
             var position = {
                 coords : {
                     latitude : 31.274913,
@@ -139,12 +137,12 @@
                 }
             };
             //gc的经纬度：
-			var position2 = {
-				coords : {
-					latitude : 118.766414,
-					longitude : 31.834680
-				}
-			};
+			// var position = {
+				// coords : {
+					// latitude : 118.766414,
+					// longitude : 31.834680
+				// }
+			// };
 			
             // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
             var webRoot = "http://127.0.0.1/tucao/index.php/";
@@ -153,6 +151,7 @@
 
         </script>
 
+       
 	</head>
 	<body>
 		<div id="afui">
