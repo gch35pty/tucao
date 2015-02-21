@@ -166,6 +166,7 @@ function upClick(obj) {
 	};
 
 	$(obj).parent().addClass('changed');
+	$(obj).css("color","#0000ff"); 
 }
 
 //向下踩
@@ -193,4 +194,5 @@ function downClick(obj) {
 	};
 
 	$(obj).parent().addClass('changed');
+	$(obj).css("color","#0000ff"); 
 }

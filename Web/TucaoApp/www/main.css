@@ -1,8 +1,11 @@
 #afui.ios7 {
 	font-family: "微软雅黑";
 }
+body{
+   font-family: "微软雅黑";
+}
 #afui .panel {
-	padding: 0px;
+	padding: 2px;
 }
 #afui .header {
 	height: 40px;

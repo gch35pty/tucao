@@ -55,12 +55,12 @@ require(
 		}
 
         //注册自定义函数
-        juicer.register('jsDateDiff', tool.jsDateDiff);
-        juicer.register('random29', tool.random29);
+        juicer.register('jsDateDiff', jsDateDiff);
+        juicer.register('random29', random29);
 
         // set to ios7 ---cky
         $.ui.ready(function() {
-            $("#afui").get(0).className = 'ios7';
+            $("#afui").get(0).className = '';
         });
 
         $.ui.autoLaunch = false;
