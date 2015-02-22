@@ -31,7 +31,7 @@
 								<a class="ion-chevron-up"></a>
 							</div>
 							<div style="height: 18px">
-								<span style="font-size: 14px;color: #0000ff">${tucao.SUPPORT_NUM}</span>
+								<span style="font-size: 14px;color: #0000ff">${tucao.SUPPORT_NUM-tucao.DISAGREE_NUM}</span>
 							</div>
 							<div onclick="downClick(this,${tucao.TUCAO_ID});" style="height: 25px;font-size: 25px;color: #dedede">
 								<a class="ion-chevron-down"></a>
@@ -142,36 +142,23 @@
 
 		<script id="tplComment" type="text/template">
 			{@each data as comment,index}
-			<div style="border-bottom: 1px solid #dddddd;background: #ffffff">
-			<table style="width: 100%;">
-				<tr>
-					<td rowspan="2" width="30px" style="margin-right: 5px">
-						<img src=${comment.comment_content|random29} width="25px" height="25px"/>
-					</td>
-					<td height="15px" style="font-size: 8px;color: #999999">
-						<span>${comment.user_name}</span>
-						<span style="margin-left:20px">${comment.create_time|jsDateDiff}</span>
-					</td>
-					<td rowspan="2" width="10%">
-						<div align="center" style="width: 100%">
-							<div onclick="upClick(this);" style="height: 20px;font-size: 20px;color: #dedede">
-								<a class="ion-chevron-up"></a>
-							</div>
-							<div style="font-size: 8px">
-								<span>??</span>
-							</div>
-							<div onclick="downClick(this);" style="height: 20px;font-size: 20px;color: #dedede">
-								<a class="ion-chevron-down"></a>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td align="left" style="font-size: 10px;vertical-align: middle">
-						<span>${comment.comment_content}</span>
-					</td>
-				</tr>
-			</table>
+			<div style="border-bottom: 1px solid #dddddd;background: #ffffff;padding-top: 5px">
+				<table style="width: 100%;">
+					<tr>
+						<td rowspan="2" width="30px" height="50px" style="margin-right: 5px">
+							<img src=${comment.comment_content|random29} width="25px" height="25px"/>
+						</td>
+						<td height="15px" style="font-size: 10px;color: #999999">
+							<span>${comment.user_name}</span>
+							<span style="margin-left:20px">${comment.create_time|jsDateDiff}</span>
+						</td>
+					</tr>
+					<tr>
+						<td align="left" style="font-size: 12px;vertical-align: middle;padding-bottom: 5px">
+							<span>${comment.comment_content}</span>
+						</td>
+					</tr>
+				</table>
 			</div>
 			{@/each}
 		</script>
