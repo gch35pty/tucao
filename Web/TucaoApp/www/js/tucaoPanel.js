@@ -1,4 +1,24 @@
 function startTucao(){
+	$.ajax({
+		type : "POST",
+		url : webRoot + 'tucao/detail',
+		data : {
+			"tucao_id" : curTucaoId,
+		},
+		success : function(data) {
+			if (data.success) {
+				//juicer设置吐槽内容
+				var tplComment = document.getElementById('tplTucao').innerHTML;
+				var html = juicer(tplComment, data.data[0]);
+				$("#tucaoContent").html(html);
+				//加载评论列表
+				refreshCommentList();
+			} else {
+				alert("error");
+			}
+		},
+		dataType : "json"
+	});
 	$("#navbar").css("height","35px");
 }
 function closeTucao(){
@@ -7,31 +27,8 @@ function closeTucao(){
 
 //点击后打开吐槽详情页
 function detail(tucaoId) {
-	// alert(tucaoId);
-	$.ajax({
-		type : "POST",
-		url : webRoot + 'tucao/detail',
-		data : {
-			"tucao_id" : tucaoId,
-		},
-		success : function(data) {
-			if (data.success) {
-				// console.log("detailReturn:",JSON.stringify(data));
-				$("#t_content").html(data.data[0].content);
-				$("#t_comment_num").html(data.data[0].comment_num);
-				$("#t_support_num").html(data.data[0].support_num);
-				$("#t_user_name").html(data.data[0].user_name);
-				$("#t_level").html(data.data[0].level);
-				$("#t_interval").html(jsDateDiff(data.data[0].create_time));
-				curTucaoId=tucaoId;
-				$.ui.loadContent("tucaoPanel", null, null, "");
-				refreshCommentList();
-			} else {
-				alert("error");
-			}
-		},
-		dataType : "json"
-	});
+	curTucaoId = tucaoId;
+	$.ui.loadContent("tucaoPanel", null, null, "");
 }
 
 var commentOffset = 0;
@@ -49,13 +46,14 @@ function refreshCommentList () {
 		},
 		success : function(data) {
 			if (data.success) {
-				console.log("commentReturn:",JSON.stringify(data));
+				//通过juicer加载评论template
 				var tplComment = document.getElementById('tplComment').innerHTML;
 				var html = juicer(tplComment, data);
-				commentOffset+=data.data.length;
 				$("#commentsList").html(html);
+				//修改offset位置
+				commentOffset+=data.data.length;
 			} else {
-				alert("error");
+				// alert("error");
 			}
 		},
 		dataType : "json"
@@ -85,7 +83,9 @@ function applycomment () {
 		success : function(data) {
 			if (data.success) {
 				// alert(JSON.stringify(data));
-				// ********************refreshCommentList();
+				// 发表后更新评论列表
+				refreshCommentList();
+				//评论框置为空
 				$("#commentContent").val("");
 			} else {
 				alert("error");

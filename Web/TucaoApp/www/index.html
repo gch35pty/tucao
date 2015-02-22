@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>周边吐槽</title>
@@ -47,10 +46,10 @@
 						<span>${tucao.CREATE_TIME|jsDateDiff}</span>
 					</td>
 					<td width="25%" align="center">
-						<span>${tucao.distanceFrom}</span>
+						<span>${tucao.distanceFrom}米</span>
 					</td>
 					<td width="25%" align="center">
-						<i class="icon mail"></i>
+						<i class="icon mail" style="font-size: 14px"></i>
 						<span>${tucao.COMMENT_NUM}</span>
 					</td>
 					<td width="25%" align="right">
@@ -89,6 +88,58 @@
 			</div>
 		</script>
 
+		<script id="tplTucao" type="text/template">
+			<table style="width: 100%;padding-left: 1px;padding-right:12%;color: #0000FF">
+				<tr>
+					<td width="35px" style="font-size:0px;">
+						<img src="portrait/9.png" width="30px" height="30px"/>
+					</td>
+					<td style="font-size:10px;vertical-align: bottom" >
+						<span>${user_name}</span>
+						<span>  等级</span>
+						<span>${level}</span>
+					</td>
+					<td align="right" style="font-size:10px;vertical-align:bottom; ">
+						<span id="t_interval">${create_time|jsDateDiff}</span>
+					</td>
+				</tr>
+			</table>
+			<table style="width: 100%;">
+				<tr>
+					<td align="left" valign="top" style="padding: 10px;font-size: 15px;">
+						<span>${content}</span>
+					</td>
+					<td style="width: 12%">
+						<div align="center" style="width: 100%">
+							<div onclick="upClick(this,curTucaoId);" style="height: 35px;font-size: 35px;color: #dedede">
+								<a class="ion-chevron-up"></a>
+							</div>
+							<div style="padding-bottom: 10px;padding-top: 10px">
+								<span style="font-size: 15px;color: #0000ff">${support_num}</span>
+							</div>
+							<div onclick="downClick(this,curTucaoId);" style="height: 35px;font-size: 35px;color: #dedede">
+								<a class="ion-chevron-down"></a>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table style="width: 100%;font-size: 10px;padding-right: 12%;padding-left: 5px;color: #0000FF">
+				<tr>
+					<td width="33%" align="left">
+						<span>没有距离呢</span>
+					</td>
+					<td width="33%" align="center">
+						<i class="icon mail" style="font-size: 15px"></i>
+						<span>${support_num}</span>
+					</td>
+					<td width="33%" align="right" >
+						<a class="ion-share" style="font-size: 20px"></a>
+					</td>
+				</tr>
+			</table>
+		</script>
+
 		<script id="tplComment" type="text/template">
 			{@each data as comment,index}
 			<div style="border-bottom: 1px solid #dddddd;background: #ffffff">
@@ -101,16 +152,16 @@
 						<span>${comment.user_name}</span>
 						<span style="margin-left:20px">${comment.create_time|jsDateDiff}</span>
 					</td>
-					<td rowspan="2" width="40px">
+					<td rowspan="2" width="10%">
 						<div align="center" style="width: 100%">
-							<div onclick="upClick(this);" style="font-size: 0px">
-								<img src="icons/ios7-arrow-up.png" width="30px" height="20px"/>
+							<div onclick="upClick(this);" style="height: 20px;font-size: 20px;color: #dedede">
+								<a class="ion-chevron-up"></a>
 							</div>
 							<div style="font-size: 8px">
 								<span>??</span>
 							</div>
-							<div onclick="downClick(this);" style="font-size: 0px">
-								<img src="icons/ios7-arrow-down.png" width="30px" height="20px"/>
+							<div onclick="downClick(this);" style="height: 20px;font-size: 20px;color: #dedede">
+								<a class="ion-chevron-down"></a>
 							</div>
 						</div>
 					</td>
@@ -130,6 +181,7 @@
             var userId = 2;
 			var userDistance = 10000;
 			var newTucaoId =-1;
+			var curTucaoId = 6;
             var position = {
                 coords : {
                     latitude : 31.274913,
@@ -147,8 +199,6 @@
             // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
             var webRoot = "http://127.0.0.1/tucao/index.php/";
             var map = null;
-            var curTucaoId = 8;
-
         </script>
 
        
