@@ -68,6 +68,53 @@ function nearNew() {
 
 }
 
+
+function supportMethod(obj,tucaoId,status){
+	if ($(obj).parent().hasClass('changed')) {
+		$.ui.showMask("已经评价过了");
+		window.setTimeout(function() {
+			$.ui.hideMask();
+		}, 500);
+	} else {
+		//更新数据库
+		$.ajax({
+			type : "POST",
+			url : webRoot + 'tucao/support',
+			data : {
+				"user_id" : userId,
+				"tucao_id" : tucaoId,
+				"status" : status,
+			},
+			success : function(data) {
+				if (data.success) {
+					var numNode = obj.parentNode.getElementsByTagName("span")[0];
+					numNode.innerHTML = parseInt(numNode.innerHTML) + status*2-1; //顶+1 踩-1
+					$(obj).css("color","#0000ff"); 
+					$(obj).parent().addClass('changed');
+				} else {
+					$.ui.showMask("已经评价过了");
+					window.setTimeout(function() {
+						$.ui.hideMask();
+					}, 500);
+				}
+			},
+			dataType : "json"
+		});
+	}
+}
+
+//向上顶起
+function upClick(obj,tucaoId) {
+	supportMethod(obj,tucaoId,1);
+}
+
+//向下踩
+function downClick(obj,tucaoId) {
+	supportMethod(obj,tucaoId,0);
+}
+
+
+
 function drawMap(tucaos) {
 	// 百度地图API功能
 	// 创建Map实例
@@ -140,59 +187,3 @@ function drawMap(tucaos) {
 } 
 
 
-
-//向上顶起
-function upClick(obj) {
-	// alert($(obj).siblings(".num").get(0).innerHTML);
-
-	notEvaluated = true;
-
-	if ($(obj).parent().hasClass('changed')) {
-		notEvaluated = false;
-	} else {
-		//更新数据库
-
-	}
-
-	//是否未被评价
-	if (!notEvaluated) {
-		$.ui.showMask("已经评价过了");
-		window.setTimeout(function() {
-			$.ui.hideMask();
-		}, 500);
-	} else {
-		var numNode = obj.parentNode.getElementsByTagName("span")[0];
-		numNode.innerHTML = parseInt(numNode.innerHTML) + 1;
-	};
-
-	$(obj).parent().addClass('changed');
-	$(obj).css("color","#0000ff"); 
-}
-
-//向下踩
-function downClick(obj) {
-	// alert($(obj).siblings(".num").get(0).innerHTML);
-
-	notEvaluated = true;
-
-	if ($(obj).parent().hasClass('changed')) {
-		notEvaluated = false;
-	} else {
-		//更新数据库
-
-	}
-
-	//是否未被评价
-	if (!notEvaluated) {
-		$.ui.showMask("已经评价过了");
-		window.setTimeout(function() {
-			$.ui.hideMask();
-		}, 500);
-	} else {
-		var numNode = obj.parentNode.getElementsByTagName("span")[0];
-		numNode.innerHTML = parseInt(numNode.innerHTML) - 1;
-	};
-
-	$(obj).parent().addClass('changed');
-	$(obj).css("color","#0000ff"); 
-}

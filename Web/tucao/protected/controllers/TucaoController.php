@@ -183,7 +183,6 @@ class TucaoController extends Controller
         }
         $tc = new Tucao();
         $rs = $tc->support($_POST['tucao_id'],$_POST['user_id'],$status);
-        print_r($rs);
         if($rs === true) {
             $this->sendAjax($rs, true);
         } else {
