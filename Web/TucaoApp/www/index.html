@@ -1,12 +1,29 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
 <html>
-	<head>
+
+    <head>
+        <script>
+        (function() {
+		    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+		        var msViewportStyle = document.createElement("style");
+		        msViewportStyle.appendChild(
+		            document.createTextNode("@-ms-viewport{width:auto!important}")
+		        );
+		        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		    }
+		})();
+		</script>
 		<title>周边吐槽</title>
 		<!--
 		This template can be used for creating apps that require user login and user registration before starting actual app.
 		-->
-		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" />
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
 		<link rel="stylesheet" type="text/css" href="build/css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="build/css/af.ui.css"  />
 
@@ -221,7 +238,7 @@
 				<table style="width:100%; height: 100%">
 					<tr>
 						<td width="40px" align="center">
-							<a class="ion-xbox" style="font-size: 30px"></a>
+							<a class="ion-xbox" style="font-size: 30px;color: #ffffff"></a>
 						</td>
 						<td align="center">
 							<a class="button white" style="border: 1px solid white" href="#hotMain">热点吐槽</a>
