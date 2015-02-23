@@ -102,16 +102,14 @@ $.ui.ready(function() {
 	});
 
 	$.bind(myScroller, "refresh-release", function() {
-		var that = this;
 		$("#pull").remove();
-		$(that.el).prepend("<div id='refreshing' style='margin-top:10px;width:100%;height:20px;text-align:center;'>正在获取最新吐槽...</div>");
+		$(this.el).prepend("<div id='refreshing' style='margin-top:10px;width:100%;height:20px;text-align:center;'>正在获取最新吐槽...</div>");
 		//下拉更新、获取最新吐槽
 		nearNew();
-		return false;
 	});
 
 	$.bind(myScroller, "refresh-cancel", function() {
-		this.hideRefresh();
+		// this.hideRefresh();
 		console.log("cancelled");
 	});
 
@@ -122,7 +120,6 @@ $.ui.ready(function() {
 		console.log("infinite triggered");
 		if ($(self.el).find(".iNoContent").length > 0) {
 			$(this.el).append("<div id='iNoContent' style='margin-top:10px;width:100%;height:20px;text-align:center;'>----------------</div>");
-			return;
 		} else {
 			if ($(self.el).find("#infinite").length == 0) {
 				$(this.el).append("<div id='infinite' style='margin-top:10px;width:100%;height:20px;text-align:center;'>加载中...</div>");
