@@ -8,7 +8,7 @@ function startMylist(){
 		url : webRoot + 'nearnew',
 		data : {
 			"user_id" : userId,
-			"distance" : distance,
+			"distance" : userDistance,
 			"offset" : 0,
 			"length" : -1,
 			"lat" : position.coords.latitude,
@@ -34,7 +34,7 @@ function startMycomment(){
 		url : webRoot + 'nearnew',
 		data : {
 			"user_id" : userId,
-			"distance" : distance,
+			"distance" : userDistance,
 			"offset" : 6,
 			"length" : 3,
 			"lat" : position.coords.latitude,

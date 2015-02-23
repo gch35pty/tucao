@@ -68,7 +68,7 @@ function nearNew() {
 
 }
 
-
+//顶和踩的逻辑方法
 function supportMethod(obj,tucaoId,status){
 	if ($(obj).parent().hasClass('changed')) {
 		$.ui.showMask("已经评价过了");
