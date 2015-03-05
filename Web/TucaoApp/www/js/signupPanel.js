@@ -13,7 +13,9 @@ function signUp() {
 		errorString = "昵称不能为空";
 	} else if (trim($("#password").val())==""){
 		errorString = "密码不能为空";
-	}else if (trim($("#password").val())!=trim($("#password2").val())){
+	} else if (trim($("#password").val()).length < 6){
+		errorString = "请输入至少6位密码";
+	} else if (trim($("#password").val())!=trim($("#password2").val())){
 		errorString = "两次密码不一致";
 	}
 	
@@ -68,6 +70,27 @@ function register () {
 		},
 		success : function(data) {
 			if (data.success) {
+				signInAuto(trim($("#userName").val()),trim($("#password").val()));
+			} else {
+				showError("注册出错！");
+			}
+		},
+		dataType : "json"
+	});
+}
+
+function signInAuto(userName, password){
+	$.ajax({
+		type : "POST",
+		url : webRoot + 'site/login',
+		data : {
+			"username" : userName,
+			"password" : password,
+		},
+		success : function(data) {
+			if (data.success) {
+				userId = data.data.user_id;
+				alert(userId);
 				$.ui.loadContent("hotMain", null, null, "");
 			} else {
 				showError("注册出错！");
