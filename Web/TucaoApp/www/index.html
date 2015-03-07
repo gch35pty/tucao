@@ -1,18 +1,33 @@
 <!DOCTYPE html>
+<!--HTML5 doctype-->
 <html>
-	<head>
+
+    <head>
+        <script>
+        (function() {
+		    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+		        var msViewportStyle = document.createElement("style");
+		        msViewportStyle.appendChild(
+		            document.createTextNode("@-ms-viewport{width:auto!important}")
+		        );
+		        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		    }
+		})();
+		</script>
 		<title>周边吐槽</title>
 		<!--
 		This template can be used for creating apps that require user login and user registration before starting actual app.
 		-->
-		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" />
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
 		<link rel="stylesheet" type="text/css" href="build/css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="build/css/af.ui.css"  />
 
-        <script src="build/require.js" data-main="js/main"></script>
-
+		 <script src="build/require.js" data-main="js/main"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=VWt0QeFL3rjEI29tyiAldir9&v=1.0"></script>
 
 		<link rel="stylesheet" type="text/css" href="build/css/ionicons.css" />
@@ -21,41 +36,41 @@
         <!-- template starts here -->
 		<script id="tpl" type="text/template">
 			{@each data as tucao,index}
-			<div style="border-bottom: 1px solid #dddddd;background: #eeeeee">
+			<div style="border-bottom: 1px solid #dddddd;background: #ffffff">
 			<table style="width:100%;">
 				<tr>
-					<td align="left" valign="top" style="font-size: 10px;padding: 5px" onclick="detail (${tucao.TC_TUCAO})">
-						<span>${tucao.CONTENT}</span>
+					<td align="left" valign="top" style="padding: 5px;" onclick="detail (${tucao.TUCAO_ID})">
+						<span style="font-size: 12px;color: #637370">${tucao.CONTENT}</span>
 					</td>
-					<td style="width: 40px">
+					<td style="width: 12%">
 						<div align="center" style="width: 100%">
-							<div onclick="upClick(this);" style="font-size: 0px">
-								<img src="icons/ios7-arrow-up.png" width="30px" height="25px"/>
+							<div onclick="upClick(this,${tucao.TUCAO_ID});" style="height: 25px;font-size: 25px;color: #dedede">
+								<a class="ion-chevron-up"></a>
 							</div>
-							<div style="font-size: 12px">
-								<span>0</span>
+							<div style="height: 18px">
+								<span style="font-size: 14px;color: #0000ff">${tucao.SUPPORT_NUM-tucao.DISAGREE_NUM}</span>
 							</div>
-							<div onclick="downClick(this);" style="font-size: 0px">
-								<img src="icons/ios7-arrow-down.png" width="30px" height="25px"/>
+							<div onclick="downClick(this,${tucao.TUCAO_ID});" style="height: 25px;font-size: 25px;color: #dedede">
+								<a class="ion-chevron-down"></a>
 							</div>
 						</div>
 					</td>
 				</tr>
 			</table>
-			<table style="width: 100%;height: 20px;font-size: 8px;padding-right: 40px">
+			<table style="width: 100%;height: 20px;font-size: 10px;color:#0000FF; padding-right: 12%">
 				<tr>
 					<td width="25%" style="padding-left: 5px">
-						<span id="t_interval">${tucao.CREATE_TIME|jsDateDiff}</span>
+						<span>${tucao.CREATE_TIME|jsDateDiff}</span>
 					</td>
 					<td width="25%" align="center">
-						<span>200m</span>
+						<span>${tucao.distanceFrom}米</span>
 					</td>
 					<td width="25%" align="center">
-						<i class="icon mail"></i>
-						<span>30</span>
+						<i class="icon mail" style="font-size: 14px"></i>
+						<span>${tucao.COMMENT_NUM}</span>
 					</td>
 					<td width="25%" align="right">
-						<span>吐槽超人gc</span>
+						<span>${tucao.user_name}</span>
 					</td>
 				</tr>
 			</table>
@@ -91,38 +106,77 @@
 			</div>
 		</script>
 
-		<script id="tplComment" type="text/template">
-			{@each data as comment,index}
-			<div style="border-bottom: 1px solid #dddddd;background: #ffffff">
+		<script id="tplTucao" type="text/template">
+			<table style="width: 100%;padding-left: 1px;padding-right:12%;color: #0000FF">
+				<tr>
+					<td width="35px" style="font-size:0px;">
+						<img src="portrait/9.png" width="30px" height="30px"/>
+					</td>
+					<td style="font-size:10px;vertical-align: bottom" >
+						<span>${user_name}</span>
+						<span>  等级</span>
+						<span>${level}</span>
+					</td>
+					<td align="right" style="font-size:10px;vertical-align:bottom; ">
+						<span id="t_interval">${create_time|jsDateDiff}</span>
+					</td>
+				</tr>
+			</table>
 			<table style="width: 100%;">
 				<tr>
-					<td rowspan="2" width="30px" style="margin-right: 5px">
-						<img src=${comment.COMMENT_CONTENT|random29} width="25px" height="25px"/>
+					<td align="left" valign="top" style="padding: 10px;font-size: 15px;">
+						<span>${content}</span>
 					</td>
-					<td height="15px" style="font-size: 8px;color: #999999">
-						<span>评论员cky</span>
-						<span style="margin-left: ">abc</span>
-					</td>
-					<td rowspan="2" width="40px">
+					<td style="width: 12%">
 						<div align="center" style="width: 100%">
-							<div onclick="upClick(this);" style="font-size: 0px">
-								<img src="icons/ios7-arrow-up.png" width="30px" height="20px"/>
+							<div onclick="upClick(this,curTucaoId);" style="height: 35px;font-size: 35px;color: #dedede">
+								<a class="ion-chevron-up"></a>
 							</div>
-							<div style="font-size: 8px">
-								<span>0</span>
+							<div style="padding-bottom: 10px;padding-top: 10px">
+								<span style="font-size: 15px;color: #0000ff">${support_num}</span>
 							</div>
-							<div onclick="downClick(this);" style="font-size: 0px">
-								<img src="icons/ios7-arrow-down.png" width="30px" height="20px"/>
+							<div onclick="downClick(this,curTucaoId);" style="height: 35px;font-size: 35px;color: #dedede">
+								<a class="ion-chevron-down"></a>
 							</div>
 						</div>
 					</td>
 				</tr>
+			</table>
+			<table style="width: 100%;font-size: 10px;padding-right: 12%;padding-left: 5px;color: #0000FF">
 				<tr>
-					<td align="left" style="font-size: 10px;vertical-align: middle">
-						<span>${comment.COMMENT_CONTENT}</span>
+					<td width="33%" align="left">
+						<span>没有距离呢</span>
+					</td>
+					<td width="33%" align="center">
+						<i class="icon mail" style="font-size: 15px"></i>
+						<span>${support_num}</span>
+					</td>
+					<td width="33%" align="right" >
+						<a class="ion-share" style="font-size: 20px"></a>
 					</td>
 				</tr>
 			</table>
+		</script>
+
+		<script id="tplComment" type="text/template">
+			{@each data as comment,index}
+			<div style="border-bottom: 1px solid #dddddd;background: #ffffff;padding-top: 5px">
+				<table style="width: 100%;">
+					<tr>
+						<td rowspan="2" width="30px" height="50px" style="margin-right: 5px">
+							<img src=${comment.comment_content|random29} width="25px" height="25px"/>
+						</td>
+						<td height="15px" style="font-size: 10px;color: #999999">
+							<span>${comment.user_name}</span>
+							<span style="margin-left:20px">${comment.create_time|jsDateDiff}</span>
+						</td>
+					</tr>
+					<tr>
+						<td align="left" style="font-size: 12px;vertical-align: middle;padding-bottom: 5px">
+							<span>${comment.comment_content}</span>
+						</td>
+					</tr>
+				</table>
 			</div>
 			{@/each}
 		</script>
@@ -130,29 +184,39 @@
         <script>
             //******此段定义常量********//
             var userId = 2;
-            var distance = 1500;
-            var FIRST_LENGTH = 10;
-            var newTucaoId =-1;
+			var userDistance = 10000;
+			var newTucaoId =-1;
+			var curTucaoId = 6;
             var position = {
                 coords : {
                     latitude : 31.274913,
                     longitude : 120.755755
                 }
             };
-            // var webRoot = "http://127.0.0.1/tucao/index.php/";
-            var webRoot = "http://115.29.205.187/tucao/index.php/";
-            var map = null;
-            var curTucaoId = 8;
 
+
+            //gc的经纬度：
+			// var position = {
+				// coords : {
+					// latitude : 118.766414,
+					// longitude : 31.834680
+				// }
+			// };
+			
+            // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
+            var webRoot = "http://127.0.0.1/tucao/index.php/";
+>>>>>>> origin/master
+            var map = null;
         </script>
 
+       
 	</head>
 	<body>
 		<div id="afui">
 			<div id="content" style="">
 				<!-- Views -->
 
-				<div class="panel" id="loginPanel" title="登录" selected="true" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
+				<div class="panel" id="loginPanel" title="登录" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
 
 				<div class="panel" id="signupPanel" title="注册" data-defer="signupPanel.html" data-footer="none" ></div>
 
@@ -160,7 +224,7 @@
 					<div id="hotmap"></div>
 				</div>
 
-				<div class="panel" id="newMain" title="最新吐槽" data-load="startNew"  data-footer="foot" data-header="head"></div>
+				<div class="panel" id="newMain" title="最新吐槽" selected="true" data-load="startNew"  data-footer="foot" data-header="head"></div>
 				<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
 				<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
 				<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>
@@ -178,14 +242,14 @@
 				<table style="width:100%; height: 100%">
 					<tr>
 						<td width="40px" align="center">
-							<img src="icons/xbox.png" width="30px" height="30px"/>
+							<a class="ion-xbox" style="font-size: 30px;color: #ffffff"></a>
 						</td>
 						<td align="center">
-							<a class="button " href="#hotMain">热点吐槽</a>
-							<a class="button " href="#newMain">最新吐槽</a>
+							<a class="button white" style="border: 1px solid white" href="#hotMain">热点吐槽</a>
+							<a class="button white" style="border: 1px solid white;transform: translateX(-15px);" href="#newMain">最新吐槽</a>
 						</td>
 						<td width="40px" align="center">
-							<img src="icons/ios7-plus-empty.png" width="40px" height="40px" onclick="$.ui.loadContent('editPanel', null, null, '');"/>
+							<a class="ion-ios-compose-outline" style="font-size: 30px;color: #ffffff" href="#editPanel"></a>
 						</td>
 					</tr>
 				</table>
