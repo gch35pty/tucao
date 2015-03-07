@@ -28,7 +28,7 @@ class TucaoNearForm extends CFormModel {
     public function searchNew() {
         $timeCon = "";
         if(isset($this->lastTime)) {
-            $timeCon = " and tucao.CREATE_TIME < '".$this->lastTime."' ";
+            $timeCon = " and CREATE_TIME < '".$this->lastTime."' ";
         }
         if(!isset($this->offset) || !isset($this->length)) {
             $this->offset = 0;
@@ -59,9 +59,7 @@ class TucaoNearForm extends CFormModel {
                         " order by tucao.CREATE_TIME desc limit {$this->offset},{$this->length} ";
         }
         else {
-            $sql = "select *, null as distanceFrom, users.NICK_NAME as user_name from tucao,users
-                        where users.USER_ID = tucao.USER_ID "
-                               .$timeCon.
+            $sql = "select *, null as distanceFrom from tucao ".$timeCon.
                         " order by tucao.CREATE_TIME desc limit {$this->offset},{$this->length}";
         }
         //echo $sql;
