@@ -77,16 +77,18 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
-        if(!isset($_POST['username']) || !isset($_POST['password'])) {
+        if(!isset($_REQUEST['username']) || !isset($_REQUEST['password'])) {
+            echo "no";
             $this->sendAjax(null);
         }
-        $password = PwdHelper::encode($_POST['password']);
+        $password = PwdHelper::encode($_REQUEST['password']);
 		$model=new LoginForm;
-        $model->attributes = array('username'=>$_POST['username'], 'password'=>$password);
+        $model->attributes = array('username'=>$_REQUEST['username'], 'password'=>$password);
 
         if($model->validate() && $model->login()) {
             $user = Yii::app()->user;
-            $this->sendAjax(array(
+//            $this->sendAjax(array(
+            $this->sendAjaxJSONP(array(
                 'email'=>$user->reg_email,
                 'phone'=>$user->reg_phone_num,
                 'user_id'=>$user->id,
@@ -97,7 +99,8 @@ class SiteController extends Controller
                 'sid'=>session_id(),
             ), true);
         } else {
-            $this->sendAjax(null);
+//            $this->sendAjax(null);
+            $this->sendAjaxJSONP(null);
         }
 
 	}

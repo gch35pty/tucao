@@ -33,10 +33,15 @@ require.config({
             ]
         },
         juicer: {
-            deps: [
-                'jquery'
-            ],
+//            deps: [
+//                'jquery'
+//            ],
             exports: "juicer"
+        },
+        startMain: {
+            deps: [
+                'tool'
+            ]
         }
     }
 });
@@ -47,11 +52,11 @@ require.config({
 require(
     ["jquery","tool","juicer","af","jqaf","appframeworkui","af.scroller","startMain","editPanel",
     "chatPanel","loginPanel","signupPanel","tucaoPanel","userPanel"],//,"jqaf","appframeworkui"],
-    function(jquery,tool,juicer){
+    function(jquery,tool,juicer, af, jqaf, appframeworkui, af_scroller, startMain){
 
         //注册自定义函数
-        juicer.register('jsDateDiff', tool.jsDateDiff);
-        juicer.register('random29', tool.random29);
+        juicer.register('jsDateDiff', jsDateDiff);
+        juicer.register('random29', random29);
 
         // set to ios7 ---cky
         $.ui.ready(function() {
@@ -60,6 +65,15 @@ require(
 
         $.ui.autoLaunch = false;
         $.ui.backButtonText = " ";
+
+        if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+            var script = document.createElement("script");
+            script.src = "plugins/af.desktopBrowsers.js";
+            var tag = $("head").append(script);
+        }
+
+        //$("#hotMain").attr('data-load') = "startMain.startHot";
+        //startMain.startHot();
 
         $(document).ready(function() {
             $.ui.launch();
@@ -76,5 +90,7 @@ require(
             }
         };
         document.addEventListener("deviceready", onDeviceReady, false);
+
+        $(document).on("loadpanel","#hotMain", startMain.startHot);
     }
 );

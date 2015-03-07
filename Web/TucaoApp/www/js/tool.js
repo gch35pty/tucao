@@ -1,4 +1,4 @@
-define(["jquery"],function() {
+
         //随机一个0~29的数
         var random29 = function(){
             return "portrait/"+Math.round(Math.random()*29)+".png";
@@ -52,15 +52,15 @@ define(["jquery"],function() {
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         };
 
-        return {
-            random29 : random29,
-            jsDateDiff : jsDateDiff,
-            trim : trim,
-            getPosition : getPosition
-        };
+        var cutStr = function(str, num) {
+            var newStr = str;
+            if(str.length > num) {
+                newStr = str.substr(0,num-1)+"...";
+            }
+            return newStr;
+        }
 
-    }
-);
+
 
 
 

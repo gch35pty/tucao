@@ -64,16 +64,17 @@
 
 		</script>
 		<script id="tplBlock" type="text/template">
-			<div class="colum">
+			<div class="colum" style="width: 200px">
 				<div class="content">
 					<div class="words">
-					<	span>${CONTENT}</span>
+					<span>${CONTENT}</span>
 					</div>
 					<div class="detail">
-						<span>200m</span>
-						<a class="icon message" style="margin-left: 20%"></a>
-						<span>30</span>
-						<span style="margin-left: 40%">2小时前</span>
+						<span>${distanceFrom}m</span>
+						<a class="icon message" style="margin-left: 20%">
+						    <span>${COMMENT_NUM}</span>
+                        </a>
+						<span style="margin-left: 20%">${timeFrom}</span>
 					</div>
 				</div>
 				<div class="score">
@@ -138,8 +139,8 @@
                     longitude : 120.755755
                 }
             };
-            // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
-            var webRoot = "http://127.0.0.1/tucao/index.php/";
+            // var webRoot = "http://127.0.0.1/tucao/index.php/";
+            var webRoot = "http://115.29.205.187/tucao/index.php/";
             var map = null;
             var curTucaoId = 8;
 
@@ -155,7 +156,7 @@
 
 				<div class="panel" id="signupPanel" title="注册" data-defer="signupPanel.html" data-footer="none" ></div>
 
-				<div class="panel" id="hotMain" title="热门吐槽" data-load="startHot" data-footer="foot" data-header="head" style="overflow:hidden;padding: 0px">
+				<div class="panel" id="hotMain" title="热门吐槽"  data-footer="foot" data-header="head" style="overflow:hidden;padding: 0px">
 					<div id="hotmap"></div>
 				</div>
 
