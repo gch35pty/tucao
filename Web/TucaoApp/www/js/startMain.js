@@ -6,6 +6,7 @@ function startHot() {
 }
 
 function startNew() {
+	getPosition();
 	$.ui.clearHistory();
 	if ($("#newMain").find(".colum").length== 0) {//仅第一遍时候加载nearNew
 		nearNew();
