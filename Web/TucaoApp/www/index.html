@@ -29,6 +29,8 @@
 
 		 <script src="build/require.js" data-main="js/main"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=VWt0QeFL3rjEI29tyiAldir9&v=1.0"></script>
+		<!-- phantom library, needed for Cordova api calls -->
+		<script src="cordova.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="build/css/ionicons.css" />
 		<link rel="stylesheet" type="text/css" href="main.css" />
@@ -183,7 +185,7 @@
         <script>
             //******此段定义常量********//
             var userId = 2;
-			var userDistance = 10000;
+			var userDistance = 1000000;
 			var newTucaoId =-1;
 			var curTucaoId = 6;
 			//cky的经纬度
@@ -202,7 +204,8 @@
 			// };
 			
             // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
-            var webRoot = "http://127.0.0.1/tucao/index.php/";
+            // var webRoot = "http://127.0.0.1/tucao/index.php/";
+            var webRoot = "http://115.29.205.187/tucao/index.php/";
             var map = null;
         </script>
 

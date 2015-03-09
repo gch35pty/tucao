@@ -1,4 +1,5 @@
 function startHot() {
+	getPosition();
 	$.ui.clearHistory();
 	if (map == null) {//仅第一遍时候加载nearHot
 		nearHot();

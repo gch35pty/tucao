@@ -73,14 +73,15 @@ require(
             $.ui.updateBadge("#messageIcon",'2','tr','red');
         });
 
+        document.addEventListener("deviceready", onDeviceReady, false);
         var onDeviceReady = function() {// called when Cordova is ready
             if (window.Cordova && navigator.splashscreen) {// Cordova API detected
                 $.ui.launch();
                 navigator.splashscreen.hide();
                 // hide splash screen
             }
+            getPosition();
         };
-        document.addEventListener("deviceready", onDeviceReady, false);
         
 /*最新吐槽下拉更新，上拉加载*/
 var myScroller;
