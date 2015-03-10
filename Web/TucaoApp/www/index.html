@@ -26,11 +26,23 @@
         
 		<link rel="stylesheet" type="text/css" href="build/css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="build/css/af.ui.css"  />
-
-		 <script src="build/require.js" data-main="js/main"></script>
+		<script type="text/javascript" charset="utf-8" src="build/ui/appframework.ui.min.js"></script>
+		<!-- emulate touch events on desktop browsers only -->
+		<script>
+			if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+				var script = document.createElement("script");
+				script.src = "plugins/af.desktopBrowsers.js";
+				var tag = $("head").append(script);
+			}
+		</script>
+		<!-- <script type="text/javascript" charset="utf-8" src="build/af.plugins.min.js"></script> -->
+		<script type="text/javascript" charset="utf-8" src="plugins/af.scroller.js"></script>
+		<!-- <script type="text/javascript" charset="utf-8" src="plugins/af.scrollScreen.js"></script> -->
+		<script type="text/javascript" src="build/juicer-min.js"></script>
+		<!-- <script src="build/require.js" data-main="js/main"></script> -->
 		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=VWt0QeFL3rjEI29tyiAldir9&v=1.0"></script>
 		<!-- phantom library, needed for Cordova api calls -->
-		<script src="cordova.js"></script>
+		<script type="text/javascript" src="js/tool.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="build/css/ionicons.css" />
 		<link rel="stylesheet" type="text/css" href="main.css" />
@@ -204,11 +216,148 @@
 			// };
 			
             // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
-            // var webRoot = "http://127.0.0.1/tucao/index.php/";
-            var webRoot = "http://115.29.205.187/tucao/index.php/";
+            var webRoot = "http://127.0.0.1/tucao/index.php/";
+            // var webRoot = "http://115.29.205.187/tucao/index.php/";
             var map = null;
         </script>
+        
+        <script>
+        	//注册自定义函数
+        juicer.register('jsDateDiff', jsDateDiff);
+        juicer.register('random29', random29);
 
+        // set to ios7 ---cky
+        $.ui.ready(function() {
+            $("#afui").get(0).className = '';
+        });
+
+        $.ui.autoLaunch = false;
+        $.ui.backButtonText = " ";
+
+        $(document).ready(function() {
+            $.ui.launch();
+            $("#loginError").hide();
+            $("#distanceSelectDiv").hide();
+            $.ui.updateBadge("#messageIcon",'2','tr','red');
+        });
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+        var onDeviceReady = function() {// called when Cordova is ready
+            if (window.Cordova && navigator.splashscreen) {// Cordova API detected
+                $.ui.launch();
+                navigator.splashscreen.hide();
+                // hide splash screen
+            }
+            getPosition();
+        };
+        
+/*最新吐槽下拉更新，上拉加载*/
+var myScroller;
+var ADD_LENGTH = 5;
+var flagMyScroller = true;
+$.ui.ready(function() {
+	myScroller = $("#newMain").scroller();
+	//Fetch the scroller from cache
+	//Since this is a App Framework UI scroller, we could also do
+	// myScroller=$.ui.scrollingDivs['webslider'];
+	myScroller.addInfinite();
+	myScroller.addPullToRefresh();
+	myScroller.runCB = true;
+
+	//User is dragging the page down exposing the pull to refresh message.
+	$.bind(myScroller, "refresh-trigger", function() {
+		console.log("Refresh trigger");
+		$(this.el).prepend("<div id='pull' style='margin-top:10px;width:100%;height:20px;text-align:center;'>下拉更新</div>");
+	});
+
+	$.bind(myScroller, "refresh-release", function() {
+		$("#pull").remove();
+		$(this.el).prepend("<div id='refreshing' style='margin-top:10px;width:100%;height:20px;text-align:center;'>正在获取最新吐槽...</div>");
+		//下拉更新、获取最新吐槽
+		nearNew();
+	});
+
+	$.bind(myScroller, "refresh-cancel", function() {
+		// this.hideRefresh();
+		console.log("cancelled");
+	});
+
+	myScroller.enable();
+
+	$.bind(myScroller, "infinite-scroll", function() {
+		var self = this;
+		console.log("infinite triggered");
+		if ($(self.el).find(".iNoContent").length > 0) {
+			$(this.el).append("<div id='iNoContent' style='margin-top:10px;width:100%;height:20px;text-align:center;'>----------------</div>");
+		} else {
+			if ($(self.el).find("#infinite").length == 0) {
+				$(this.el).append("<div id='infinite' style='margin-top:10px;width:100%;height:20px;text-align:center;'>加载中...</div>");
+			}
+		}
+		$.bind(myScroller, "infinite-scroll-end", function() {
+			$.unbind(myScroller, "infinite-scroll-end");
+			if (!flagMyScroller)
+				return;
+			flagMyScroller = false;
+
+			//按照offset加载更多吐槽
+			$.ajax({
+				type : "POST",
+				url : webRoot + 'tucao/nearnew',
+				data : {
+					"user_id" : userId,
+					"distance" : userDistance,
+					"offset" : offset,
+					"length" : ADD_LENGTH,
+					"lat" : position.coords.latitude,
+					"lng" : position.coords.longitude
+				},
+				success : function(data) {
+					if (data.success) {
+						$(self.el).find("#infinite").remove();
+						self.clearInfinite();
+						self.scrollToBottom();
+						if (data.data.length == 0) {
+							$(self.el).append('<div class="iNoContent"></div>');
+							// offset += ADD_LENGTH;
+							flagMyScroller = true;
+							return;
+						}
+						//*********
+						var tpl = $('#tpl').html();
+						var html = juicer(tpl, data);
+						$("#newMain .afScrollPanel").append(html);
+						//*********
+						offset += data.data.length;
+						flagMyScroller = true;
+					} else {
+						$(self.el).find("#infinite").remove();
+						self.clearInfinite();
+						self.scrollToBottom();
+						$(self.el).append('<div class="iNoContent"></div>');
+						// offset += ADD_LENGTH;
+						flagMyScroller = true;
+						return;
+					}
+				},
+				dataType : "json"
+			});
+			//结束
+
+		});
+	});
+	// $("#newMain").css("overflow", "auto");
+});
+        </script>
+
+		<script type="text/javascript" src="js/startMain.js"></script>
+		<script type="text/javascript" src="js/editPanel.js"></script>
+		<script type="text/javascript" src="js/chatPanel.js"></script>
+		<script type="text/javascript" src="js/loginPanel.js"></script>
+		<script type="text/javascript" src="js/signupPanel.js"></script>
+		<script type="text/javascript" src="js/tucaoPanel.js"></script>
+		<script type="text/javascript" src="js/userPanel.js"></script>
+		<script src="cordova.js"></script>
        
 	</head>
 	<body>
@@ -216,7 +365,7 @@
 			<div id="content" style="">
 				<!-- Views -->
 
-				<div class="panel" id="loginPanel" title="登录" selected="true" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
+				<div class="panel" id="loginPanel" title="登录" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
 
 				<div class="panel" id="signupPanel" title="注册" data-defer="signupPanel.html" data-footer="none" ></div>
 
@@ -224,7 +373,7 @@
 					<div id="hotmap"></div>
 				</div>
 
-				<div class="panel" id="newMain" title="最新吐槽" data-load="startNew"  data-footer="foot" data-header="head"></div>
+				<div class="panel" id="newMain" title="最新吐槽" selected="true" data-load="startNew"  data-footer="foot" data-header="head"></div>
 				<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
 				<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
 				<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>
@@ -260,5 +409,6 @@
 				<a id="messageIcon" class="icon message" style="font-size: 10px" href="#messagePanel">消息</a>
 				<a class="icon user" style="font-size: 10px" href="#userPanel">我</a>
 			</footer>
+		</div>
 	</body>
 </html>
