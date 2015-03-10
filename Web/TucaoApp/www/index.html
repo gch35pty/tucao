@@ -185,6 +185,7 @@
             //******此段定义常量********//
             var userId = 2;
 			var userDistance = 10000;
+            var distance = 1500;
 			var newTucaoId =-1;
 			var curTucaoId = 6;
             var position = {
@@ -205,7 +206,6 @@
 			
             // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
             var webRoot = "http://127.0.0.1/tucao/index.php/";
->>>>>>> origin/master
             var map = null;
         </script>
 
@@ -220,7 +220,7 @@
 
 				<div class="panel" id="signupPanel" title="注册" data-defer="signupPanel.html" data-footer="none" ></div>
 
-				<div class="panel" id="hotMain" title="热门吐槽"  data-footer="foot" data-header="head" style="overflow:hidden;padding: 0px">
+				<div class="panel" id="hotMain" title="热门吐槽"  data-footer="foot" data-load="startHot" data-header="head" style="overflow:hidden;padding: 0px">
 					<div id="hotmap"></div>
 				</div>
 

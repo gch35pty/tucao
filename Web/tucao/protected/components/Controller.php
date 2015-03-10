@@ -51,10 +51,10 @@ class Controller extends CController
         //print_r($out);
         header("Access-Control-Allow-Origin: *"); # 跨域处理
         $result = CJSON::encode($out);
-        $callback=$_REQUEST['callback'];
-        if($callback!="")
-            echo $callback."($result)";
-        else
+//        $callback=$_REQUEST['callback'];
+//        if($callback!="")
+//            echo $callback."($result)";
+//        else
             echo "$result";
         //echo "callback(".CJSON::encode($out).")";
         Yii::app()->end();
