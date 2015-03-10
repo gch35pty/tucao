@@ -31,13 +31,32 @@ class Controller extends CController
     }
 
     public function sendAjax($data, $success=true) {
-        if($data !== null) {
+        if($data !== null || $success == true) {
             $out = array('data'=>$data, 'success'=>$success);
         } else {
             $out = array("success"=>false);
         }
         //print_r($out);
+        header("Access-Control-Allow-Origin: *"); # 跨域处理
         echo CJSON::encode($out);
+        Yii::app()->end();
+    }
+
+    public function sendAjaxJSONP($data, $success=true) {
+        if($data !== null || $success == true) {
+            $out = array('data'=>$data, 'success'=>$success);
+        } else {
+            $out = array("success"=>false);
+        }
+        //print_r($out);
+        header("Access-Control-Allow-Origin: *"); # 跨域处理
+        $result = CJSON::encode($out);
+//        $callback=$_REQUEST['callback'];
+//        if($callback!="")
+//            echo $callback."($result)";
+//        else
+            echo "$result";
+        //echo "callback(".CJSON::encode($out).")";
         Yii::app()->end();
     }
 }

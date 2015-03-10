@@ -33,10 +33,15 @@ require.config({
             ]
         },
         juicer: {
-            deps: [
-                'jquery'
-            ],
+//            deps: [
+//                'jquery'
+//            ],
             exports: "juicer"
+        },
+        startMain: {
+            deps: [
+                'tool'
+            ]
         }
     }
 });
@@ -65,6 +70,15 @@ require(
 
         $.ui.autoLaunch = false;
         $.ui.backButtonText = " ";
+
+        if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+            var script = document.createElement("script");
+            script.src = "plugins/af.desktopBrowsers.js";
+            var tag = $("head").append(script);
+        }
+
+        //$("#hotMain").attr('data-load') = "startMain.startHot";
+        //startMain.startHot();
 
         $(document).ready(function() {
             $.ui.launch();
