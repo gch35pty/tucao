@@ -216,8 +216,8 @@
 			// };
 			
             // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
-            var webRoot = "http://127.0.0.1/tucao/index.php/";
-            // var webRoot = "http://115.29.205.187/tucao/index.php/";
+            // var webRoot = "http://127.0.0.1/tucao/index.php/";
+            var webRoot = "http://115.29.205.187/tucao/index.php/";
             var map = null;
         </script>
         
@@ -365,7 +365,7 @@ $.ui.ready(function() {
 			<div id="content" style="">
 				<!-- Views -->
 
-				<div class="panel" id="loginPanel" title="登录" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
+				<div class="panel" id="loginPanel" title="登录" selected="true" data-defer="loginPanel.html" data-footer="none" data-header="none"></div>
 
 				<div class="panel" id="signupPanel" title="注册" data-defer="signupPanel.html" data-footer="none" ></div>
 
@@ -373,7 +373,7 @@ $.ui.ready(function() {
 					<div id="hotmap"></div>
 				</div>
 
-				<div class="panel" id="newMain" title="最新吐槽" selected="true" data-load="startNew"  data-footer="foot" data-header="head"></div>
+				<div class="panel" id="newMain" title="最新吐槽" data-load="startNew"  data-footer="foot" data-header="head"></div>
 				<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
 				<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
 				<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>

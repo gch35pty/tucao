@@ -31,6 +31,14 @@ function trim(str) {
 	return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 
+var cutStr = function(str, num) {
+    var newStr = str;
+    if(str.length > num) {
+        newStr = str.substr(0,num-1)+"...";
+    }
+    return newStr;
+};
+
 function getPosition() {
 	// onSuccess Callback
 	// This method accepts a Position object, which contains the
