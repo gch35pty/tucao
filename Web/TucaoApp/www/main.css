@@ -38,6 +38,12 @@ table {
 /*a {
 	TEXT-DECORATION: none
 }*/
+
+.block {
+	border-bottom: 1px solid #dddddd;
+	background: #ffffff;
+}
+
 .colum {
 	width: 100%;
 	min-height: 5.5em;

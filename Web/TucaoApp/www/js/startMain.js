@@ -9,10 +9,9 @@ function startHot() {
 function startNew() {
 	getPosition();
 	$.ui.clearHistory();
-	if ($("#newMain").find(".colum").length== 0) {//仅第一遍时候加载nearNew
+	if ($("#newMain").find(".block").length== 0) {//仅第一遍时候加载nearNew
 		nearNew();
 	};
-	// $.ui.resetScrollers=false; //Do not reset the scrollers when switching panels
 }
 
 function nearHot() {
