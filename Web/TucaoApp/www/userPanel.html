@@ -33,10 +33,10 @@
 	<li style="padding: 0 20px 0 10px">
 		<i class="icon ion-ios-pricetag-outline big"></i>
 		<span style="font-size: 14px">关注距离：</span>
-		<select id="distanceSelect" style="width: 120px; color:#000000;margin-bottom: 1px">
-			<option>1500米以内</option>
-			<option>500米以内</option>
-			<option>100米以内</option>
+		<select id="userDistanceSelect" style="width: 120px; color:#000000;margin-bottom: 1px" onchange="changeUserDistance();">
+			<option value="1500000">1500000米以内</option>
+			<option value="5000">5000米以内</option>
+			<option value="100">100米以内</option>
 		</select>
 		<i class="icon ion-ios-help-outline" style="margin-left: 15px"></i>
 	</li>

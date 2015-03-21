@@ -39,7 +39,7 @@ var cutStr = function(str, num) {
     return newStr;
 };
 
-function getPosition() {
+function getPosition(functionFollow) {
 	// onSuccess Callback
 	// This method accepts a Position object, which contains the
 	// current GPS coordinates
@@ -55,6 +55,7 @@ function getPosition() {
 					  'Speed: '             + position.coords.speed             + '\n' +
 					  'Timestamp: '         + position.timestamp                + '\n');*/
 		position = positionNow;
+		functionFollow();
 	};
 	
 	// onError Callback receives a PositionError object

@@ -1,16 +1,22 @@
 function startHot() {
-	getPosition();
 	$.ui.clearHistory();
 	if (map == null) {//仅第一遍时候加载nearHot
+		getPosition(nearHot);
+	};
+	if (flagUserDistanceChange_hot) {
 		nearHot();
+		flagUserDistanceChange_hot = false;
 	};
 }
 
 function startNew() {
-	getPosition();
 	$.ui.clearHistory();
 	if ($("#newMain").find(".block").length== 0) {//仅第一遍时候加载nearNew
+		getPosition(nearNew);
+	};
+	if (flagUserDistanceChange_new) {
 		nearNew();
+		flagUserDistanceChange_new = false;
 	};
 }
 
