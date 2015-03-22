@@ -2,16 +2,16 @@
 
 class TucaoController extends Controller
 {
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	public $layout='//layouts/column2';
+    /**
+     * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
+     * using two-column layout. See 'protected/views/layouts/column2.php'.
+     */
+    public $layout='//layouts/column2';
 
-	/**
-	 * @var CActiveRecord the currently loaded data model instance.
-	 */
-	private $_model;
+    /**
+     * @var CActiveRecord the currently loaded data model instance.
+     */
+    private $_model;
 
 
     public function filters()
@@ -128,7 +128,7 @@ class TucaoController extends Controller
             $this->sendAjax(null);
         }
         $rs = $m->searchNew();
-        if($rs!= null) {
+        if($rs!== null) {
             $this->sendAjax($rs,true);
         } else {
             $this->sendAjax(null,true);
@@ -143,7 +143,7 @@ class TucaoController extends Controller
             $this->sendAjax(null);
         }
         $rs =  $m->searchHot();
-        if($rs!= null) {
+        if($rs!== null) {
             $this->sendAjax($rs, true);
         } else {
             $this->sendAjax(null, true);
@@ -152,7 +152,7 @@ class TucaoController extends Controller
 
     public function actionHot() {
         if(!isset($_POST['offset']) || !isset($_POST['length'])
-                || !is_numeric($_POST['offset']) || !is_numeric($_POST['length'])) {
+            || !is_numeric($_POST['offset']) || !is_numeric($_POST['length'])) {
             $offset = 0;
             $length = 10;
         } else {
@@ -191,19 +191,23 @@ class TucaoController extends Controller
         }
     }
 
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-	public function accessRules()
-	{
-		return array(
-			array('deny',  // deny all users
-				'users'=>array('?'),
-			),
-		);
-	}
+    /**
+     * Specifies the access control rules.
+     * This method is used by the 'accessControl' filter.
+     * @return array access control rules
+     */
+    public function accessRules()
+    {
+        return array(
+            array('allow',
+                'actions'=>array('nearnew'),
+                'users'=>array('*'),
+            ),
+            array('deny',  // deny all users
+                'users'=>array('?'),
+            ),
+        );
+    }
 
 
 
