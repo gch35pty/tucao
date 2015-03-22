@@ -26,6 +26,15 @@ function jsDateDiff(dateStr){
        return (s.getMonth()+1)+"月"+s.getDate()+"日";
    }
 }
+//几分钟前、几小时前、几天前等时间差
+function jsDistanceDiff(distance){
+	if (distance <= 1000) {
+		distance = Math.ceil(distance/100)*100;
+		return distance+"米以内";
+	}
+	distance = (distance/1000+0.1).toFixed(1);
+	return distance+"公里以内";
+}
 
 function trim(str) {
 	return str.replace(/(^\s*)|(\s*$)/g, "");

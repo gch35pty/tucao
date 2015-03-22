@@ -77,7 +77,7 @@
 						<span>${tucao.CREATE_TIME|jsDateDiff}</span>
 					</td>
 					<td width="25%" align="center">
-						<span>${tucao.distanceFrom}米</span>
+						<span>${tucao.distanceFrom|jsDistanceDiff}</span>
 					</td>
 					<td width="25%" align="center">
 						<i class="icon mail" style="font-size: 14px"></i>
@@ -219,14 +219,15 @@
 			// };
 			
             // var webRoot = "http://127.0.0.1/Web/tucao/index.php?r=tc_users/";
-            // var webRoot = "http://127.0.0.1/tucao/index.php/";
-            var webRoot = "http://115.29.205.187/tucao/index.php/";
+            var webRoot = "http://127.0.0.1/tucao/index.php/";
+            // var webRoot = "http://115.29.205.187/tucao/index.php/";
             var map = null;
         </script>
         
         <script>
         	//注册自定义函数
         juicer.register('jsDateDiff', jsDateDiff);
+        juicer.register('jsDistanceDiff', jsDistanceDiff);
         juicer.register('random29', random29);
 
         // set to ios7 ---cky
@@ -237,6 +238,7 @@
         $.ui.autoLaunch = false;
         $.ui.backButtonText = " ";
         $.ui.resetScrollers=false;//Do not reset the scrollers when switching panels
+        $.feat.nativeTouchScroll=false; //Disable native scrolling globally
 
         $(document).ready(function() {
             $.ui.launch();
@@ -370,8 +372,8 @@ $.ui.ready(function() {
 				<div class="panel" id="hotMain" title="热门吐槽" data-load="startHot" data-footer="foot" data-header="head" style="overflow:hidden;padding: 0px">
 					<div id="hotmap"></div>
 				</div>
-
-				<div class="panel" id="newMain" title="最新吐槽" data-load="startNew"  data-footer="foot" data-header="head"></div>
+				<div class="panel" id="newMain" title="最新吐槽" data-load="startNew"  data-footer="foot" data-header="head">
+				</div>
 				<div class="panel" id="tucaoPanel" title="查看吐槽" data-defer="tucaoPanel.html" data-load="startTucao" data-unload="closeTucao" data-header="headDetail" data-footer="commentFoot" ></div>
 				<div class="panel" id="chatPanel" title="私信" data-defer="chatPanel.html" data-header="headChat" data-footer="foot" ></div>
 				<div class="panel" id="editPanel" title="编辑吐槽" data-defer="editPanel.html" data-load="startEdit" data-header="headEdit" data-footer="none"></div>

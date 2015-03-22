@@ -72,6 +72,11 @@ function nearNew() {
 				var tpl = document.getElementById('tpl').innerHTML;
 				var html = juicer(tpl, data);
 				$("#newMain .afScrollPanel").html(html);
+				// if($("#newMain").children('.afScrollPanel').length > 0){
+					// $("#newMain .afScrollPanel").html(html);
+				// }else{
+					// $("#newMain").html(html);
+				// }
 				offset = 0+NEW_LENGTH; //offset重置
 			} else {
 				alert("error");
