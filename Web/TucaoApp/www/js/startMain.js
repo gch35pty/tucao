@@ -150,8 +150,8 @@ function drawMap(tucaos) {
     });
 
     // map.disableDragging();
-    map.enableDragging();
-    //map.disableDragging();
+    //map.enableDragging();
+    map.disableDragging();
 
     function SquareOverlay(point, height, length, color, content){
         this._point = point;
@@ -172,7 +172,8 @@ function drawMap(tucaos) {
         var div = this._div = document.createElement("div");
         div.style.position = "absolute";
         // 可以根据参数设置元素外观
-        div.style.width = this._length + "px";
+        //div.style.width = this._length + "px";
+        div.style.width = "auto";
         div.style.lineHeight = this._height + "px";
         //div.style.height = this._height + "px";
         div.style.background = this._color;
@@ -191,7 +192,7 @@ function drawMap(tucaos) {
 
         var span = this._span = document.createElement("span");
         div.appendChild(span);
-        span.appendChild(document.createTextNode(cutStr(this._content,8)));
+        span.appendChild(document.createTextNode(cutStr(this._content,10)));
 
         //div.innerHTML = this._content;
 
@@ -251,15 +252,30 @@ function drawMap(tucaos) {
         var lngSpan = bounds.getNorthEast().lng - bounds.getSouthWest().lng;
         var latSpan = bounds.getNorthEast().lat - bounds.getSouthWest().lat;
 
+        var numLng = 3;
+        var numLat = 20;
         var tplBlock = document.getElementById('tplBlock').innerHTML;
+
+        //存储当前所有吐槽的实际显示位置的数组,初始化为[0,0]
+        var displayPoints = new Array();
+        for (var index in tucaos) {
+            displayPoints.push({LONGITUDE:0,LADTITUDE:0});
+        }
+
         for (var index in tucaos) {
             //随机的point
-            var point = new BMap.Point(bounds.getSouthWest().lng + lngSpan * (Math.random() * 0.7 + 0.15), bounds.getSouthWest().lat + latSpan * (Math.random() * 0.7 + 0.15));
+            //var point = new BMap.Point(bounds.getSouthWest().lng + lngSpan * (Math.random() * 0.7 + 0.15), bounds.getSouthWest().lat + latSpan * (Math.random() * 0.7 + 0.15));
             //在地图上画上小图钉
             //addMarker(point, index);
+            //var point = new BMap.Point(parseFloat(tucaos[index].LONGITUDE), parseFloat(tucaos[index].LADTITUDE));
 
+            displayPoints[index].LADTITUDE = parseFloat(tucaos[index].LADTITUDE);
+            displayPoints[index].LONGITUDE = parseFloat(tucaos[index].LONGITUDE);
+            calDisplayPos(index,displayPoints);
+            var point = new BMap.Point(displayPoints[index].LONGITUDE, displayPoints[index].LADTITUDE);
             // 添加自定义覆盖物
-            var mySquare = new SquareOverlay(point, 18, 100,"red", tucaos[index].CONTENT);
+            //addMarker(point, index);
+            var mySquare = new SquareOverlay(point, 18, 120,"red", tucaos[index].CONTENT);
             map.addOverlay(mySquare);
 //            mySquare.addEventListener("click",function(e){
 //                alert(mySquare._content);
@@ -274,7 +290,15 @@ function drawMap(tucaos) {
                     tucaos[_index].timeFrom = jsDateDiff(tucaos[_index].CREATE_TIME);
                     var infoContent = juicer(tplBlock, tucaos[_index]);
                     var infoWindow = new BMap.InfoWindow(infoContent);
-                    map.openInfoWindow(infoWindow,centerPoint);
+                    //infoWindow.enableCloseOnClick();
+                    //map.openInfoWindow(infoWindow,centerPoint);
+
+                    var sContent = juicer(tplBlock, tucaos[_index]);
+                    var infoWindow = new BMap.InfoWindow(sContent);
+                    //txt = "<p style='font-size:14px;'>"+"dsafasdfasd"+"</p>" ;
+                    //infoWindow = new BMap.InfoWindow(txt);
+                    map.openInfoWindow(infoWindow, centerPoint);
+
                     //图片加载完毕重绘infowindow
                     if(document.getElementById('imgDemo')) {
                         document.getElementById('imgDemo').onload = function () {
@@ -286,6 +310,64 @@ function drawMap(tucaos) {
             })()
         }
 
+        /*
+         计算index点可以显示的位置，需要根据之前index-1个点的位置进行相对移动
+         目前的算法是，如果index点的位置被占用，则分别向上下左右尝试移动一个单位，如果可以则使用新位置，
+         均没有找到的话,下一次超某个方向移动两个位置，依次类推。最多向某个方向移动三个单位。
+         */
+        function calDisplayPos(index, displayPoints) {
+            var lat = displayPoints[index].LADTITUDE;
+            var lng = displayPoints[index].LONGITUDE;
+            var latUnit = latSpan/numLat;
+            var lngUnit = lngSpan/numLng;
+            if(whetherDisplay(index, displayPoints, lat, lng)) {
+                return;
+            }
+            for(var i =1 ; i<=3 ; i++ ) {
+                if(whetherDisplay(index, displayPoints, lat+i*latUnit, lng)) {
+                    displayPoints[index].LADTITUDE = lat+i*latUnit;
+                    displayPoints[index].LONGITUDE = lng;
+                    return;
+                }
+                if(whetherDisplay(index, displayPoints, lat-i*latUnit, lng)) {
+                    displayPoints[index].LADTITUDE = lat-i*latUnit;
+                    displayPoints[index].LONGITUDE = lng;
+                    return;
+                }
+                if(whetherDisplay(index, displayPoints, lat, lng+i*lngUnit)) {
+                    displayPoints[index].LADTITUDE = lat;
+                    displayPoints[index].LONGITUDE = lng+i*lngUnit;
+                    return;
+                }
+                if(whetherDisplay(index, displayPoints, lat, lng-i*lngUnit)) {
+                    displayPoints[index].LADTITUDE = lat;
+                    displayPoints[index].LONGITUDE = lng-i*lngUnit;
+                    return;
+                }
+            }
+        }
+
+        //判断新的位置是否可以放置信息框
+        //true表示可以放置，false表示出现重叠
+        function whetherDisplay(index, displayPoints, lat, lng) {
+            for(var i=0; i<index; i++) {
+                if((-lngSpan/numLng<(displayPoints[i].LONGITUDE-lng)  &&
+                    (displayPoints[i].LONGITUDE-lng)<lngSpan/numLng)
+                    &&
+                    (-latSpan/numLat<(displayPoints[i].LADTITUDE-lat) &&
+                        (displayPoints[i].LADTITUDE-lat)<latSpan/numLat)
+                    )
+                {
+                    return false;
+                }
+            }
+            if(lat>bounds.getNorthEast().lat || lat<bounds.getSouthWest().lat ||
+                lng>(bounds.getNorthEast().lng-lngSpan/10) || lng<(bounds.getSouthWest().lng+lngSpan/10))
+            {
+                return false;
+            }
+            return true;
+        }
 
         function addMarker(point, index) {// 创建图标对象
             var myIcon = new BMap.Icon("http://api.map.baidu.com/mapCard/img/location.gif", new BMap.Size(14, 23), {

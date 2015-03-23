@@ -92,32 +92,33 @@
 			{@/each}
 
 		</script>
-		<script id="tplBlock" type="text/template">
-			<div class="colum">
-				<div class="content">
-					<div class="words">
-					<	span>${CONTENT}</span>
-					</div>
-					<div class="detail">
-						<span>200m</span>
-						<a class="icon message" style="margin-left: 20%"></a>
-						<span>30</span>
-						<span style="margin-left: 40%">2小时前</span>
-					</div>
-				</div>
-				<div class="score">
-					<div class="uparrow" onclick="upClick(this);">
-						<a class="icon up small" ></a>
-					</div>
-					<div class="num">
-						<span>100</span>
-					</div>
-					<div class="uparrow">
-						<a class="icon down small" ></a>
-					</div>
-				</div>
-			</div>
-		</script>
+        <script id="tplBlock" type="text/template">
+            <div class="colum" style="width: 200px">
+                <div class="content">
+                    <div class="words">
+                        <span>${CONTENT}</span>
+                    </div>
+                    <div class="detail">
+                        <span>${distanceFrom}m</span>
+                        <a class="icon message" style="margin-left: 20%">
+                            <span>${COMMENT_NUM}</span>
+                        </a>
+                        <span style="margin-left: 20%">${timeFrom}</span>
+                    </div>
+                </div>
+                <div class="score">
+                    <div class="uparrow" onclick="upClick(this);">
+                        <a class="icon up small" ></a>
+                    </div>
+                    <div class="num">
+                        <span>100</span>
+                    </div>
+                    <div class="uparrow">
+                        <a class="icon down small" ></a>
+                    </div>
+                </div>
+            </div>
+        </script>
 
 		<script id="tplTucao" type="text/template">
 			<table style="width: 100%;padding-left: 1px;padding-right:12%;color: #0000FF">

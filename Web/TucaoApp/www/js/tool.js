@@ -76,4 +76,3 @@ function getPosition(functionFollow) {
 	
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
-    

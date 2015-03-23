@@ -26,7 +26,7 @@
       <file leaf-file-name="TucaoController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/TucaoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="214" column="0" selection-start="6296" selection-end="6296" vertical-scroll-proportion="-82.958336" vertical-offset="1219" max-vertical-offset="3300">
+            <state line="129" column="21" selection-start="4011" selection-end="4011" vertical-scroll-proportion="-8.583333" vertical-offset="1729" max-vertical-offset="3300">
               <folding />
             </state>
           </provider>
@@ -35,9 +35,9 @@
       <file leaf-file-name="TucaoNearForm.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/models/TucaoNearForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="34" selection-start="1863" selection-end="1863" vertical-scroll-proportion="0.48364887" vertical-offset="454" max-vertical-offset="1035">
+            <state line="12" column="21" selection-start="207" selection-end="207" vertical-scroll-proportion="0.30981067" vertical-offset="0" max-vertical-offset="1740">
               <folding>
-                <element signature="e#6#89#0" expanded="true" />
+                <element signature="e#6#88#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -695,16 +695,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/TucaoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="0" selection-start="6296" selection-end="6296" vertical-scroll-proportion="-82.958336" vertical-offset="1219" max-vertical-offset="3300">
+        <state line="129" column="21" selection-start="4011" selection-end="4011" vertical-scroll-proportion="-8.583333" vertical-offset="1729" max-vertical-offset="3300">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/TucaoNearForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="34" selection-start="1863" selection-end="1863" vertical-scroll-proportion="0.48364887" vertical-offset="454" max-vertical-offset="1035">
+        <state line="12" column="21" selection-start="207" selection-end="207" vertical-scroll-proportion="0.30981067" vertical-offset="0" max-vertical-offset="1740">
           <folding>
-            <element signature="e#6#89#0" expanded="true" />
+            <element signature="e#6#88#0" expanded="true" />
           </folding>
         </state>
       </provider>
