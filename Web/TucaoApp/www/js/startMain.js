@@ -150,8 +150,8 @@ function drawMap(tucaos) {
     });
 
     // map.disableDragging();
-    //map.enableDragging();
-    map.disableDragging();
+    map.enableDragging();
+    // map.disableDragging();
 
     function SquareOverlay(point, height, length, color, content){
         this._point = point;

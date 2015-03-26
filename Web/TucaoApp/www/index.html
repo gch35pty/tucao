@@ -93,31 +93,28 @@
 
 		</script>
         <script id="tplBlock" type="text/template">
-            <div class="colum" style="width: 200px">
-                <div class="content">
-                    <div class="words">
-                        <span>${CONTENT}</span>
-                    </div>
-                    <div class="detail">
-                        <span>${distanceFrom}m</span>
-                        <a class="icon message" style="margin-left: 20%">
-                            <span>${COMMENT_NUM}</span>
-                        </a>
-                        <span style="margin-left: 20%">${timeFrom}</span>
-                    </div>
-                </div>
-                <div class="score">
-                    <div class="uparrow" onclick="upClick(this);">
-                        <a class="icon up small" ></a>
-                    </div>
-                    <div class="num">
-                        <span>100</span>
-                    </div>
-                    <div class="uparrow">
-                        <a class="icon down small" ></a>
-                    </div>
-                </div>
-            </div>
+            <div class="hotBlock">
+			<table style="width:100%;">
+				<tr>
+					<td align="left" valign="top" style="padding: 5px;" onclick="detail (${TUCAO_ID})">
+						<span style="font-size: 12px;color: #ffffff">${CONTENT}</span>
+					</td>
+					<td style="width: 12%">
+						<div align="center" style="width: 100%">
+							<div onclick="upClick(this,${TUCAO_ID});" style="height: 25px;font-size: 25px;color: #dedede">
+								<a class="ion-chevron-up"></a>
+							</div>
+							<div style="height: 18px">
+								<span style="font-size: 14px;color: #0000ff">${SUPPORT_NUM-DISAGREE_NUM}</span>
+							</div>
+							<div onclick="downClick(this,${TUCAO_ID});" style="height: 25px;font-size: 25px;color: #dedede">
+								<a class="ion-chevron-down"></a>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+			</div>
         </script>
 
 		<script id="tplTucao" type="text/template">
